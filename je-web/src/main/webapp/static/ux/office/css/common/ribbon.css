@@ -1,0 +1,68 @@
+/*
+ *for real ribbon toolbar
+ */
+
+.x-ribbon-toolbar .x-btn-group-mr {
+    height:66px;
+}
+
+.x-ribbon-toolbar .x-btn-group-mc {
+    height:100%;
+}
+
+.x-ribbon-toolbar .x-btn-group-body {
+    height:100%;
+}
+
+.x-ribbon-toolbar .x-btn-group-body table {
+    height:100%;
+    table-layout:auto;
+}
+
+.x-ribbon-toolbar .x-tab-strip-top .x-tab-right, .x-ribbon-toolbar .x-tab-strip-top .x-tab-left, .x-ribbon-toolbar .x-tab-strip-top .x-tab-strip-inner{
+	background-image: url(../../images/tabs-sprite.gif);
+}
+
+.x-ribbon-toolbar .x-tab-panel-header, .x-ribbon-toolbar .x-tab-panel-footer {
+    border:none;
+    padding:0;
+}
+
+/*
+ * from Extjs Forum
+ */
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-bc {    
+    background-image: url(../../images/group-bt.gif);
+}
+.ext-ie .x-ribbon-toolbar .xtb-text {
+	position:relative;
+	bottom:-14px;
+}
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer .xtb-text {
+    color:#3E6AAA;
+    padding:0;
+}
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer,
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer .x-panel-btns,
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer .x-panel-btns td.x-toolbar-cell {
+    
+    padding:0;
+}
+
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer .x-panel-btns-right .x-panel-fbar {
+    float:none;
+}
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer .x-panel-btns .x-toolbar-left table {
+    margin:0 auto;
+}
+
+/* FIXES FOR IE: */
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer .x-panel-btns.x-panel-btns-right .x-clear {
+    font:0 sans-serif;
+}
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-footer .x-panel-btns .x-toolbar-left {
+    text-align:center;
+}
+.x-btn-group.x-btn-group-ribbonstyle .x-btn-group-tc {
+    vertical-align:top;
+}

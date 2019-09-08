@@ -1,0 +1,68 @@
+/*---------ueditor extended style-------*/
+.ueditor-box{
+	font-family:sans-serif;
+	font-size:12px;
+}
+.ueditor-box h1, h2, h3, h4, h5, h6,p{margin:0px;}
+.ueditor-box table.noBorderTable td,
+.ueditor-box table.noBorderTable th,
+.ueditor-box table.noBorderTable caption{
+	border:0px dashed #ddd !important;
+}
+.ueditor-box table.sortEnabled tr.firstRow th,
+.ueditor-box table.sortEnabled tr.firstRow td{
+	padding-right:20px; 
+	background-repeat: no-repeat;
+	background-position: center right; 
+	background-image:url(/static/ux/editor/ueditor1_4_3/themes/default/images/sortable.png);
+}
+.ueditor-box table.sortEnabled tr.firstRow th:hover,
+.ueditor-box table.sortEnabled tr.firstRow td:hover{
+	background-color: #EEE;
+}
+.ueditor-box table{
+	table-layout: fixed;border-collapse:collapse;display:table;
+}
+.ueditor-box-html td,.ueditor-box-html th{ 
+	border: 1px solid #000000;
+	word-break: break-all;
+	word-wrap:break-word;
+}
+.ueditor-box .x-field{
+    text-indent: 0px;
+}
+.ueditor-box-html .x-form-item td,.ueditor-box-html .x-form-item th{ 
+	border: 0px solid #000000 !important;
+}
+
+
+/*
+.ueditor-box table{
+	margin-bottom:10px;border-collapse:collapse;display:table;
+}
+.ueditor-box td,.ueditor-box th{ 
+	background:white; padding: 5px 10px;border: 1px solid #DDD;
+}*/
+.ueditor-box caption{
+	border:0px dashed #DDD;border-bottom:0;padding:3px;text-align:center;
+}
+.ueditor-box th{
+	border-top:1px solid #BBB;background:#F7F7F7;
+}
+.ueditor-box table tr.firstRow th{
+	border-top:2px solid #BBB;background:#F7F7F7;
+}
+.ueditor-box tr.ue-table-interlace-color-single td{
+	background: #fcfcfc; 
+}
+.ueditor-box tr.ue-table-interlace-color-double td{ 
+	background: #f7faff;
+}
+.ueditor-box td p{
+	margin:0;padding:0;
+}
+.ueditor-box .edui-chart-container {
+	height:500px;
+}
+
+/*---------ueditor extended style  ---END----*/

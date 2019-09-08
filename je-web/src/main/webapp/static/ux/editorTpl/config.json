@@ -1,0 +1,16 @@
+[{
+	title:'标题',
+	file:'temp_title.html'
+},{
+	title:'正文',
+	file:'temp_text.html'
+},{
+	title:'表格',
+	file:'temp_table.html'
+},{
+	title:'场景',
+	file:'temp_scene.html'
+},{
+	title:'工程',
+	file:'temp_project.html'
+}]

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html data-type="form">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var APP = APP || {};
+			APP.info = {"appId":"HZDc5MUxQftEjXLGO5w","apkId":"wmyP8YFe8a7ZNCqXXIm","appName":"项目管理","appCode":"JE_SCGL_XMINFO","tableName":"JE_SCGL_XMINFO","pkName":"JE_SCGL_XMINFO_ID","pageSize":"10","action":"/je/dynaAction","loadAction":"","whereSql":"","orderSql":"ORDER BY SY_CREATETIME DESC","renderer":"//根据列表数据，返回列表模板\nfunction(data){\n\t return '{XMINFO_XMMC}{XMINFO_XMBH}';\n}","searchItems":"","buttons":[{"text":"添加","code":"gridInsertBtn","cls":"","disable":"0","type":"GRID"},{"text":"删除","code":"gridRemoveBtn","cls":"mui-btn-red","disable":"0","type":"GRID"},{"text":"保存","code":"formSaveBtn","cls":"","disable":"0","type":"FORM"},{"text":"复制","code":"formCopyBtn","cls":"","disable":"0","type":"FORM"}],"searchs":"","fields":{"XMINFO_XMJD_NAME":{"configInfo":"YESORNO,XMINFO_XMBH,text","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"cgroup","name":"XMINFO_XMJD_NAME","label":"项目阶段","hideLabel":"0","dicCode":"YESORNO"},"XMINFO_XMMC":{"configInfo":"","allowBlank":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"textfield","name":"XMINFO_XMMC","label":"项目名称","hideLabel":"0"},"XMINFO_ZFZR_NAME":{"configInfo":"JE_CORE_QUERYUSER,XMINFO_ZFZR_NAME~XMINFO_ZFZR_CODE,USERNAME~USERCODE,M","allowBlank":"0","readOnly":"0","height":"","hidden":"1","value":"","xtype":"queryuserfield","name":"XMINFO_ZFZR_NAME","label":"总负责人","hideLabel":""},"XMINFO_KSSJ":{"configInfo":"","allowBlank":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"datefield","name":"XMINFO_KSSJ","label":"开始时间","hideLabel":"0","between":"date"},"XMINFO_JSSJ":{"configInfo":"","allowBlank":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"datefield","name":"XMINFO_JSSJ","label":"结束时间","hideLabel":"","between":"date"},"XMINFO_SJKSSJ":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"datefield","name":"XMINFO_SJKSSJ","label":"实际开始时间","hideLabel":"","between":"date"},"XMINFO_SJJSSJ":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"datefield","name":"XMINFO_SJJSSJ","label":"实际结束时间","hideLabel":"0","between":"date"},"XMINFO_XMMS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"120","hidden":"0","value":"","xtype":"textarea","name":"XMINFO_XMMS","label":"项目描述","hideLabel":"0"},"XMINFO_XMBH":{"configInfo":[{"qzfs":"BDZD","dyz":"SY_CREATETIME","gs":"yyyy-MM-dd","jq":"","cd":"","qsh":"","bc":"","zq":""},{"qzfs":"CL","dyz":"-","gs":"","jq":"","cd":"","qsh":"","bc":"","zq":""},{"qzfs":"LSH","dyz":"","gs":"","jq":"","cd":3,"qsh":"001","bc":1,"zq":"YEAR"}],"allowBlank":"1","readOnly":"1","height":"","hidden":"0","value":"","xtype":"textfield","name":"XMINFO_XMBH","label":"项目编号","hideLabel":"0"},"XMINFO_XMJD_CODE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"image","name":"XMINFO_XMJD_CODE","label":"图片","hideLabel":"1"},"childfuncfield_1":{"configInfo":"JE_SCGL_XMRY,JE_SCGL_XMINFO_ID","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"childfuncfield","name":"childfuncfield_1","label":"项目人员","hideLabel":""},"__child":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"","xtype":"child","name":"__child","label":"子功能","hideLabel":""},"XMINFO_ZFZR_CODE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"XMINFO_ZFZR_CODE","label":"总负责人_CODE","hideLabel":""},"JE_SCGL_XMINFO_ID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JE_SCGL_XMINFO_ID","label":"主键ID","hideLabel":""},"SY_ORDERINDEX":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"0","xtype":"numberfield","name":"SY_ORDERINDEX","label":"排序字段","hideLabel":"","between":"number"},"SY_CREATEORG":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_CODE@","xtype":"textfield","name":"SY_CREATEORG","label":"登记者所在部门编码","hideLabel":""},"SY_PDID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PDID","label":"流程定义ID","hideLabel":""},"SY_PIID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PIID","label":"流程实例ID","hideLabel":""},"SY_CREATEUSER":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_CODE@","xtype":"textfield","name":"SY_CREATEUSER","label":"登记人编码","hideLabel":""},"SY_CREATETIME":{"configInfo":"Y-m-d","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@NOW_TIME@","xtype":"datetimefield","name":"SY_CREATETIME","label":"登记时间","hideLabel":"","between":"date"},"SY_AUDFLAG":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_AUDFLAG","label":"审核标记","hideLabel":""},"SY_CREATEORGNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_NAME@","xtype":"textfield","name":"SY_CREATEORGNAME","label":"登记者所在部门","hideLabel":""},"SY_CREATEUSERNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_NAME@","xtype":"textfield","name":"SY_CREATEUSERNAME","label":"登记人","hideLabel":""},"SY_STATUS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_STATUS","label":"数据状态","hideLabel":""}},"dics":["YESORNO"]}
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+		<script type="text/javascript">
+			//自定义JS
+			
+		</script>
+		<style type="text/css">
+			/*自定义CSS*/
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav header-blue">	
+			<a class="mui-icon mui-icon-back mui-action-back"></a>
+			<h1 class="mui-title">项目管理</h1> 
+			<a class="mui-icon mui-icon-more-filled mui-pull-right je-doact je-audio-btn" style="font-weight: bold;"></a>
+		</header>
+		<div class="mui-content je-form mui-input-group">
+						<h6 class='je-input-separator empty'></h6>
+			<h6 class='je-input-separator empty'></h6>
+			<div class='mui-input-row je-input-crgroup je-select-field textalign-left'>
+				<label style=''>项目阶段</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='XMINFO_XMJD_NAME' data-xtype='cgroup' placeholder=''></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-crgroup'></span>
+			</div>
+			<div class='mui-input-row  textalign-center'>
+				<label style=''>项目名称</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  class='je-submit-field  mui-input-clear' style='' data-name='XMINFO_XMMC' data-xtype='textfield' placeholder='请输入(必填)'></input>
+				
+			</div>
+			<h6 class='je-input-separator empty'></h6>
+			<div class='mui-input-row je-input-date je-select-field textalign-right'>
+				<label style=''>开始时间</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='XMINFO_KSSJ' data-xtype='datefield' placeholder='(必填)'></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-date'></span>
+			</div>
+			<div class='mui-input-row je-input-date je-select-field textalign-left'>
+				<label style=''>结束时间</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='XMINFO_JSSJ' data-xtype='datefield' placeholder='(必填)'></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-date'></span>
+			</div>
+			<div class='mui-input-row je-input-date je-select-field textalign-left'>
+				<label style=''>实际开始时间</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='XMINFO_SJKSSJ' data-xtype='datefield' placeholder=''></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-date'></span>
+			</div>
+			<div class='mui-input-row je-input-date je-select-field textalign-left'>
+				<label style=''>实际结束时间</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='XMINFO_SJJSSJ' data-xtype='datefield' placeholder=''></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-date'></span>
+			</div>
+			<h6 class='je-input-separator '>请根据实际情况填写</h6>
+			<div class='mui-input-row  textalign-left'>
+				<label style=''>项目描述</label>
+				<div class='je-input-body'></div>
+				<textarea  class='je-submit-field  mui-input-clear' style='height:120px;' data-name='XMINFO_XMMS' data-xtype='textarea' placeholder='请输入项目信息'></textarea>
+				
+			</div>
+			<div class='mui-input-row  je-input-readonly textalign-left'>
+				<label style=''>项目编号</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field  mui-input-clear' style='' data-name='XMINFO_XMBH' data-xtype='textfield' placeholder=''></input>
+				
+			</div>
+			<div class='mui-input-row je-input-image textalign-left'>
+				<div class='je-submit-field je-input-body ' style='' data-name='XMINFO_XMJD_CODE' data-xtype='image'></div>
+			</div>
+			<h6 class='je-input-separator empty'></h6>
+			<input type='hidden' class='je-submit-field' data-name='XMINFO_ZFZR_NAME' data-xtype='queryuserfield'>
+			<input type='hidden' class='je-submit-field' data-name='childfuncfield_1' data-xtype='childfuncfield'>
+			<input type='hidden' class='je-submit-field' data-name='__child' data-xtype='child'>
+			<input type='hidden' class='je-submit-field' data-name='XMINFO_ZFZR_CODE' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JE_SCGL_XMINFO_ID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_ORDERINDEX' data-xtype='numberfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEORG' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_PDID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_PIID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEUSER' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATETIME' data-xtype='datetimefield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_AUDFLAG' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEORGNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEUSERNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_STATUS' data-xtype='textfield'>
+
+			<!--<h5 class="mui-content-padded"></h5>--> 
+		</div>
+		<div class="je-act-button je-fixed-button saveBtn je-audio-btn" data-code="formSaveBtn">
+			<i class="mui-icon fa fa-save je-audio-btn" style="margin-top: 11px;font-size: 1em;"></i>
+		</div>
+	</body>
+</html>
+

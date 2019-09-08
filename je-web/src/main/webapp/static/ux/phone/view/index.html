@@ -1,0 +1,39 @@
+<!--
+	作者：lzc_41@126.com
+	时间：2016-03-11
+-->
+
+<!DOCTYPE html>
+<html data-type="home">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/include-je.js"></script>
+		<script>
+			mui.init();
+			mui.ready(function(){
+				var params = window.location.href.split('?')[1].split("&");
+				var APK_ID = '';
+				for(var i=0;i<params.length;i++){
+					var param = params[i].split('=');
+					if(param[0] == 'apkId'){
+						APK_ID = param[1];
+					}
+				}
+				APP.home.buildHome(APK_ID);
+				APP.home.buildEvents();
+			});
+		</script>
+	</head>
+
+	<body class="je-home-page">
+		<header class="mui-bar mui-bar-nav header-blue">			
+			<h1 id="title" class="mui-title">管理平台</h1>
+			<a class="mui-icon fa fa-sign-out mui-pull-right je-audio-btn" id="loginout"></a> 
+		</header>
+		<div class="mui-content" id='je-content'>
+		</div>
+	</body>
+
+</html>

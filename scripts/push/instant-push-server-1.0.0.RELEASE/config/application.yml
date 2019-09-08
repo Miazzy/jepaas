@@ -1,0 +1,43 @@
+#server
+server:
+  port: 8088
+  servlet:
+    context-path: /instant
+spring:
+  jms:
+    pub-sub-domain: true
+    listener:
+      auto-startup: true
+  datasource:
+    name: dataSource
+    url: jdbc:mysql://127.0.0.1:3306/instant?useUnicode=true&autoReconnect=true&failOverReadOnly=false&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: bt5
+    type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+  redis:
+    timeout: 30s
+    port: 6379
+    password: 123456
+    host: 127.0.0.1
+    database: 0
+    jedis:
+      pool:
+        min-idle: 50
+        max-active: 200
+        max-wait: 20s
+        max-idle: 8
+#token
+token:
+  header: Auth
+  name: token
+logging:
+  config: classpath:logback.xml
+mybatis:
+  config-location: classpath:config/mybatis-config.xml
+  mapperLocations: classpath*:config/mapping/*.xml

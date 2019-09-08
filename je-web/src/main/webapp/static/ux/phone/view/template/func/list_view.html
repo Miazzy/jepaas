@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html data-type="list_view">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script>
+			var APP = APP || {};
+			APP.info = {info}
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+		<script type="text/javascript">
+			//自定义JS
+			{javascript}
+		</script>
+		<style type="text/css">
+			/*自定义CSS*/
+			{css}
+		</style>
+	</head>
+	<body class="je-list-page">
+		<div class="mui-loader je-loader" style="display: none;">加载中...</div>
+		<header class="mui-bar mui-bar-nav je-header header-blue">
+			<h1 class="mui-title">数据模板展示</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper je-content" >
+			<!--下拉刷新容器-->
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<div class="mui-card mui-table-view je-list">
+				</div>
+				<p class="je-list-pagetext"></p>
+			</div>
+		</div>
+	</body>
+</html>

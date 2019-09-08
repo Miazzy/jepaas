@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.message.server.dao.PushNewsDetailDao" >
+  <resultMap id="BaseResultMap" type="com.message.api.entity.PushNewsDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="news_id" property="newsId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, news_id, user_id, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from instant_push_news_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from instant_push_news_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.message.api.entity.PushNewsDetail" >
+    insert into instant_push_news_detail (id, news_id, user_id,
+      status)
+    values (#{id,jdbcType=BIGINT}, #{newsId,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR},
+      #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.message.api.entity.PushNewsDetail" >
+    insert into instant_push_news_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="newsId != null" >
+        news_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="actualId != null" >
+        actual_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="newsId != null" >
+        #{newsId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    <if test="actualId != null" >
+        #{actualId,jdbcType=BIGINT},
+    </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.message.api.entity.PushNewsDetail" >
+    update instant_push_news_detail
+    <set >
+      <if test="newsId != null" >
+        news_id = #{newsId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.message.api.entity.PushNewsDetail" >
+    update instant_push_news_detail
+    set news_id = #{newsId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <insert id="insertBatch" parameterType="list">
+    insert into instant_push_news_detail (user_id,news_id,status)
+    values
+    <foreach collection ="list" item="newsDetail" separator =",">
+      (#{newsDetail.userId}, #{newsDetail.newsId}, #{newsDetail.status})
+    </foreach >
+
+  </insert>
+  <update id="updateNewsStatus" parameterType="map">
+    update instant_push_news_detail
+    set
+      status = #{newStatus},receive_time = #{receiveTime}
+    where USER_ID = #{userId} and news_id in (select id from instant_news where ACTUAL_ID = #{actualId})
+  </update>
+    <update id="updateNewsStatusByGroup" parameterType="map">
+      UPDATE instant_push_news_detail
+        SET STATUS = 'T'
+        WHERE
+            news_id IN (
+            SELECT
+                t2.id
+            FROM
+                instant_news t2
+                LEFT JOIN instant_actual t1 ON t1.id = t2.ACTUAL_ID
+            WHERE
+            t1.RIGHT_ID = #{groupId}
+            )
+            and user_id in
+        <foreach collection="userIds" item="item" index="no" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+</mapper>

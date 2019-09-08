@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-type="form">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script type="text/javascript">
+			var APP = APP || {};
+			APP.info = {info}
+		</script>
+		<script type="text/javascript" src="../../static/js/include.js" include="mui,indexedlist,picker,previewimage,ext,je,jefunc" ></script>
+		<script type="text/javascript">
+			//自定义JS
+			{javascript}
+		</script>
+		<style type="text/css">
+			/*自定义CSS*/
+			{css}
+		</style>
+	</head>
+	<body class="je-form-page">
+		<header class="mui-bar mui-bar-nav header-blue">
+			<a class="mui-icon mui-icon-back mui-action-back"></a>
+			<h1 class="mui-title">{title}</h1>
+			<a class="mui-icon mui-icon-more-filled mui-pull-right je-doact je-audio-btn" style="font-weight: bold;"></a>
+		</header>
+		<div class="mui-content je-form mui-input-group">
+			{fields}
+			<!--<h5 class="mui-content-padded"></h5>-->
+		</div>
+		<div class="je-act-button je-fixed-button saveBtn je-audio-btn" data-code="formSaveBtn">
+			<i class="mui-icon jeicon jeicon-save je-audio-btn" style="font-size: 22px;"></i>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,118 @@
+package ${packageName};
+
+import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.ArrayList;
+import com.je.core.util.bean.DynaBean;
+import com.je.wf.service.WfEventTemplate;
+import com.je.wf.processVo.WfEventSubmitInfo;
+import com.je.wf.processVo.WfAutoNodeSubmitInfo;
+import com.je.wf.processVo.WfAutoJointInfo;
+import com.je.wf.processVo.WfAssgineSubmitInfo;
+import org.apache.log4j.Logger;
+
+/**
+ * ${commonts}
+ * @author ${currentUser}
+ * @version ${currentDate}
+ */
+@Component("${cmpName}")
+public class ${javaImplName} extends WfEventTemplate  {
+
+#if($isOpenLog == '1')
+	private static Logger logger = Logger.getLogger(${javaImplName}.class);
+#end
+#if($wfType == 'AUTO')
+	/**
+	 * 处理自动节点自定义处理
+	 * @param wfAutoNodeSubmitInfo 当前流程执行信息
+	 * @return
+	 */
+	public void doAuto(WfAutoNodeSubmitInfo wfAutoNodeSubmitInfo){
+		/**
+		 * 该方法是流程流转到自动节点执行的业务方法，处理业务逻辑
+		 * 方法参数包含流程执行信息VO：wfAutoNodeSubmitInfo
+		 * 该VO的参数如下：
+		 * 流程部署信息   processInfo
+		 * 当前执行节点   currentTask
+		 * 业务Bean dynaBean
+		 * 提交类型（通过或退回） submitType
+		 * 提交意见  submitComments
+	     * 流程部署ID pdid
+	     * 流程实例ID piid
+		 * 当前执行人  currentUser
+		 **/
+		 
+	}
+#end
+#if($wfType == 'JOINT')
+	/**
+	 * 处理自动候选自定义人员获取
+	 * @param WfAutoJointInfo 当前流程执行信息
+	 * @return 人员集合  返回的集合是JE_CORE_ENDUSER表的dynaBean集合(可自己构建，里面需包含USERID,USERNAME,USERCODE属性)，用于该节点的候选人
+	 *         
+	 */
+	public List<DynaBean> doAutoJoint(WfAutoJointInfo wfAutoJointInfo){
+		/**
+		 * 该方法是流程流转到候选节点并设置了自动候选执行的业务方法，主要负责对候选人的业务处理
+		 * 方法参数包含流程执行信息WfAutoJointInfo
+		 * 该VO的参数如下：
+		 * 流程部署信息   processInfo
+		 * 当前执行节点   currentTask
+		 * 候选节点信息   jointTask
+		 * 业务Bean dynaBean
+		 * 当前所有的候选人员 users 
+		 * 当前执行人  currentUser
+		 **/
+		List<DynaBean> users=jointInfo.getUsers();
+		return users;
+	}
+#end
+#if($wfType == 'ASSGINE')
+	/**
+	 * 获取自定义执行人员
+	 * @param WfAssgineSubmitInfo 当前流程执行信息
+	 * @return 人员集合 返回的集合是JE_CORE_ENDUSER表的dynaBean(可自己构建，里面需包含USERID,USERNAME,USERCODE属性)集合，用于该节点的自定义后去的人员
+	 */
+	public List<DynaBean> doAssgine(WfAssgineSubmitInfo wfAssgineSubmitInfo){
+		/**
+		 * 该方法是获取可处理人配置的自定义人员的业务方法，
+		 * 方法参数包含流程执行信息WfAssgineSubmitInfo
+		 * 该VO的参数如下：
+		 * 流程部署信息   processInfo
+		 * 当前执行节点   currentTask
+		 * 业务Bean dynaBean
+		 * 流程部署ID pdid 
+		 * 流程实例ID piid 
+		 * 当前执行人  currentUser
+		 **/
+		List<DynaBean> users=new ArrayList<DynaBean>();
+		
+		return users;
+	}
+#end
+#if($wfType == 'EVENT')
+	/**
+	 * 流程和任务事件处理
+	 * @param WfEventSubmitInfo 当前流程执行信息
+	 * @return 
+	 */
+	public void doEvent(WfEventSubmitInfo eventSubmitInfo){
+		/**
+		 * 该方法流程执行过程中的业务逻辑，
+		 * 方法参数包含流程执行信息WfEventSubmitInfo
+		 * 该VO的参数如下：
+		 * 执行任务ID   taskId
+		 * 执行任务名称   currentTaskName
+		 * 目标任务名称   targerTaskName
+		 * 流转路线名称   targerTransition
+		 * 提交类型（通过或退回）   submitType
+		 * 处理人名称   assigeeName
+		 * 处理人编码   assigeeCode
+		 * 处理人ID  assigeeId
+		 * 功能编码        funcCode
+		 * 业务Bean dynaBean
+		 **/
+	}
+#end 
+}

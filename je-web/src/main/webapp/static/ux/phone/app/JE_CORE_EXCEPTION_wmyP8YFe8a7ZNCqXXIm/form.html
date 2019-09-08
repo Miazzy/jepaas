@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-type="form">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var APP = APP || {};
+			APP.info = {"appId":"jU8hfl3k1J5Dne0JkI8","apkId":"wmyP8YFe8a7ZNCqXXIm","appName":"执行异常","appCode":"JE_CORE_EXCEPTION","tableName":"JE_CORE_EXCEPTION","pkName":"JE_CORE_EXCEPTION_ID","pageSize":"10","action":"/je/dynaAction","loadAction":"","whereSql":"","orderSql":" ORDER BY EXCEPTION_EXECUTIME DESC","renderer":"//根据列表数据，返回列表模板\nfunction(data){\n\t return '{EXCEPTION_TABLECODE}{EXCEPTION_EXECUUSER}';\n}","searchItems":"","buttons":[{"text":"添加","code":"gridInsertBtn","cls":"","disable":"0","type":"GRID"},{"text":"删除","code":"gridRemoveBtn","cls":"mui-btn-red","disable":"0","type":"GRID"},{"text":"保存","code":"formSaveBtn","cls":"","disable":"0","type":"FORM"},{"text":"复制","code":"formCopyBtn","cls":"","disable":"0","type":"FORM"}],"headerBGColor":"","headerTextColor":"","headerBtnColor":"","searchs":"","fields":{"SY_PIID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PIID","label":"流程实例ID","hideLabel":"","textAlign":""},"JE_CORE_EXCEPTION_ID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JE_CORE_EXCEPTION_ID","label":"主键ID","hideLabel":"","textAlign":""},"SY_CREATEUSER":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_CODE@","xtype":"textfield","name":"SY_CREATEUSER","label":"登记人编码","hideLabel":"","textAlign":""},"EXCEPTION_EXECUUSERCODE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_EXECUUSERCODE","label":"执行人编码","hideLabel":"","textAlign":""},"EXCEPTION_EXCEPTIONCLASS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_EXCEPTIONCLASS","label":"异常类","hideLabel":"","textAlign":""},"EXCEPTION_TABLECODE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_TABLECODE","label":"表名","hideLabel":"","textAlign":""},"SY_CREATETIME":{"configInfo":"Y-m-d","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@NOW_TIME@","xtype":"datetimefield","name":"SY_CREATETIME","label":"登记时间","hideLabel":"","textAlign":"","between":"date"},"SY_STATUS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_STATUS","label":"数据状态","hideLabel":"","textAlign":""},"SY_AUDFLAG":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_AUDFLAG","label":"审核标记","hideLabel":"","textAlign":""},"EXCEPTION_EXECUUSER":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_EXECUUSER","label":"执行人","hideLabel":"","textAlign":""},"SY_ORDERINDEX":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"0","xtype":"numberfield","name":"SY_ORDERINDEX","label":"排序字段","hideLabel":"","textAlign":"","between":"number"},"SY_CREATEUSERNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_NAME@","xtype":"textfield","name":"SY_CREATEUSERNAME","label":"登记人","hideLabel":"","textAlign":""},"EXCEPTION_STACKTRACE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_STACKTRACE","label":"异常栈信息","hideLabel":"","textAlign":""},"EXCEPTION_EXECUTIME":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"datetimefield","name":"EXCEPTION_EXECUTIME","label":"执行时间","hideLabel":"","textAlign":"","between":"date"},"EXCEPTION_REQUESTMETHOD":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTMETHOD","label":"执行方法","hideLabel":"","textAlign":""},"SY_CREATEORGNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_NAME@","xtype":"textfield","name":"SY_CREATEORGNAME","label":"登记者所在部门","hideLabel":"","textAlign":""},"EXCEPTION_REQUESTPARAMS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTPARAMS","label":"请求参数","hideLabel":"","textAlign":""},"SY_CREATEORG":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_CODE@","xtype":"textfield","name":"SY_CREATEORG","label":"登记者所在部门编码","hideLabel":"","textAlign":""},"EXCEPTION_REQUESTACTION":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTACTION","label":"执行类名","hideLabel":"","textAlign":""},"EXCEPTION_REQUESTURL":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTURL","label":"请求URL","hideLabel":"","textAlign":""},"SY_PDID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PDID","label":"流程定义ID","hideLabel":"","textAlign":""}},"formitems":{},"dics":[]}
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+		<script type="text/javascript">
+			//自定义JS
+			
+		</script>
+		<style type="text/css">
+			/*自定义CSS*/
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav header-blue">	
+			<a class="mui-icon mui-icon-back mui-action-back"></a>
+			<h1 class="mui-title">执行异常</h1> 
+			<a class="mui-icon mui-icon-more-filled mui-pull-right je-doact je-audio-btn" style="font-weight: bold;"></a>
+		</header>
+		<div class="mui-content je-form mui-input-group">
+						<input type='hidden' class='je-submit-field' data-name='SY_PIID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JE_CORE_EXCEPTION_ID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEUSER' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_EXECUUSERCODE' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_EXCEPTIONCLASS' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_TABLECODE' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATETIME' data-xtype='datetimefield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_STATUS' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_AUDFLAG' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_EXECUUSER' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_ORDERINDEX' data-xtype='numberfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEUSERNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_STACKTRACE' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_EXECUTIME' data-xtype='datetimefield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_REQUESTMETHOD' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEORGNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_REQUESTPARAMS' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEORG' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_REQUESTACTION' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='EXCEPTION_REQUESTURL' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_PDID' data-xtype='textfield'>
+
+			<!--<h5 class="mui-content-padded"></h5>--> 
+		</div>
+		<div class="je-act-button je-fixed-button saveBtn je-audio-btn" data-code="formSaveBtn">
+			<i class="mui-icon fa fa-save je-audio-btn" style="margin-top: 11px;font-size: 1em;"></i>
+		</div>
+	</body>
+</html>
+

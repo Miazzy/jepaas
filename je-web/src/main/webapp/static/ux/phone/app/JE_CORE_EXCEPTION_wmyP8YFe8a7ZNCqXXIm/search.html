@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-type="search">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var APP = APP || {};
+			APP.info = {"appId":"jU8hfl3k1J5Dne0JkI8","apkId":"wmyP8YFe8a7ZNCqXXIm","appName":"执行异常","appCode":"JE_CORE_EXCEPTION","tableName":"JE_CORE_EXCEPTION","pkName":"JE_CORE_EXCEPTION_ID","pageSize":"10","action":"/je/dynaAction","loadAction":"","whereSql":"","orderSql":" ORDER BY EXCEPTION_EXECUTIME DESC","renderer":"//根据列表数据，返回列表模板\nfunction(data){\n\t return '{EXCEPTION_TABLECODE}{EXCEPTION_EXECUUSER}';\n}","searchItems":"","buttons":[{"text":"添加","code":"gridInsertBtn","cls":"","disable":"0","type":"GRID"},{"text":"删除","code":"gridRemoveBtn","cls":"mui-btn-red","disable":"0","type":"GRID"},{"text":"保存","code":"formSaveBtn","cls":"","disable":"0","type":"FORM"},{"text":"复制","code":"formCopyBtn","cls":"","disable":"0","type":"FORM"}],"headerBGColor":"","headerTextColor":"","headerBtnColor":"","searchs":"","fields":{"SY_PIID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PIID","label":"流程实例ID","hideLabel":"","textAlign":""},"JE_CORE_EXCEPTION_ID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JE_CORE_EXCEPTION_ID","label":"主键ID","hideLabel":"","textAlign":""},"SY_CREATEUSER":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_CODE@","xtype":"textfield","name":"SY_CREATEUSER","label":"登记人编码","hideLabel":"","textAlign":""},"EXCEPTION_EXECUUSERCODE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_EXECUUSERCODE","label":"执行人编码","hideLabel":"","textAlign":""},"EXCEPTION_EXCEPTIONCLASS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_EXCEPTIONCLASS","label":"异常类","hideLabel":"","textAlign":""},"EXCEPTION_TABLECODE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_TABLECODE","label":"表名","hideLabel":"","textAlign":""},"SY_CREATETIME":{"configInfo":"Y-m-d","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@NOW_TIME@","xtype":"datetimefield","name":"SY_CREATETIME","label":"登记时间","hideLabel":"","textAlign":"","between":"date"},"SY_STATUS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_STATUS","label":"数据状态","hideLabel":"","textAlign":""},"SY_AUDFLAG":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_AUDFLAG","label":"审核标记","hideLabel":"","textAlign":""},"EXCEPTION_EXECUUSER":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_EXECUUSER","label":"执行人","hideLabel":"","textAlign":""},"SY_ORDERINDEX":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"0","xtype":"numberfield","name":"SY_ORDERINDEX","label":"排序字段","hideLabel":"","textAlign":"","between":"number"},"SY_CREATEUSERNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_NAME@","xtype":"textfield","name":"SY_CREATEUSERNAME","label":"登记人","hideLabel":"","textAlign":""},"EXCEPTION_STACKTRACE":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_STACKTRACE","label":"异常栈信息","hideLabel":"","textAlign":""},"EXCEPTION_EXECUTIME":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"datetimefield","name":"EXCEPTION_EXECUTIME","label":"执行时间","hideLabel":"","textAlign":"","between":"date"},"EXCEPTION_REQUESTMETHOD":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTMETHOD","label":"执行方法","hideLabel":"","textAlign":""},"SY_CREATEORGNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_NAME@","xtype":"textfield","name":"SY_CREATEORGNAME","label":"登记者所在部门","hideLabel":"","textAlign":""},"EXCEPTION_REQUESTPARAMS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTPARAMS","label":"请求参数","hideLabel":"","textAlign":""},"SY_CREATEORG":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_CODE@","xtype":"textfield","name":"SY_CREATEORG","label":"登记者所在部门编码","hideLabel":"","textAlign":""},"EXCEPTION_REQUESTACTION":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTACTION","label":"执行类名","hideLabel":"","textAlign":""},"EXCEPTION_REQUESTURL":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"EXCEPTION_REQUESTURL","label":"请求URL","hideLabel":"","textAlign":""},"SY_PDID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PDID","label":"流程定义ID","hideLabel":"","textAlign":""}},"formitems":{},"dics":[]}; 
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav header-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="mui-title">
+				<div class="mui-input-row je-search-bar">
+					<input type="search" placeholder="输入关键字检索" class="mui-input-clear" id="search_keyword" >
+				</div>
+			</div>
+			<a class="mui-icon mui-icon-search mui-pull-right btn-search je-audio-btn"></a>
+		</header>
+		<footer class="mui-bar mui-bar-footer">
+		        <button type="button" class="mui-btn btn-reset je-audio-btn">重 置</button>
+		        <button type="button" class="mui-btn btn-search je-audio-btn mui-btn-danger">查 询</button>
+		</footer>
+		<div class="mui-content je-content je-form" id="je-content">
+			<div class="mui-card je-card history">
+				<div class="mui-card-header"><span><i class="mui-icon fa fa-clock-o"></i> 最近搜索</span> <i class="mui-icon fa fa-trash-o" id="clear_history"></i></div>
+				<div class="mui-card-content">
+				</div>
+			</div>
+			<!--
+				<div class="mui-card je-card dic">
+					<div class="mui-card-header"><span><i class="mui-icon fa fa-book"></i> 数据字典</span></div>
+					<div class="mui-card-content">
+						<div class="item item-all">全部</div>
+						<div class="item"></div>
+					</div>
+				</div>
+			-->
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,9 @@
+  自定义模板：
+ 1.在config.json添加模板信息
+ 2.新建自定义模板文件.html
+ 
+ 模板示例：
+ <ul class="template-list">
+	<li class="template" title="点击插入此内容"><section class="wwei-editor">内容</section></li>
+	...更多内容
+ </ul>

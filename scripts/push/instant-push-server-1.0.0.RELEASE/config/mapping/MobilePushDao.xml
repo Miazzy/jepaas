@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.message.server.dao.MobilePushDao" >
+    <resultMap id="BaseResultMap" type="com.message.api.entity.MobilePush" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="appId" property="appid" jdbcType="VARCHAR" />
+        <result column="userIds" property="userids" jdbcType="VARCHAR" />
+        <result column="cIds" property="cids" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="params" property="params" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id, appId, userIds, cIds, title, content, params, create_time
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from instant_mobile_push
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from instant_mobile_push
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.message.api.entity.MobilePush" >
+    insert into instant_mobile_push (id, appId, userIds,
+      cIds, title, content,
+      params, create_time)
+    values (#{id,jdbcType=BIGINT}, #{appid,jdbcType=VARCHAR}, #{userids,jdbcType=VARCHAR},
+      #{cids,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
+      #{params,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="com.message.api.entity.MobilePush" >
+        insert into instant_mobile_push
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="appid != null" >
+                appId,
+            </if>
+            <if test="userids != null" >
+                userIds,
+            </if>
+            <if test="cids != null" >
+                cIds,
+            </if>
+            <if test="title != null" >
+                title,
+            </if>
+            <if test="content != null" >
+                content,
+            </if>
+            <if test="params != null" >
+                params,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="appid != null" >
+                #{appid,jdbcType=VARCHAR},
+            </if>
+            <if test="userids != null" >
+                #{userids,jdbcType=VARCHAR},
+            </if>
+            <if test="cids != null" >
+                #{cids,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null" >
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null" >
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="params != null" >
+                #{params,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.message.api.entity.MobilePush" >
+        update instant_mobile_push
+        <set >
+            <if test="appid != null" >
+                appId = #{appid,jdbcType=VARCHAR},
+            </if>
+            <if test="userids != null" >
+                userIds = #{userids,jdbcType=VARCHAR},
+            </if>
+            <if test="cids != null" >
+                cIds = #{cids,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null" >
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null" >
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="params != null" >
+                params = #{params,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.message.api.entity.MobilePush" >
+    update instant_mobile_push
+    set appId = #{appid,jdbcType=VARCHAR},
+      userIds = #{userids,jdbcType=VARCHAR},
+      cIds = #{cids,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

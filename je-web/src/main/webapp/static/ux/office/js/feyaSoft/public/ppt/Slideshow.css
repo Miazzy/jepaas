@@ -1,0 +1,81 @@
+/*
+ Document   : Slideshow
+ Created on : 25-May-2011, 11:27:34 AM
+ Author     : Fenqiang.Zhuang
+ Description:
+ Purpose of the stylesheet follows.
+ */
+.x-toolbar {
+    display: block;
+    padding: 2px;
+    background: #6f7174 repeat-x top left;
+    position: relative;
+    zoom: 1;
+}
+
+.x-panel-noborder .x-panel-bbar-noborder .x-toolbar {
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: #6f7174;
+    
+}
+.x-slide-show {
+    overflow: hidden;
+    word-wrap:break-word;
+    font-size: 20px !important;
+    
+}
+
+.icon_nouse_left {
+    background-image: url(../../home/program/slide/images/play/nouse-left.gif) !important;
+}
+
+.icon_nouse_right {
+    background-image: url(../../home/program/slide/images/play/nouse-right.gif) !important;
+}
+
+.icon_desc_show {
+    background-image: url(../../home/program/slide/images/desc_show.png) !important;
+}
+.icon_play_start {
+    background-image: url(../../home/program/slide/images/play_start.png) !important;
+}
+.icon_play_stop {
+    background-image: url(../../home/program/slide/images/play_stop_red.png) !important;
+}
+.icon_desc_hide {
+    background-image: none;
+}
+.x-slide-content{
+	overflow:hidden;
+	text-align:left;
+	position:relative;
+    font-family: sans-serif;
+    font-size:20px;
+    background: white;
+    width:800px;
+    height:600px;
+    margin:0 auto;
+    -moz-transform-origin: 50% 0%;
+    -webkit-transform-origin: 50% 0%;
+    box-shadow: 1px 1px 10px #ffffff;
+    -moz-box-shadow: 1px 1px 10px #ffffff;
+    -webkit-box-shadow: 1px 1px 10px #ffffff;
+   filter: progid : DXImageTransform.Microsoft.Shadow ( Strength = 5,Direction = 135, Color = '#000000' );
+	-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#000000')";
+    /*border: 1px solid gray;*/
+}
+ul {
+    list-style: disc inside;
+}
+
+ol {
+    list-style: decimal inside;
+}
+
+ ul, ol, li {
+    padding: 0;
+}
+.x-slide-content TD {
+	border: #000 1px solid;
+}

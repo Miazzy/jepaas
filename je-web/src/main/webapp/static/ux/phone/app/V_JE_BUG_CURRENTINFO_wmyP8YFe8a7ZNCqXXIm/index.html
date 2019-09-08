@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html data-type="list">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var APP = APP || {};
+			APP.info = {"appId":"C4RcxtexaHZXzg4NHlh","apkId":"wmyP8YFe8a7ZNCqXXIm","appName":"任务分布实时","appCode":"V_JE_BUG_CURRENTINFO","tableName":"V_JE_BUG_CURRENTINFO","pkName":"V_CURRENTINFO_USERNAME","pageSize":"10","action":"/je/dynaAction","loadAction":"","whereSql":"","orderSql":" order by V_BUG_XMMC","renderer":"//根据列表数据，返回列表模板\nfunction(data){\n\t return '{V_CURRENTINFO_USERNAME}';\n}","searchItems":[],"buttons":[{"text":"添加","code":"gridInsertBtn","cls":"","disable":"0","type":"GRID"},{"text":"删除","code":"gridRemoveBtn","cls":"mui-btn-red","disable":"0","type":"GRID"},{"text":"保存","code":"formSaveBtn","cls":"","disable":"0","type":"FORM"},{"text":"复制","code":"formCopyBtn","cls":"","disable":"0","type":"FORM"}],"searchs":"","fields":{"ssss":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"","xtype":"textfield","name":"ssss","label":"ssss","hideLabel":""},"eeee":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"","xtype":"textfield","name":"eeee","label":"eeeee","hideLabel":""},"dddd":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"","xtype":"textfield","name":"dddd","label":"dddd","hideLabel":""},"V_CURRENTINFO_USERID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"V_CURRENTINFO_USERID","label":"人员ID","hideLabel":""},"V_BUG_XMMC":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"textfield","name":"V_BUG_XMMC","label":"项目d","hideLabel":"0"},"V_CURRENTINFO_ZGZ":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"numberfield","name":"V_CURRENTINFO_ZGZ","label":"整改中","hideLabel":"","between":"number"},"V_JE_SCGL_XMINFO_ID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"V_JE_SCGL_XMINFO_ID","label":"项目ID","hideLabel":""},"V_CURRENTINFO_DQR":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"numberfield","name":"V_CURRENTINFO_DQR","label":"待确认","hideLabel":"","between":"number"},"V_CURRENTINFO_WFQ":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"numberfield","name":"V_CURRENTINFO_WFQ","label":"为发起","hideLabel":"","between":"number"},"V_CURRENTINFO_YFF":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"numberfield","name":"V_CURRENTINFO_YFF","label":"已分发","hideLabel":"0","between":"number"},"V_CURRENTINFO_USERNAME":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"V_CURRENTINFO_USERNAME","label":"人员","hideLabel":""}},"formitems":{},"dics":[]}
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+		<script type="text/javascript">
+			//自定义JS
+			
+		</script>
+		<style type="text/css">
+			/*自定义CSS*/
+			
+		</style>
+	</head>
+	<body>
+		<div class="mui-loader je-loader" style="display: none;">加载中...</div>
+		<header class="mui-bar mui-bar-nav je-header header-blue" style="height:auto">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">任务分布实时监控</h1>
+			<a class="mui-icon mui-pull-right mui-icon-search je-act-dosearch je-audio-btn">
+				<span class="dosearch-tip"></span>
+			</a>
+			<a class="mui-icon mui-pull-right mui-icon-more-filled je-audio-btn je-act-morebtn" style="font-weight: bold;display:none;"></a>
+		<!--<div style="margin-top:44px;display: none;" class="je-searchbox">
+				<div class="je-search-bar" >
+					<div class="mui-input-row je-search">
+						<input type="search" placeholder="输入关键字检索" class="mui-input-clear je-search-bar-input" style="background-color: transparent;margin: 0px;" >
+					</div>
+					<a class="mui-icon mui-icon-search je-search-bar-icon je-audio-btn" style="right:5px;"></a>
+				</div>
+				{cxcl}
+			</div>-->
+		</header>
+		<footer class="mui-bar-footer mui-bar je-footer" style="height:40px;">
+		    <div class="je-multiple-act" style="display: none;">
+		    	<div class="je-multiple-selectall">
+		    		<div class="mui-input-row mui-checkbox mui-left">
+						<label >全选</label>
+						<input name="checkbox" type="checkbox">
+					</div>
+		    	</div>
+		    	<a class="mui-btn mui-btn-link je-act-cancel je-audio-btn mui-pull-right">取消全选</a>
+		    </div>
+			<div class="list-display-text">
+		    	<a class="list-page-up text-disable je-audio-btn">上一页</a>
+		    	<a class="list-page je-audio-btn"></a>
+		    	<select class="list-page-go je-audio-btn">
+		    	</select>
+		    	<a class="list-page-down je-audio-btn">下一页</a>
+		    </div>
+		</footer>
+		<div class="mui-content mui-scroll-wrapper je-content" >
+			<!--下拉刷新容器-->
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<div class="mui-card mui-table-view je-list" style="margin-top:10px;box-shadow: 0 0px 0px rgba(0,0,0,.3);">
+				</div>
+				<p class="je-list-pagetext"></p>
+			</div>
+		</div>
+		<div class="je-act-button je-fixed-button addBtn je-audio-btn" data-code="gridInsertBtn">
+			<i class="mui-icon mui-icon-plusempty je-audio-btn" style="margin-top:7px;font-size:1.5em;"></i>
+		</div>
+	</body>
+</html>
+

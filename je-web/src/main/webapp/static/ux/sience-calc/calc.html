@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="css/default2.css"/>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/calc.js"></script>
+<title>计算器</title>
+</head>
+<body>
+   <div id="ecalc_wrapW" onmouseup="showCursor();" class="clear-both" style="width: 391px;">
+			<div id="ecalc_body">
+				<div id="logoSprite"></div>
+				<div id="ecalc_screen">
+					<input id="ecalc_stack0" type="text" value="0" onmousedown="setActiveInput('ecalc_stack0');" onkeyup="return handleEnterKey(event);" onkeypress="return handleStackEntry(event);" autocomplete="off">
+					<a href="javascript:void(0);" id="ecalc_stack1" class="stackInfix1" onmouseover="stackHover('1');" onmouseout="stackOut('1');" onmousedown="popStack('1');" style="font-size: 22px;">0</a>
+					<a href="javascript:void(0);" id="ecalc_stack2" class="stackInfix2" onmouseover="stackHover('2');" onmouseout="stackOut('2');" onmousedown="popStack('2');"></a>
+					<a href="javascript:void(0);" id="ecalc_stack3" class="stackInfix3" onmouseover="stackHover('3');" onmouseout="stackOut('3');" onmousedown="popStack('3');" style="font-size: 22px;">0</a>
+					<a href="javascript:void(0);" id="ecalc_stack4" class="stackInfix4" onmouseover="stackHover('4');" onmouseout="stackOut('4');" onmousedown="popStack('4');"></a>
+					
+					<a href="javascript:void(0);" id="ecalc_hovr1" class="hovrRPN1" style="background-color: rgb(170, 204, 255);"></a>
+
+					<a href="javascript:void(0);" id="ecalc_hovr2" class="hovrRPN2" style="background-color: rgb(170, 204, 255);"></a>
+					<a href="javascript:void(0);" id="ecalc_hovr3" class="hovrRPN3" style="background-color: rgb(170, 204, 255);"></a>
+					<a href="javascript:void(0);" id="ecalc_hovr4" class="hovrRPN4" style="background-color: rgb(170, 204, 255);"></a>
+
+					<ul class="buttons" id="status_bar">
+						<li id="status_angle" class="status_rad"><a href="javascript:void(0);" onmousedown="incrtAngle();" ondblclick="checkDouble(this);"></a></li>
+						<li id="status_coord" class="status_rec"><a href="javascript:void(0);" onmousedown="incrtCoord();" ondblclick="checkDouble(this);"></a></li>
+						<li id="status_format" class="status_std"><a href="javascript:void(0);" onmousedown="incrtFormat();" ondblclick="checkDouble(this);"></a></li>
+
+						<li id="status_mode" class="status_alg"><a href="javascript:void(0);" onmousedown="incrtMode();" ondblclick="checkDouble(this);"></a></li>
+						
+						<li id="status_up"><a href="javascript:void(0);" onmousedown="scrollTimer=stackScrollUp();" onmouseup="clearInterval(scrollTimer)" onmouseout="clearInterval(scrollTimer)" onclick="scrollTimer=stackUp();" ondblclick="this.onclick();"></a></li>
+						<li id="status_down"><a href="javascript:void(0);" onmousedown="scrollTimer=stackScrollDown();" onmouseup="clearInterval(scrollTimer)" onmouseout="clearInterval(scrollTimer)" onclick="scrollTimer=stackDown();" ondblclick="this.onclick();"></a></li>
+					</ul>
+				</div>
+				<div id="ecalc_menu" style="display:none">
+						<ul id="menu_list">
+							<li id="menu_format" class="menu_class">Format<a href="javascript:void(0);" id="menu_std" onmousedown="menuFormat(1);" class="menu_stdB"></a><a href="javascript:void(0);" id="menu_fix" onmousedown="menuFormat(2);" class="menu_fixA"></a><a href="javascript:void(0);" id="menu_sci" onmousedown="menuFormat(3);" class="menu_sciA"></a><a href="javascript:void(0);" id="menu_eng" onmousedown="menuFormat(4);" class="menu_engA"></a><input id="ecalc_precision" onmousedown="setActiveInput('ecalc_precision');" type="text" value="3" onkeyup="updatePrecision()"></li>
+							<li id="menu_angle" class="menu_class">Angle<a href="javascript:void(0);" id="menu_deg" onmousedown="menuAngle(2);" class="menu_degA"></a><a href="javascript:void(0);" id="menu_rad" onmousedown="menuAngle(1);" class="menu_radB"></a><a href="javascript:void(0);" id="menu_grad" onmousedown="menuAngle(3);" class="menu_gradA"></a></li>
+							<li id="menu_coord" class="menu_class">Coord<a href="javascript:void(0);" id="menu_rec" onmousedown="menuCoord(1);" class="menu_recB"></a><a href="javascript:void(0);" id="menu_polar" onmousedown="menuCoord(2);" class="menu_polarA"></a></li>
+							<li id="menu_mode" class="menu_class">Mode<a href="javascript:void(0);" id="menu_rpn" onmousedown="menuMode(2);" class="menu_rpnA"></a><a href="javascript:void(0);" id="menu_alg" onmousedown="menuMode(1);" class="menu_algB"></a></li>
+							<li id="color_menu" class="menu_class" style="border-bottom:1px solid #F6F6F6;">Color
+								<div id="color_menu_pic">
+										<div class="smallColorBox" id="smallColor1" onmousedown="changeStyle('1');" onmouseover="smallColorHover(this,1);" onmouseout="smallColorOut(this,1);" style="border: 2px solid rgb(113, 201, 56); background-color: rgb(198, 233, 175);"></div>
+										<div class="smallColorBox" id="smallColor2" onmousedown="changeStyle('2');" onmouseover="smallColorHover(this,2);" onmouseout="smallColorOut(this,2);" style="border: 2px solid rgb(1, 103, 255); background-color: rgb(1, 103, 255);"></div>
+										<div class="smallColorBox" id="smallColor3" onmousedown="changeStyle('3');" onmouseover="smallColorHover(this,3);" onmouseout="smallColorOut(this,3);" style="border: 2px solid rgb(254, 203, 0); background-color: rgb(255, 238, 170);"></div>
+										<div class="smallColorBox" id="smallColor4" onmousedown="changeStyle('4');" onmouseover="smallColorHover(this,4);" onmouseout="smallColorOut(this,4);" style="border: 2px solid rgb(222, 135, 205); background-color: rgb(244, 215, 238);"></div>
+										<div class="smallColorBox" id="smallColor5" onmousedown="changeStyle('5');" onmouseover="smallColorHover(this,5);" onmouseout="smallColorOut(this,5);" style="border: 2px solid rgb(81, 81, 81); background-color: rgb(179, 179, 179);"></div>
+										<div class="smallColorBox" id="smallColor6" onmousedown="changeStyle('6');" onmouseover="smallColorHover(this,6);" onmouseout="smallColorOut(this,6);" style="border: 2px solid rgb(113, 201, 56); background-color: rgb(170, 204, 255);"></div>
+								</div>
+							</li>
+							<li id="left_block"></li>
+							<li id="right_block"></li>
+					</ul>
+					<a href="javascript:void(0);" id="menu_done" onmousedown="menuCycle();"></a>
+				</div>
+
+				<ul class="buttons">
+					<li id="enter_gui" class="alg_entr"><a href="javascript:void(0);" onmousedown="return key_enter();" ondblclick="checkDouble(this)"></a></li>
+				</ul>
+
+				<ul class="buttons_rect">
+						<li id="asin_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_asin();"></a></li>
+						<li id="acos_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_acos();"></a></li>
+						<li id="atan_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_atan();"></a></li>
+						<li id="comma_gui" class="i_button"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_comma();"></a></li>
+						<li id="angle_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_angle();"></a></li>
+						<li id="fact_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_fact();"></a></li>
+						<li id="menu_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="menuCycle();"></a></li>
+						<li id="sin_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_sin();"></a></li>
+						<li id="cos_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_cos();"></a></li>
+						<li id="tan_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_tan();"></a></li>
+						<li id="lbrack_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_lbrack();"></a></li>
+						<li id="rbrack_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_rbrack();"></a></li>
+						<li id="ans_gui" class="ans_button"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_ans();"></a></li>
+						<li id="df_gui" class="df_button"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="toggle_df();"></a></li>
+				</ul>
+				<ul class="buttons_square">
+						<li id="pi_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_pi();"></a></li>
+						<li id="yx_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_yx();"></a></li>
+						<li id="squared_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_squared();"></a></li>
+						<li id="sqrt_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_sqrt();"></a></li>
+						<li id="ex_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_ex();"></a></li>
+						<li id="ln_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_ln();"></a></li>
+						<li id="log_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_log();"></a></li>
+						<li id="invt_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_invt();"></a></li>
+						<li id="zero_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('0');"></a></li>
+						<li id="one_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('1');"></a></li>
+						<li id="two_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('2');"></a></li>
+						<li id="three_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('3');"></a></li>
+						<li id="four_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('4');"></a></li>
+						<li id="five_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('5');"></a></li>
+						<li id="six_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('6');"></a></li>
+						<li id="seven_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('7');"></a></li>
+						<li id="eight_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('8');"></a></li>
+						<li id="nine_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('9');"></a></li>
+						<li id="dot_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('.');"></a></li>
+						<li id="eex_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return numPressed('e');"></a></li>
+						<li id="plus_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_plus();"></a></li>
+						<li id="minus_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_minus();"></a></li>
+						<li id="times_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_times();"></a></li>
+						<li id="divide_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_divide();"></a></li>
+						<li id="back_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_back();"></a></li>
+						<li id="clear_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_clear();"></a></li>
+						<li id="clearall_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_clearAll();"></a></li>
+						<li id="pm_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="return key_pm();"></a></li>
+				</ul>
+			</div>
+
+			<div id="palette_wrap" style="left: 0px;">
+				<div onmousedown="closePal()" id="closePal" class="closePalOut" onmouseover="windowButtonHover(this);" onmouseout="windowButtonOut(this);"></div>
+				<!-- Palette Buttons -->
+				<ul id="pButtons" class="unitsButton buttons">
+					<li id="units_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchid('units');activeInput='ecalc_stack0';showCursor();setCaretToEnd();"></a> </li>
+					<li id="const_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchid('const');activeInput='ecalc_stack0';showCursor();setCaretToEnd();"></a> </li>
+					<li id="solver_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchid('solver');activeInput='ecalc_stack0';showCursor();setCaretToEnd();"></a> </li>
+					<li id="logic_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchid('logic');activeInput='ecalc_stack0';showCursor();setCaretToEnd();"></a> </li>
+					<li id="help_gui"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchid('help');activeInput='ecalc_stack0';showCursor();setCaretToEnd();"></a> </li>
+				</ul>
+
+				<div id="palette">
+					<!-- New Unit Converter -->
+					<div id="units" style="display: block;">
+						<h2 class="paletteHeader" id="unitTitle">Unit Conversion:&nbsp;Length</h2> 
+						<div id="units_input_wrap">
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox0" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(0);" class="unitPopWhite" id="unitPop0"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput0" class="unitInput" onblur="unitsFormat(0);" onmousedown="unitsBgColor(0);setActiveInput('unitInput0');" onkeyup="unitsConvert(0);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine0" style="display: block;"></div><div id="unitBigText0" class="unitBigText">å</div><div id="unitSmallText1_0" class="unitSmallText1"></div><div id="unitSmallText2_0" class="unitSmallText2" style="bottom: 8px;">Angstrom</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox1" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(1);" class="unitPopWhite" id="unitPop1"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput1" class="unitInput" onblur="unitsFormat(1);" onmousedown="unitsBgColor(1);setActiveInput('unitInput1');" onkeyup="unitsConvert(1);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine1" style="display: block;"></div><div id="unitBigText1" class="unitBigText">mm</div><div id="unitSmallText1_1" class="unitSmallText1"></div><div id="unitSmallText2_1" class="unitSmallText2" style="bottom: 8px;">Millimeter</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox2" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(2);" class="unitPopWhite" id="unitPop2"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput2" class="unitInput" onblur="unitsFormat(2);" onmousedown="unitsBgColor(2);setActiveInput('unitInput2');" onkeyup="unitsConvert(2);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine2" style="display: block;"></div><div id="unitBigText2" class="unitBigText">cm</div><div id="unitSmallText1_2" class="unitSmallText1"></div><div id="unitSmallText2_2" class="unitSmallText2" style="bottom: 8px;">Centimeter</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox3" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(3);" class="unitPopWhite" id="unitPop3"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput3" class="unitInput" onblur="unitsFormat(3);" onmousedown="unitsBgColor(3);setActiveInput('unitInput3');" onkeyup="unitsConvert(3);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine3" style="display: block;"></div><div id="unitBigText3" class="unitBigText">in</div><div id="unitSmallText1_3" class="unitSmallText1"></div><div id="unitSmallText2_3" class="unitSmallText2" style="bottom: 8px;">Inch</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox4" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(4);" class="unitPopWhite" id="unitPop4"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput4" class="unitInput" onblur="unitsFormat(4);" onmousedown="unitsBgColor(4);setActiveInput('unitInput4');" onkeyup="unitsConvert(4);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine4" style="display: block;"></div><div id="unitBigText4" class="unitBigText">ft</div><div id="unitSmallText1_4" class="unitSmallText1"></div><div id="unitSmallText2_4" class="unitSmallText2" style="bottom: 8px;">Foot</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox5" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(5);" class="unitPopWhite" id="unitPop5"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput5" class="unitInput" onblur="unitsFormat(5);" onmousedown="unitsBgColor(5);setActiveInput('unitInput5');" onkeyup="unitsConvert(5);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine5" style="display: block;"></div><div id="unitBigText5" class="unitBigText">yd</div><div id="unitSmallText1_5" class="unitSmallText1"></div><div id="unitSmallText2_5" class="unitSmallText2" style="bottom: 8px;">Yard</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox6" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(6);" class="unitPopWhite" id="unitPop6"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput6" class="unitInput" onblur="unitsFormat(6);" onmousedown="unitsBgColor(6);setActiveInput('unitInput6');" onkeyup="unitsConvert(6);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine6" style="display: block;"></div><div id="unitBigText6" class="unitBigText">m</div><div id="unitSmallText1_6" class="unitSmallText1"></div><div id="unitSmallText2_6" class="unitSmallText2" style="bottom: 8px;">Meter</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox7" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(7);" class="unitPopWhite" id="unitPop7"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput7" class="unitInput" onblur="unitsFormat(7);" onmousedown="unitsBgColor(7);setActiveInput('unitInput7');" onkeyup="unitsConvert(7);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine7" style="display: block;"></div><div id="unitBigText7" class="unitBigText">km</div><div id="unitSmallText1_7" class="unitSmallText1"></div><div id="unitSmallText2_7" class="unitSmallText2" style="bottom: 8px;">Kilometer</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox8" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(8);" class="unitPopWhite" id="unitPop8"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput8" class="unitInput" onblur="unitsFormat(8);" onmousedown="unitsBgColor(8);setActiveInput('unitInput8');" onkeyup="unitsConvert(8);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine8" style="display: block;"></div><div id="unitBigText8" class="unitBigText">mi</div><div id="unitSmallText1_8" class="unitSmallText1"></div><div id="unitSmallText2_8" class="unitSmallText2" style="bottom: 8px;">Mile</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox9" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(9);" class="unitPopWhite" id="unitPop9"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput9" class="unitInput" onblur="unitsFormat(9);" onmousedown="unitsBgColor(9);setActiveInput('unitInput9');" onkeyup="unitsConvert(9);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine9" style="display: block;"></div><div id="unitBigText9" class="unitBigText">nmi</div><div id="unitSmallText1_9" class="unitSmallText1">Nautical</div><div id="unitSmallText2_9" class="unitSmallText2" style="bottom: 3px;">Mile</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox10" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(10);" class="unitPopWhite" id="unitPop10"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput10" class="unitInput" onblur="unitsFormat(10);" onmousedown="unitsBgColor(10);setActiveInput('unitInput10');" onkeyup="unitsConvert(10);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine10" style="display: block;"></div><div id="unitBigText10" class="unitBigText">AU</div><div id="unitSmallText1_10" class="unitSmallText1">Astronomical</div><div id="unitSmallText2_10" class="unitSmallText2" style="bottom: 3px;">Unit</div></div>
+							<div class="unitBoxWrap"><div class="unitBox" id="unitBox11" style="visibility: visible; background-color: rgb(255, 255, 255);"><div onmousedown="unitPopValue(11);" class="unitPopWhite" id="unitPop11"><a ondblclick="checkDouble(this);" href="javascript:void(0);"></a></div><input id="unitInput11" class="unitInput" onblur="unitsFormat(11);" onmousedown="unitsBgColor(11);setActiveInput('unitInput11');" onkeyup="unitsConvert(11);" type="text" value="0" style="background-color: rgb(255, 255, 255);"></div><div class="unitLine" id="unitLine11" style="display: none;"></div><div id="unitBigText11" class="unitBigText">ly</div><div id="unitSmallText1_11" class="unitSmallText1"></div><div id="unitSmallText2_11" class="unitSmallText2" style="bottom: 8px;">Light-Year</div></div>
+						</div>
+						<div id="unit_cat">
+							<div id="unit_cat_img">
+								<ul id="unit_cat_img_list">
+									<li id="unit_cat0" class="stickUnit_cat0"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(0);"></a></li>
+									<li id="unit_cat1" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(1);"></a></li>
+									<li id="unit_cat2" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(2);"></a></li>
+									<li id="unit_cat3" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(3);"></a></li>
+									<li id="unit_cat4" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(4);"></a></li>
+									<li id="unit_cat5" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(5);"></a></li>
+									<li id="unit_cat6" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(6);"></a></li>
+									<li id="unit_cat7" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(7);"></a></li>
+									<li id="unit_cat8" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(8);"></a></li>
+									<li id="unit_cat9" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(9);"></a></li>
+									<li id="unit_cat10" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(10);"></a></li>
+									<li id="unit_cat11" class=""><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="switchCat(11);"></a></li>
+								</ul>
+								<div id="ul_line1"></div>
+								<div id="ul_line2"></div>
+								<div id="ul_line3"></div>
+							</div>
+						</div>
+					</div>
+					<div id="const" style="display: none;">
+						<h2 class="paletteHeader">Constants</h2>
+						<div id="const_disp">
+							<div id="const_value"><span id="constValueHover"></span><span id="constUnitsHover"></span></div>
+						</div> 
+						<div id="const_list_test">
+							<div class="constListBox" onmousedown="constPush(0);" onmouseout="constClear(0);" onmouseover="constDisp(0);"><div class="cnstAbv" id="CNSTAbv0">c</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc0" style="width: 220px;">Speed of Light</div><div class="constSideBar" id="tile0"></div></div>
+							<div class="constListBox" onmousedown="constPush(1);" onmouseout="constClear(1);" onmouseover="constDisp(1);"><div class="cnstAbv" id="CNSTAbv1">Cc</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc1" style="width: 220px;">Coulomb Constant</div><div class="constSideBar" id="tile1"></div></div>
+							<div class="constListBox" onmousedown="constPush(2);" onmouseout="constClear(2);" onmouseover="constDisp(2);"><div class="cnstAbv" id="CNSTAbv2">g</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc2" style="width: 220px;">Acceleration of gravity</div><div class="constSideBar" id="tile2"></div></div>
+							<div class="constListBox" onmousedown="constPush(3);" onmouseout="constClear(3);" onmouseover="constDisp(3);"><div class="cnstAbv" id="CNSTAbv3">G</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc3" style="width: 220px;">Gravitational Constant</div><div class="constSideBar" id="tile3"></div></div>
+							<div class="constListBox" onmousedown="constPush(4);" onmouseout="constClear(4);" onmouseover="constDisp(4);"><div class="cnstAbv" id="CNSTAbv4">h</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc4" style="width: 220px;">Plancks Constant</div><div class="constSideBar" id="tile4"></div></div>
+							<div class="constListBox" onmousedown="constPush(5);" onmouseout="constClear(5);" onmouseover="constDisp(5);"><div class="cnstAbv" id="CNSTAbv5">k</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc5" style="width: 220px;">Boltzmanns Constant</div><div class="constSideBar" id="tile5"></div></div>
+							<div class="constListBox" onmousedown="constPush(6);" onmouseout="constClear(6);" onmouseover="constDisp(6);"><div class="cnstAbv" id="CNSTAbv6">F</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc6" style="width: 220px;">Faraday Constant</div><div class="constSideBar" id="tile6"></div></div>
+							<div class="constListBox" onmousedown="constPush(7);" onmouseout="constClear(7);" onmouseover="constDisp(7);"><div class="cnstAbv" id="CNSTAbv7">Me</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc7" style="width: 220px;">Electron Rest Mass</div><div class="constSideBar" id="tile7"></div></div>
+							<div class="constListBox" onmousedown="constPush(8);" onmouseout="constClear(8);" onmouseover="constDisp(8);"><div class="cnstAbv" id="CNSTAbv8">Mn</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc8" style="width: 220px;">Neutron Rest Mass</div><div class="constSideBar" id="tile8"></div></div>
+							<div class="constListBox" onmousedown="constPush(9);" onmouseout="constClear(9);" onmouseover="constDisp(9);"><div class="cnstAbv" id="CNSTAbv9">Mp</div> <div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc9" style="width: 220px;">Protron Rest Mass</div><div class="constSideBar" id="tile9"></div></div>
+							<div class="constListBox" onmousedown="constPush(10);" onmouseout="constClear(10);" onmouseover="constDisp(10);"><div class="cnstAbv" id="CNSTAbv10">Na</div><div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc10" style="width: 220px;">Avogadros Number</div><div class="constSideBar" id="tile10"></div></div>
+							<div class="constListBox" id="constListBox11" onmousedown="constPush(11);" onmouseout="constClear(11);" onmouseover="constDisp(11);"><div class="cnstAbv" id="CNSTAbv11">q</div><div class="cnstDash">-</div><div class="cnstStyle" id="CNSTDesc11" style="width: 220px;">Electron Charge</div><div class="constSideBar" id="tile11"></div></div>
+							<div class="constListBox" id="constListBox12" onmousedown="constMore();"><div class="cnstAbv" id="CNSTAbv12"></div><div class="cnstStyle" style="left:140px;font-weight:900;" id="CNSTDesc12">More</div><div id="tile12" class="testClass"></div></div>
+						</div>
+					</div>
+
+					<div id="solver" style="display: none;">
+						<!--  solver Build -->
+						<div id="solverBuild" style="display:block">
+							<div id="solverFillTop"></div>
+							<div id="solverFillBottom"></div>
+
+							<h2 class="paletteHeader">Equation Solver</h2>
+
+							<div class="solverBarTop">Linear Equation Solver</div>
+							<div class="solverBuildCell" id="LS1" onmousedown="buildLinear(2);" onmouseover="solverHover('Linear',1);" onmouseout="solverOut('Linear',1);"><div class="solverSideBar" id="Linear1"></div>2&nbsp;x&nbsp;2</div>
+							<div class="solverBuildCell" id="LS2" onmousedown="buildLinear(3);" onmouseover="solverHover('Linear',2);" onmouseout="solverOut('Linear',2);"><div class="solverSideBar" id="Linear2"></div>3&nbsp;x&nbsp;3</div>
+							<div class="solverBuildCell" id="LS3" onmousedown="buildLinear(4);" onmouseover="solverHover('Linear',3);" onmouseout="solverOut('Linear',3);"><div class="solverSideBar" id="Linear3"></div>4&nbsp;x&nbsp;4</div>
+							<div class="solverBuildCell" id="LS4" onmousedown="buildLinear(5);" onmouseover="solverHover('Linear',4);" onmouseout="solverOut('Linear',4);"><div class="solverSideBar" id="Linear4"></div>5&nbsp;x&nbsp;5</div>
+
+							<div class="solverBar">Polynomial Root Solver</div>
+							<div class="solverBuildCell" id="RS1" onmousedown="buildRoot(2);" onmouseover="solverHover('Root',1);" onmouseout="solverOut('Root',1);"><div class="solverSideBar" id="Root1"></div>Linear(x)</div>
+							<div class="solverBuildCell" id="RS2" onmousedown="buildRoot(3);" onmouseover="solverHover('Root',2);" onmouseout="solverOut('Root',2);"><div class="solverSideBar" id="Root2"></div>Quadratic(x<sup>2</sup>)</div>
+							<div class="solverBuildCell" id="RS3" onmousedown="buildRoot(4);" onmouseover="solverHover('Root',3);" onmouseout="solverOut('Root',3);"><div class="solverSideBar" id="Root3"></div>Cubic(x<sup>3</sup>)</div>
+							<div class="solverBuildCell" id="RS4" onmousedown="buildRoot(5);" onmouseover="solverHover('Root',4);" onmouseout="solverOut('Root',4);"><div class="solverSideBar" id="Root4"></div>Quartic(x<sup>4</sup>)</div>
+							<div class="solverBuildCell" id="RS5" onmousedown="buildRoot(6);" onmouseover="solverHover('Root',5);" onmouseout="solverOut('Root',5);"><div class="solverSideBar" id="Root5"></div>Quintic(x<sup>5</sup>)</div>
+							<div class="solverBuildCell" id="RS6" onmousedown="buildRoot(7);" onmouseover="solverHover('Root',6);" onmouseout="solverOut('Root',6);"><div class="solverSideBar" id="Root6"></div>Hexic(x<sup>6</sup>)</div>
+						</div>
+						<!--  linearWrapper -->
+						<div id="linearWrapper" style="display:none;">
+							<h2 class="paletteHeader">Linear Solver</h2>
+							<h2 id="solverTitle">Ax=b</h2>
+							<div id="solverBracketsWrap">
+									<div id="solverTLB" class="bracket"></div>
+									<div id="solverTRB" class="bracket"></div>
+									<div id="solverWrap">
+										<ul id="AMatrix">
+											<li></li>
+											</ul>
+											<ul id="BVector">
+											<li></li>
+										</ul>
+									</div>
+									<div id="solverBLB" class="bracket"></div>
+									<div id="solverBRB" class="bracket"></div>
+							</div>
+							<ul id="cellID">
+								<li id="cellIDText">a</li>
+								<li id="cellIDTextSub">11</li>
+								<li id="cellIDEquals">=</li>
+								<li><input id="cellInputBox" onmousedown="setActiveInput('cellInputBox');" type="text" value="0" onkeyup="handleEnter(event)"></li>
+							</ul>
+							<ul class="solverButtons">
+								<li class="solveButton"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="activeCell('a0');evalSolverNums();LSsolve();solverAnswers();"></a> </li>
+								<li class="exitButton"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="exitSolver();"></a> </li>
+							</ul>
+						</div>
+						<!--  rootWrapper -->
+						<div id="rootWrapper" style="display:none;">
+							<h2 class="paletteHeader">Root Solver</h2>
+							<div id="rootTitleImage"></div>
+							<ul id="rootCoeffs">
+								<li id="roota7" class="rootCoeffsLI"><span class="rootCoeffsLabel">a<sub>6</sub>=</span><input id="rootCoeff6" onmousedown="setActiveInput('rootCoeff6');" class="rootSolverBox"></li>
+								<li id="roota6" class="rootCoeffsLI"><span class="rootCoeffsLabel">a<sub>5</sub>=</span><input id="rootCoeff5" onmousedown="setActiveInput('rootCoeff5');" class="rootSolverBox"></li>
+								<li id="roota5" class="rootCoeffsLI"><span class="rootCoeffsLabel">a<sub>4</sub>=</span><input id="rootCoeff4" onmousedown="setActiveInput('rootCoeff4');" class="rootSolverBox"></li>
+								<li id="roota4" class="rootCoeffsLI"><span class="rootCoeffsLabel">a<sub>3</sub>=</span><input id="rootCoeff3" onmousedown="setActiveInput('rootCoeff3');" class="rootSolverBox"></li>
+								<li id="roota3" class="rootCoeffsLI"><span class="rootCoeffsLabel">a<sub>2</sub>=</span><input id="rootCoeff2" onmousedown="setActiveInput('rootCoeff2');" class="rootSolverBox"></li>
+								<li id="roota2" class="rootCoeffsLI"><span class="rootCoeffsLabel">a<sub>1</sub>=</span><input id="rootCoeff1" onmousedown="setActiveInput('rootCoeff1');" class="rootSolverBox"></li>
+								<li id="roota1" class="rootCoeffsLI"><span class="rootCoeffsLabel">a<sub>0</sub>=</span><input id="rootCoeff0" onmousedown="setActiveInput('rootCoeff0');" class="rootSolverBox"></li>
+							</ul>
+							<ul class="solverButtons">
+								<li class="solveButton"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="saveRootValues();CPolySolve();solverAnswers();"></a> </li>
+								<li class="exitButton"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="exitSolver();"></a> </li>
+							</ul>
+						</div>
+						<div id="answerWrapper" style="display:none;">
+							<h2 class="paletteHeader">Solver Answers</h2>
+								<div id="solverAnswer1" class="BGOdd" onmousedown="return numPressed(JGetId('solverOutput1').innerHTML);"><span>x1:</span><span id="solverOutput1" class="notBold"></span></div>
+								<div id="solverAnswer2" class="BGEven" onmousedown="return numPressed(JGetId('solverOutput2').innerHTML);"><span>x2:</span><span id="solverOutput2" class="notBold"></span></div>
+								<div id="solverAnswer3" class="BGOdd" onmousedown="return numPressed(JGetId('solverOutput3').innerHTML);"><span>x3:</span><span id="solverOutput3" class="notBold"></span></div>
+								<div id="solverAnswer4" class="BGEven" onmousedown="return numPressed(JGetId('solverOutput4').innerHTML);"><span>x4:</span><span id="solverOutput4" class="notBold"></span></div>
+								<div id="solverAnswer5" class="BGOdd" onmousedown="return numPressed(JGetId('solverOutput5').innerHTML);"><span>x5:</span><span id="solverOutput5" class="notBold"></span></div>
+								<div id="solverAnswer6" class="BGEven" onmousedown="return numPressed(JGetId('solverOutput6').innerHTML);"><span>x6:</span><span id="solverOutput6" class="notBold"></span></div>
+								<div id="solverAnswer7" class="BGOdd"><span>x7:</span><span id="solverOutput7"></span></div>
+							<ul class="solverButtons">
+								<li class="backButton"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="backSolver();"></a> </li>
+								<li class="exitButton"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="exitSolver();"></a> </li>
+							</ul>
+						</div>
+					</div>
+					<div id="logic" style="display: none;" class="buttons">
+						<h2 class="paletteHeader">Base Conversion</h2>
+						<div id="base_wrap">
+							<div id="hex_font">HEX</div>
+							<div id="oct_font">OCT</div>
+							<div id="dec_font">DEC</div>
+							<input id="hex_box" onmousedown="setActiveInput('hex_box');" type="text" value="0" onkeyup="updateBases('hex_box');">
+							<input id="oct_box" onmousedown="setActiveInput('oct_box');" type="text" value="0" onkeyup="updateBases('oct_box');">
+							<input id="dec_box" onmousedown="setActiveInput('dec_box');" type="text" value="0" onkeyup="updateBases('dec_box');"> 
+							<div id="bin_font">BIN</div>
+						</div>
+						<div id="logic_bits">
+							<ul id="b31tob16">
+								<li id="bit31" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(31);"></a> </li>
+								<li id="bit30" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(30);"></a> </li>
+								<li id="bit29" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(29);"></a> </li>
+								<li id="bit28" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(28);"></a> </li> 
+								<li id="bit27" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(27);"></a> </li>
+								<li id="bit26" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(26);"></a> </li>
+								<li id="bit25" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(25);"></a> </li>
+								<li id="bit24" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(24);"></a> </li>
+								<li id="bit23" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(23);"></a> </li>
+								<li id="bit22" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(22);"></a> </li>
+								<li id="bit21" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(21);"></a> </li>
+								<li id="bit20" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(20);"></a> </li>
+								<li id="bit19" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(19);"></a> </li>
+								<li id="bit18" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(18);"></a> </li>
+								<li id="bit17" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(17);"></a> </li>
+								<li id="bit16" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(16);"></a> </li>
+							</ul>
+							<ul id="b15tob0">
+								<li id="bit15" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(15);"></a> </li>
+								<li id="bit14" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(14);"></a> </li>
+								<li id="bit13" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(13);"></a> </li>
+								<li id="bit12" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(12);"></a> </li>
+								<li id="bit11" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(11);"></a> </li>
+								<li id="bit10" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(10);"></a> </li>
+								<li id="bit9" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(9);"></a> </li>
+								<li id="bit8" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(8);"></a> </li>
+								<li id="bit7" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(7);"></a> </li>
+								<li id="bit6" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(6);"></a> </li>
+								<li id="bit5" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(5);"></a> </li>
+								<li id="bit4" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(4);"></a> </li>
+								<li id="bit3" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(3);"></a> </li>
+								<li id="bit2" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(2);"></a> </li>
+								<li id="bit1" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(1);"></a> </li>
+								<li id="bit0" class="logic_zero"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="bitFlip(0);"></a> </li>
+							</ul>
+						</div>
+						<div id="clearBase" class="clearButton"><a ondblclick="checkDouble(this);" href="javascript:void(0);" onmousedown="clearBases();"></a></div>
+					</div>
+					<!-- Fractions -->
+					<div id="fract" style="display: none;" class="buttons">
+						<div id="dToFBox">
+							<h2 class="paletteHeader">Decimal to Fraction</h2>
+							<input id="dToFInput" onmousedown="setActiveInput('dToFInput');" value="0" onkeyup="calc();">
+						</div>
+						<div id="fractions"></div>
+					</div>
+					<!-- Help -->
+					<div id="help" style="display: none;">
+						<h2 class="paletteHeader" id="infoHeader">eCalc Version&nbsp;1.5.2</h2>
+							<div id="ecalc_demo2" style="height:85px;">
+							<!--<div id='buyNow2' ><a href="http://www.ecalc.com/buy/windows/" style="display:block;height:30px;cursor:pointer;"></a></div>
+							 <div id='freeTrial2' ><a href="http://www.ecalc.com/download/" style="display:block;height:30px;cursor:pointer;"></a></div>
+							 -->
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+package ${packageName};
+
+/**
+ * ${commonts}
+ * @author ${currentUser}
+ * @version ${currentDate}
+ */
+public interface ${javaName} {
+	
+	public void load();
+}

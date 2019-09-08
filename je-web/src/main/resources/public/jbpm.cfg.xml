@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jbpm-configuration>
+
+  <import resource="jbpm.default.cfg.xml" />
+  <import resource="jbpm.tx.spring.cfg.xml" />
+  <import resource="jbpm.jpdl.cfg.xml" />
+  <import resource="jbpm.bpmn.cfg.xml" />
+  <!-- <import resource="jbpm.identity.cfg.xml" /> -->
+  <import resource="jbpm.businesscalendar.cfg.xml" />
+  <import resource="jbpm.console.cfg.xml" />
+  <!-- 工作流job，生产环境中开启 
+  <import resource="jbpm.jobexecutor.cfg.xml" /> -->
+  
+  <process-engine-context>
+    <string name="spring.cfg" value="beans.xml" />
+  </process-engine-context>
+  <transaction-context>
+    <Object class="com.pc.wf.service.IdentitySessionImpl" />
+  </transaction-context>
+</jbpm-configuration>

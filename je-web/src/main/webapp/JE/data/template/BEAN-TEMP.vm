@@ -1,0 +1,36 @@
+package ${packageName};
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+import com.je.wf.service.WfEventTemplate;
+import org.apache.log4j.Logger;
+import com.je.task.service.PcTimedTaskTemplate;
+import com.je.task.vo.TimedTaskParamsVo;
+import com.je.core.util.bean.OBean;
+#if($isInjectBean == '1')
+import ${injectPath};
+#end
+/**
+ * ${commonts}
+ * @author ${currentUser}
+ * @version ${currentDate}
+ */
+@Component("${cmpName}")
+public class ${javaName} extends OBean {
+
+#if($isOpenLog == '1')
+	private static Logger logger = Logger.getLogger(${javaName}.class);
+#end
+	public String tableCode="${tableCode}";
+	
+#if($isInjectBean == '1')
+	private ${beanClass} ${beanName};
+	
+	@Resource(name="${beanName}")
+	public void set${beanClass}(${beanClass} ${beanName}) {
+		this.${beanName} = ${beanName};
+	}
+#end
+
+}

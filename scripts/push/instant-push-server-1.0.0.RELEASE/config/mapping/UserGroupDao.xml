@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.message.server.dao.UserGroupDao" >
+  <resultMap id="BaseResultMap" type="com.message.api.entity.UserGroup" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="GROUP_ID" property="groupId" jdbcType="VARCHAR" />
+    <result column="GROUP_NAME" property="groupName" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USER_ID, GROUP_ID, GROUP_NAME, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from instant_user_group
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from instant_user_group
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.message.api.entity.UserGroup" >
+    insert into instant_user_group (ID, USER_ID, GROUP_ID,
+      GROUP_NAME, CREATE_TIME, UPDATE_TIME
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{groupId,jdbcType=VARCHAR},
+      #{groupName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.message.api.entity.UserGroup" useGeneratedKeys="true" keyProperty="id">
+    insert into instant_user_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="groupId != null" >
+        GROUP_ID,
+      </if>
+      <if test="groupName != null" >
+        GROUP_NAME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.message.api.entity.UserGroup" >
+    update instant_user_group
+    <set >
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null" >
+        GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.message.api.entity.UserGroup" >
+    update instant_user_group
+    set USER_ID = #{userId,jdbcType=BIGINT},
+      GROUP_ID = #{groupId,jdbcType=VARCHAR},
+      GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="findUserGroups" resultMap="BaseResultMap" parameterType="com.message.api.entity.UserGroup" >
+    select
+    <include refid="Base_Column_List" />
+    from instant_user_group
+    where USER_ID = #{userId,jdbcType=BIGINT} and GROUP_ID = #{groupId,jdbcType=VARCHAR}
+  </select>
+
+	<delete id="delUserGroup" parameterType="com.message.api.entity.UserGroup" >
+    delete from instant_user_group
+    where USER_ID = #{userId,jdbcType=BIGINT} and GROUP_ID = #{groupId,jdbcType=VARCHAR}
+  </delete>
+
+	<select id="findUserGroupByZhId" resultMap="BaseResultMap" parameterType="string" >
+		select
+		<include refid="Base_Column_List" />
+		from instant_user_group
+		where GROUP_ID = #{value}
+	</select>
+
+</mapper>

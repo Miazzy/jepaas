@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.message.server.dao.ThirdAppUserDao">
+	<resultMap id="BaseResultMap" type="com.message.api.entity.ThirdAppUser">
+		<id column="ID" property="id" jdbcType="BIGINT"/>
+		<result column="GTPUSH_TYPE" property="gtpushType" jdbcType="VARCHAR"/>
+		<result column="GTPUSH_TOKEN" property="gtpushToken" jdbcType="VARCHAR"/>
+		<result column="GTPUSH_CID" property="gtpushCid" jdbcType="VARCHAR"/>
+		<result column="DETAIL_ID" property="detailId" jdbcType="BIGINT"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+    ID, GTPUSH_TYPE, GTPUSH_TOKEN, GTPUSH_CID, DETAIL_ID
+  </sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List"/>
+		from instant_thirdapp_user
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+	<select id="getThirdAppUserByCid" resultMap="BaseResultMap" parameterType="string">
+		select
+		<include refid="Base_Column_List"/>
+		from instant_thirdapp_user
+		where GTPUSH_CID = #{value}
+	</select>
+	<select id="getAppUserByDetailIds" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List"/>
+		from instant_thirdapp_user
+		where DETAIL_ID in
+		<foreach collection="thirdAppUserDetails" item="item" index="no" open="(" separator="," close=")">
+			#{item.id}
+		</foreach>
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from instant_thirdapp_user
+		where ID = #{id,jdbcType=BIGINT}
+	  </delete>
+	<delete id="deleteCid" parameterType="map">
+		delete from instant_thirdapp_user where GTPUSH_CID=#{cId}
+	</delete>
+	<insert id="insert" parameterType="com.message.api.entity.ThirdAppUser">
+    insert into instant_thirdapp_user (ID, GTPUSH_TYPE, GTPUSH_TOKEN,
+      GTPUSH_CID, DETAIL_ID)
+    values (#{id,jdbcType=BIGINT}, #{gtpushType,jdbcType=VARCHAR}, #{gtpushToken,jdbcType=VARCHAR},
+      #{gtpushCid,jdbcType=VARCHAR}, #{detailId,jdbcType=BIGINT})
+  </insert>
+	<insert id="insertSelective" parameterType="com.message.api.entity.ThirdAppUser">
+		insert into instant_thirdapp_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="gtpushType != null">
+				GTPUSH_TYPE,
+			</if>
+			<if test="gtpushToken != null">
+				GTPUSH_TOKEN,
+			</if>
+			<if test="gtpushCid != null">
+				GTPUSH_CID,
+			</if>
+			<if test="detailId != null">
+				DETAIL_ID,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="gtpushType != null">
+				#{gtpushType,jdbcType=VARCHAR},
+			</if>
+			<if test="gtpushToken != null">
+				#{gtpushToken,jdbcType=VARCHAR},
+			</if>
+			<if test="gtpushCid != null">
+				#{gtpushCid,jdbcType=VARCHAR},
+			</if>
+			<if test="detailId != null">
+				#{detailId,jdbcType=BIGINT},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.message.api.entity.ThirdAppUser">
+		update instant_thirdapp_user
+		<set>
+			<if test="gtpushType != null">
+				GTPUSH_TYPE = #{gtpushType,jdbcType=VARCHAR},
+			</if>
+			<if test="gtpushToken != null">
+				GTPUSH_TOKEN = #{gtpushToken,jdbcType=VARCHAR},
+			</if>
+			<if test="gtpushCid != null">
+				GTPUSH_CID = #{gtpushCid,jdbcType=VARCHAR},
+			</if>
+			<if test="detailId != null">
+				DETAIL_ID = #{detailId,jdbcType=BIGINT},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.message.api.entity.ThirdAppUser">
+    update instant_thirdapp_user
+    set GTPUSH_TYPE = #{gtpushType,jdbcType=VARCHAR},
+      GTPUSH_TOKEN = #{gtpushToken,jdbcType=VARCHAR},
+      GTPUSH_CID = #{gtpushCid,jdbcType=VARCHAR},
+      DETAIL_ID = #{detailId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

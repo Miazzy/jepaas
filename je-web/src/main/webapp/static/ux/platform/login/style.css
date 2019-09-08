@@ -1,0 +1,40 @@
+body { margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; font-size: 12px; }
+td   { font-size: 12px; }
+input, select, textarea { font-family:Tahoma; font-size:12px;}
+a:link, a:visited { color: #000000; text-decoration:none; }
+a:hover          { color: #0051A4; text-decoration:underline; }
+a.au:link, a.au:visited { text-decoration:underline; }
+a.au:hover             { text-decoration:underline; }
+.heise, a.heise:link, a.heise:visited  { color: #000000; }
+a.heise:hover     { color: #FF6600; }
+.blue, a.blue:link, a.blue:visited  { color: #0063DC; }
+a.blue:hover     { color: #FF6600; }
+.blueh, a.blueh:link, a.blueh:visited  { color: #1F56C5; }
+a.blueh:hover     { color: #C00; }
+.blueu, a.blueu:link, a.blueu:visited  { color: #0033CC; text-decoration:underline;}
+a.blueu:hover     { color: #C00; }
+.huilan, a.huilan:link, a.huilan:visited  { color: #0066A1; }
+a.huilan:hover     { color: #000; }
+.hui, a.hui:link, a.hui:visited  { color: #777777; }
+a.hui:hover     { color: #000; }
+.huiz, a.huiz:link, a.huiz:visited  { color: #333333; }
+a.huiz:hover     { color: #FF6600; }
+.cheng, a.cheng:link, a.cheng:visited  { color: #FF5500; }
+a.cheng:hover     { color: #000; }
+.huang, a.huang:link, a.huang:visited  { color: #FFFF00; }
+a.huang:hover     { color: #FFFFFF; }
+.green, a.green:link, a.green:visited  { color: green; }
+a.green:hover     { color: #FF6600; }
+.red, a.red:link, a.red:visited  { color: red; }
+a.red:hover     { color: #FF6600; }
+.reds, a.reds:link, a.reds:visited  { color: #C00; }
+a.reds:hover     { color: #000; }
+.zise, a.zise:link, a.zise:visited  { color: #E6007C; }
+a.zise:hover     { color: #006CFF; }
+.white, a.white:link, a.white:visited { color: #FFFFFF; text-decoration:none; font-family:Tahoma; }
+a.white:hover    { color: #FFFF00; text-decoration:none; }
+.tahoma  { font-family:Tahoma; }
+.big     { font-size: 14px; }
+.small   { font-size: 11px; }
+.bold    { font-weight: bold; }
+.button  { border:1px solid #59A0D2; background:#F5FBFF; color:#2C6AAF}

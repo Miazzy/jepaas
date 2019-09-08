@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <!--<service  xmlns="http://xfire.codehaus.org/config/1.0">
+     <name>pcat</name>
+     <serviceClass>com.pc.services.PCATServices</serviceClass>
+      <implementationClass>com.pc.services.PCATServicesImpl</implementationClass>
+    </service>-->
+</beans>

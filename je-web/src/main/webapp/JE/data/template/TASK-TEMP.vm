@@ -1,0 +1,22 @@
+package ${packageName};
+
+import org.springframework.stereotype.Component;
+import com.je.wf.service.WfEventTemplate;
+import org.apache.log4j.Logger;
+
+/**
+ * ${commonts}
+ * @author ${currentUser}
+ * @version ${currentDate}
+ */
+@Component("${cmpName}")
+public class ${javaImplName} extends PcTimedTaskTemplate {
+
+#if($isOpenLog == '1')
+	private static Logger logger = Logger.getLogger(${javaImplName}.class);
+#end
+	
+	public void load(){
+		System.out.println("hello workflow");
+	}
+}

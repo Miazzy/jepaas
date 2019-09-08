@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.message.server.dao.RbacDao">
+
+    <sql id="Base_Column_List" >
+    userid, audflag, createorg, createorgname, createtime, createuser, createusername,
+    flag, modifyorg, modifyorgname, modifytime, modifyuser, modifyusername, status, idcard,
+    orderindex, password, usercard, usercode, username, deptid, pdid, piid, ismanager,
+    rtxid, gender, issysuser, jobnum, easyname, fullname, deptname, deptcode, rolenames,
+    shadow, backusercode, iconcls, othercard, companyemail, otheremail, birthday, nation,
+    nativeplace, degree, married, photo, workexperience, contacts, craftname, craftcode,
+    executivename, executivecode, phone, expirydate, failuretime, roleids, zuoji, deptorderindex,
+    userorder, jtgsid, jtgsmc, jtgsdm, theme, gsbmid, zsldname, zsldid, plususercode,
+    plususerpass, plusrememberpass, plusautologin, sound, menutype, loginlocked, zhid,
+    zhmc, logintime, identphone, loginnumber
+  </sql>
+
+    <select id="findUserByIds" resultType="java.util.Map" parameterType="map">
+    select
+        <include refid="Base_Column_List" />
+    from je_core_enduser where USERID IN
+    <foreach collection="userIds" item="id" index="index" open="(" close=")" separator=",">
+        #{id}
+    </foreach>
+   </select>
+
+
+   <select id="selectById" resultType="java.util.Map" parameterType="java.lang.String">
+    select
+       <include refid="Base_Column_List" />
+    from je_core_enduser where USERID=#{value}
+   </select>
+    <select id="selectAllOrg" resultType="java.util.Map">
+    select
+     *
+    from vdeptuser
+    </select>
+
+    <select id="selectOrgs" resultType="java.util.Map" parameterType="java.lang.String">
+    SELECT
+        *
+    FROM
+        vdeptuser
+    where
+        <if test="value != null">
+            PARENT=#{value}
+        </if>
+        <if test="value == null">
+            PARENT is null
+        </if>
+  </select>
+</mapper>

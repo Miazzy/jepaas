@@ -1,0 +1,145 @@
+.icon_enterpriseSheet {background-image: url( ../img/favicon.png ) !important;}
+
+.icon_ss_conditionformat {background-image: url( ../img/condition.gif ) !important;}
+.icon_ss_import32 {background-image: url( ../img/32px/document_up.png ) !important;}
+.icon_ss_export32 {background-image: url( ../img/32px/document_down.png ) !important;}
+.icon_ss_csv32 {background-image: url( ../img/32px/csv.png ) !important;}
+.icon_ss_freeze32 {background-image: url( ../img/32px/rulers.png ) !important;}
+.icon_find32{background-image: url( ../img/32px/find.png ) !important;}
+.icon_undo32{background-image: url( ../img/32px/undo.png ) !important;}
+.icon_redo32{background-image: url( ../img/32px/redo.png ) !important;}
+.icon_ss_save{background-image: url( ../img/32px/ss_save.png ) !important;}
+.icon_public32 {background-image: url( ../img/32px/public.png ) !important;}
+.icon_ss_insert_chart {background-image: url( ../img/32px/2ntzivm0.png ) !important;}
+.icon_ss_delete {background-image: url( ../img/32px/ss_delete.png ) !important;}
+.icon_ss_insert {background-image: url( ../img/32px/ss_insert.png ) !important;}
+.icon_ss_paste{background-image: url( ../img/32px/paste.png ) !important;}
+.icon_sum32{background-image: url( ../img/32px/sum.png ) !important;}
+.icon_share32{background-image: url( ../img/32px/share.png ) !important;}
+.icon_filter32{background-image: url( ../img/32px/rule_edi.png ) !important;}
+.icon_regular32 {background-image:url(../img/32px/regular.png) !important;}
+.icon_number32 {background-image:url(../img/32px/number.png) !important;}
+.icon_money32 {	background-image:url(../img/32px/money.png) !important;}
+.icon_date32 {	background-image:url(../img/32px/date.png) !important;}
+.icon_time32 {background-image:url(../img/32px/time.png) !important;}
+.icon_percent32 {background-image:url(../img/32px/percent.png) !important;}
+.icon_science32 {background-image:url(../img/32px/science.png) !important;}
+.icon_text32 {background-image:url(../img/32px/text.png) !important;}
+.icon_shield32 {background-image:url(../img/32px/shield32.png) !important;}
+.icon_insert_chart {background-image:url(../img/chart_bar.png) !important;}
+.icon_formula32 {background-image:url(../img/32px/sum.png) !important;}
+.icon_fx {background-image:url(../img/formula.png) !important;}
+.icon_edit {background-image:url(../img/table_edit.png) !important;}
+
+.icon_remove_format {background-image: url( ../img/text_removeFormat.gif ) !important;}
+.icon_replace {background-image: url( ../img/text_replace.png ) !important;}
+.icon_font_color {background-image: url( ../img/font.png ) !important;}
+.icon_back_color {background-image: url( ../img/paintcan.png ) !important;}
+.icon_ss_zoomout {background-image: url( ../img/zoom_out.png ) !important;}
+.icon_ss_zoomin {background-image: url( ../img/zoom_in.png ) !important;}
+.icon_ss_split {background-image: url( ../img/application_split.png ) !important;}
+.icon_ss_export {background-image: url( ../img/table_go.png ) !important;}
+.icon_ss_import {background-image: url( ../img/table_add.png ) !important;}
+.icon_move_up {background-image: url( ../img/move_up.png ) !important;}
+.icon_move_down {background-image: url( ../img/move_down.png ) !important;}
+.icon_datarange_area {background-image: url( ../img/shading.png ) !important;}
+.icon_window_popup {background-image: url( ../img/application_get.png ) !important;}
+.icon_window_anchorin {background-image: url( ../img/application_put.png ) !important;}
+.icon_insert_gadgets {background-image: url( ../img/gadgets.png ) !important;}
+.icon_insert_image {background-image: url( ../img/image.png ) !important;}
+.icon_insert_image_link {background-image: url( ../img/image_link.png ) !important;}
+.icon_insert_image_open {background-image: url( ../img/folder_image.png ) !important;}
+.icon_insert_picture {background-image: url( ../img/picture.png ) !important;}
+.icon_insert_picture_link {background-image: url( ../img/picture_link.png ) !important;}
+.icon_insert_picture_open {background-image: url( ../img/folder_picture.png ) !important;}
+.icon_insert_sheet {background-image: url( ../img/tab_add.png ) !important;}
+.icon_rename_sheet {background-image: url( ../img/textfield_rename.png ) !important;}
+.icon_delete_sheet {background-image: url( ../img/tab_delete.png ) !important;}
+.icon_copy_sheet {background-image: url( ../img/tab_go.png ) !important;}
+.icon_brush {background-image: url( ../img/brush.png ) !important;}
+
+.icon_delete_row {background-image: url( ../img/delete_row.png ) !important;}
+.icon_delete_col {background-image: url( ../img/delete_col.png ) !important;}
+.icon_ss_clear {background-image: url( ../img/cross.png ) !important;}
+.icon_delete {background-image: url( ../img/delete.png ) !important;}
+.icon_combine_cell {background-image: url( ../img/merge.png ) !important;}
+.icon_insert_row_above {background-image: url( ../img/insert/insert_row_above.png ) !important;}
+.icon_insert_row_below {background-image: url( ../img/insert/insert_row_below.png ) !important;}
+.icon_insert_col_before {background-image: url( ../img/insert/insert_col_before.png ) !important;}
+.icon_insert_col_after {background-image: url( ../img/insert/insert_col_after.png ) !important;}
+
+.icon_border_all {background-image: url( ../img/border/all.png ) !important;}
+.icon_border_outside {background-image: url( ../img/border/outside.png ) !important;}
+.icon_border_inside {background-image: url( ../img/border/inside.png ) !important;}
+.icon_border_none {background-image: url( ../img/border/none.png ) !important;}
+.icon_border_left {background-image: url( ../img/border/left.png ) !important;}
+.icon_border_top {background-image: url( ../img/border/top.png ) !important;}
+.icon_border_right {background-image: url( ../img/border/right.png ) !important;}
+.icon_border_bottom {background-image: url( ../img/border/bottom.png ) !important;}
+.icon_border_hide {background-image: url( ../img/border/noline.png ) !important;}
+.icon_border_show {background-image: url( ../img/border/line.png ) !important;}
+
+.icon_color_switch {background-image: url( ../img/color_swatch.png ) !important;}
+.icon_file {background-image: url( ../img/page_white_text.png ) !important;}
+.icon_filter {background-image: url( ../img/filter.png ) !important;}
+.icon_filter_sort {background-image: url( ../img/filterSort.png ) !important;}
+.icon_money {background-image: url( ../img/money.png ) !important;}
+.icon_percent {background-image: url( ../img/percent.png ) !important;}
+.icon_comma {background-image: url( ../img/comma.png ) !important;}
+.icon_split_cell {background-image: url( ../img/arrow_out.png ) !important;}
+.icon_hfzer {background-image: url( ../img/hfzer.png ) !important;}
+.icon_lfzer {background-image: url( ../img/lfzer.png ) !important;}
+.icon_add {background-image: url( ../img/add.png ) !important;}
+.icon_open{background-image: url( ../img/folder_table.png ) !important;}
+
+.icon_save{background-image: url( ../img/disk.png ) !important;}
+.icon_wordwrap{background-image: url( ../img/word_wrap.png ) !important;}
+.icon_dot_move_right{background-image: url( ../img/dot_move_right.png ) !important;}
+.icon_dot_move_left{background-image: url( ../img/dot_move_left.png ) !important;}
+.icon_save_as{background-image: url( ../img/disk_multiple.png ) !important;}
+.icon_fz{background-image: url( ../img/layout_header.png ) !important;}
+.icon_fz_row{background-image: url( ../img/freeze_row.png ) !important;}
+.icon_fz_col{background-image: url( ../img/freeze_col.png ) !important;}
+.icon_cut{background-image: url( ../img/cut_red.png ) !important;}
+.icon_copy{background-image: url( ../img/page_copy.png ) !important;}
+.icon_ss_undo{background-image: url( ../img/undo.png ) !important;}
+.icon_ss_redo{background-image: url( ../img/redo.png ) !important;}
+.icon_setting{background-image: url( ../img/cog.png ) !important;}
+.icon_find{background-image: url( ../img/find.png ) !important;}
+.icon_search{background-image: url( ../img/magnifier.png ) !important;}
+.icon_close{background-image: url( ../img/door_out.png ) !important;}
+.icon_accept{background-image: url( ../img/accept.png ) !important;}
+.icon_no{background-image: url( ../img/drop-no.gif ) !important;}
+.icon_excel{background-image: url( ../img/page_excel.png ) !important;}
+.icon_new{background-image: url( ../img/page_white.png ) !important;}
+.icon_calculate{background-image: url( ../img/calculator.png ) !important;}
+.icon_sum{background-image: url( ../img/sum.png ) !important;}
+.icon_info{background-image: url( ../img/information.png ) !important;}
+.icon_asc{background-image: url( ../img/hmenu-asc.gif ) !important;}
+.icon_desc{background-image: url( ../img/hmenu-desc.gif ) !important;}
+.icon_average{background-image: url( ../img/shape_align_middle.png ) !important;}
+.icon_min{background-image: url( ../img/shape_align_bottom.png ) !important;}
+.icon_max{background-image: url( ../img/shape_align_top.png ) !important;}
+.icon_count{background-image: url( ../img/sitemap.png ) !important;}
+.icon_ss_comment{background-image: url( ../img/2wdpsgi0.png ) !important;}
+.icon_comment{background-image: url( ../img/comment.png ) !important;}
+.icon_comment_add{background-image: url( ../img/comment_add.png ) !important;}
+.icon_comment_edit{background-image: url( ../img/comment_edit.png ) !important;}
+.icon_comment_delete{background-image: url( ../img/comment_delete.png ) !important;}
+
+.icon_bold{background-image: url( ../img/text_bold.png ) !important;}
+.icon_italic{background-image: url( ../img/text_italic.png ) !important;}
+.icon_underline{background-image: url( ../img/text_underline.png ) !important;}
+.icon_strike{background-image: url( ../img/text_strikethrough.png ) !important;}
+.icon_align_left{background-image: url( ../img/text_align_left.png ) !important;}
+.icon_align_center{background-image: url( ../img/text_align_center.png ) !important;}
+.icon_align_right{background-image: url( ../img/text_align_right.png ) !important;}
+.icon_align_top{background-image: url( ../img/text_align_top.png ) !important;}
+.icon_align_middle{background-image: url( ../img/text_align_middle.png ) !important;}
+.icon_align_bottom{background-image: url( ../img/text_align_bottom.png ) !important;}
+.icon_feyasoft{background-image:url(../img/feyasoft-icon.png) !important;}
+.icon_autofill_option{background-image:url(../img/autofill.png) !important;}
+.icon_equal{background-image:url(../img/equals.png) !important;}
+.icon_less{background-image:url(../img/less_than.png) !important;}
+.icon_greater{background-image:url(../img/greater_than.png) !important;}.icon_expand{background-image:url(../img/ns-expand.gif) !important;}
+.icon_collapse{background-image:url(../img/ns-collapse.gif) !important;}

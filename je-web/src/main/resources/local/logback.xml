@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="log.layout.pattern.default" value="[%date{yyyy-MM-dd HH:mm:ss.SSS}] [%level] [%thread] [%logger{50}] %msg%n"/>
+    <property name="log.level" value="INFO"/>
+    <property name="log.file.path" value="/data/je-platform/logs"/>
+    <property name="log.encoder" value="UTF-8"/>
+    <property name="log.max.history" value="30"/>
+    <property name="log.max.file.size" value="100MB"/>
+    <property name="log.total.size" value="1GB"/>
+
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${log.level}</level>
+        </filter>
+        <encoder>
+            <Pattern>${log.layout.pattern.default}</Pattern>
+            <charset>${log.encoder}</charset>
+        </encoder>
+    </appender>
+
+    <appender name="fileLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.file.path}/console/console_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>${log.max.file.size}</maxFileSize>
+            <maxHistory>${log.max.history}</maxHistory>
+            <totalSizeCap>${log.total.size}</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${log.level}</level>
+        </filter>
+        <encoder>
+            <pattern>${log.layout.pattern.default}</pattern>
+            <charset>${log.encoder}</charset>
+        </encoder>
+    </appender>
+
+    <appender name="errorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <prudent>true</prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.file.path}/error/error_%d{yyyy-MM}_%i.log</fileNamePattern>
+            <maxFileSize>${log.max.file.size}</maxFileSize>
+            <maxHistory>${log.max.history}</maxHistory>
+            <totalSizeCap>${log.total.size}</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>${log.layout.pattern.default}</pattern>
+            <charset>${log.encoder}</charset>
+        </encoder>
+    </appender>
+
+    <!-- 警告日志配置 -->
+    <appender name="warnLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <prudent>true</prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- monthly rollover -->
+            <fileNamePattern>${log.file.path}/warn/warn_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <maxFileSize>${log.max.file.size}</maxFileSize>
+            <maxHistory>${log.max.history}</maxHistory>
+            <totalSizeCap>${log.total.size}</totalSizeCap>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <encoder>
+            <pattern>${log.layout.pattern.default}</pattern>
+            <charset>${log.encoder}</charset>
+        </encoder>
+    </appender>
+
+    <root>
+        <level value="${log.level}"/>
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileLog"/>
+    </root>
+
+</configuration>

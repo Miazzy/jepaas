@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-type="search">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script>
+			var APP = APP || {};
+			APP.info = {info}; 
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+	</head>
+	<body class="je-search-page">
+		<header class="mui-bar mui-bar-nav header-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="mui-title">
+				<div class="mui-input-row je-search-bar">
+					<input type="search" placeholder="输入关键字检索" class="mui-input-clear" id="search_keyword" >
+				</div>
+			</div>
+			<a class="mui-icon mui-icon-search mui-pull-right btn-search je-audio-btn"></a>
+		</header>
+		<footer class="mui-bar mui-bar-footer">
+		        <button type="button" class="mui-btn btn-reset je-audio-btn">重 置</button>
+		        <button type="button" class="mui-btn btn-search je-audio-btn mui-btn-danger">查 询</button>
+		</footer>
+		<div class="mui-content je-content je-form" id="je-content">
+			<div class="mui-card je-card history">
+				<div class="mui-card-header"><span><i class="mui-icon fa fa-clock-o"></i> 最近搜索</span> <i class="mui-icon fa fa-trash-o" id="clear_history"></i></div>
+				<div class="mui-card-content">
+				</div>
+			</div>
+			<!--
+				<div class="mui-card je-card dic">
+					<div class="mui-card-header"><span><i class="mui-icon fa fa-book"></i> 数据字典</span></div>
+					<div class="mui-card-content">
+						<div class="item item-all">全部</div>
+						<div class="item"></div>
+					</div>
+				</div>
+			-->
+		</div>
+	</body>
+</html>

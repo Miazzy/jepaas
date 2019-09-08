@@ -1,0 +1,28 @@
+@charset "utf-8";
+html{color:#000;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,input,textarea,p,th,td {margin:0; padding:0;}
+table {	border-collapse:collapse; border-spacing:0;}
+fieldset,img { border:0; }
+caption,em { font-style:normal;	font-weight:normal; }
+ol,ul {	list-style:none;}
+caption,th { text-align:left;}
+h1,h2,h3,h4,h5,h6,input {font-size:100%;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+/*以上是Reset*/
+body {font:12px/1.231 Microsoft YaHei,arial,helvetica,clean,sans-serif; _font-family:Tahoma; background:#dff0f7 ;}
+select,input,button,textarea{font:99% Microsoft YaHei,arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}
+.wrap {height:500px; position:absolute; left:0; top:50%; margin:-306px 0 0;background:url(../images/operating-license/body-bg.png) repeat-x left top;width:100%;}
+.header {display:none;}
+.main {width:992px; height:447px; background:url(../images/operating-license/main-bg.jpg) no-repeat center top;margin:0 auto;position:relative;}
+.main form {width:340px;height:250px;position:absolute;top:185px;right:80px;}
+.user-name,.pass-word,.role-select,.dept-select { padding:10px 0 0;}
+.login-button { text-align:center; padding:15px 0 0 20px;}
+.lb { display:inline-block; width:100px; font-weight:bold; text-align:right;font-size:14px;color:#333;}
+.ipt-t,.ipt-t-focus { width:180px; height:20px; background:url(../images/operating-license/input.png) no-repeat -203px -4px; border:0; padding:3px 10px;color:#fff;}
+.ipt-t-focus {background-position:0px -4px;}
+.role_select {width:200px;}
+.button,.button-rewrite { background:url(../images/operating-license/input.png) no-repeat -403px 0px; width:132px;height:36px; border:0; color:#333; cursor:pointer;margin:0 0 0 10px;padding:0 0 8px 10px;font-size:14px;}
+.button-rewrite{background-position:-403px -36px;}
+.footer { position:absolute; left:50%; top:490px; margin:0 0 0 -300px;width:594px; text-align:center; color:#7f90a4;}
+.button { hide-focus:expression(this.hideFocus=true); } 
+.button:focus { outline-style:none; }

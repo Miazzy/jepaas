@@ -1,0 +1,1929 @@
+/* test */
+
+	
+	#ul,#div{
+		margin:0;
+		padding:0;
+	}
+	
+	#ecalc_wrap{
+	position: relative;
+	margin: 0;
+	height:560px;
+	width: 734px;
+	padding:0;
+	border:0;
+	
+	}
+	
+ #ecalc_body {
+  width: 367px; height: 560px;
+  background: url(ecalc_sprite2.png) 0px 0px no-repeat;
+	margin: 0; padding: 0;
+	left:0px;
+	top:0px;
+  position: absolute;
+	border:none;
+  z-index:999;
+
+	}
+	
+	#palette_wrap{
+	position: absolute;
+	left:367px;
+	top:0px;
+	width:367px;
+	height:560px;
+	margin:0;
+	padding:0;
+	border:none;
+  background: url(ecalc_sprite2.png) -367px 0px no-repeat;
+	}
+	
+  /* Palette Window */
+  #palette{
+ 	position: absolute;
+	bottom: 45px;
+	left: 10px;
+	width: 345px;
+	height: 488px;
+	border: 1px solid black;
+	/* border: 1px ridge #999; */ 
+	cursor:default;
+  }
+  #palette_bar{
+ 	position: absolute;
+	bottom: 18px;
+	left: 367px;
+	width: 24px;
+	height: 128px;
+	cursor:default;
+	background: url(ecalc_sprite2.png) -741px -439px no-repeat;
+	}
+	a{outline:none;}
+	
+	#palette_bar {height: 128px; display:block;}
+	#palette_bar:hover{/* background: url(ecalc_sprite2.png) -772px -439px no-repeat; */}
+	
+
+  .buttons li,.buttons_square li,.buttons_rect li {
+  margin: 0; padding: 0; list-style: none;
+  position: absolute; 
+  }
+
+  .buttons a,.buttons_rect a,.buttons_square a{ display: block;  outline: none; cursor:default;}
+  .buttons_rect a { height: 28px; }
+  .buttons_square a { height: 47px;}
+	
+	#square_buttons ul li,#rect_buttons ul li{
+  margin: 0; padding: 0; list-style: none;
+  position: absolute;
+	}
+	
+	#pButtons a{height: 28px;}
+	
+	#square_buttons ul li a{display: block; height:47px;}
+	#rect_buttons ul li a{display: block; height:28px;}
+	
+	#square_buttons,#rect_buttons{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	
+	#ecalc_body a{
+		cursor:default;
+		outline: none;
+		display: block;
+	}
+	
+	#ecalc_body li{
+		list-style: none
+	}
+	
+
+	
+		#menu_list li a{
+		position: absolute;
+		top: 0px;
+		height: 30px;
+		display: block;		
+	}	
+	
+
+	
+	.menu_class{
+		position: absolute;
+		padding:0px 0px 0px 10px;
+		border:0;
+		width: 325px;
+    background-color:#EAEDE9;
+    background-color:#F6F6F6;
+		height: 30px;
+		left: 16px;
+    border-bottom: 1px solid #CCCCCC;
+		text-align: left;
+		font-family: arial;
+		font-weight: bold;
+		font-size: 16px;
+    list-style: none;
+		line-height: 30px;
+	}
+  #left_block,#right_block{
+   position: absolute;
+   left:11px;
+   bottom:349px;
+   width:5px;
+   height:158px;
+   background-color:#EAEDE9;   
+   background-color:#F6F6F6;   
+  }
+  #right_block{
+   left:351px;   
+  }
+
+	#color_menu{
+		bottom: 349px;
+    height:33px;
+	}
+	#color_menu_pic{
+		position:absolute;
+		left:65px;
+		top:0px;
+		width:200px;
+		height:30px;
+	}
+	#menu_mode{
+		bottom: 383px;
+	}	
+	#menu_coord{
+		bottom: 414px;
+	}
+	#menu_angle{
+		bottom: 445px;
+	}
+	#menu_format{
+		bottom: 476px;
+	}
+	
+	#menu_done{
+		position: absolute;
+		bottom: 354px;
+		left: 280px;
+		height: 24px;
+		width: 62px;
+		display: block;				
+		background: url(ecalc_sprite2.png) -589px -1371px no-repeat;	
+	}
+	#menu_done:hover{
+		background: url(ecalc_sprite2.png) -589px -1395px no-repeat;	
+	}
+	
+	.menu_stdA{width: 47px;left: 80px;	background: url(ecalc_sprite2.png) -369px -1504px no-repeat;	}
+	.menu_stdA:hover{width: 47px;background: url(ecalc_sprite2.png) -369px -1535px no-repeat;	}	
+	.menu_fixA{width: 47px;left: 127px;background: url(ecalc_sprite2.png) -463px -1504px no-repeat;	}
+	.menu_fixA:hover{width: 47px;background: url(ecalc_sprite2.png) -463px -1535px no-repeat;	}	
+	.menu_sciA{width: 47px;left: 174px;background: url(ecalc_sprite2.png) -416px -1504px no-repeat;	}
+	.menu_sciA:hover{width: 47px;background: url(ecalc_sprite2.png) -416px -1535px no-repeat;	}
+	.menu_engA{width: 47px; left: 224px;	background: url(ecalc_sprite2.png) -510px -1504px no-repeat;	}
+	.menu_engA:hover{width: 47px;background: url(ecalc_sprite2.png) -510px -1535px no-repeat;	}
+
+	.menu_stdB{width: 47px; left: 80px; background: url(ecalc_sprite2.png) -369px -1535px no-repeat;	}	
+	.menu_fixB{width: 47px; left: 127px; background: url(ecalc_sprite2.png) -463px -1535px no-repeat;	}	
+	.menu_sciB{width: 47px; left: 174px; background: url(ecalc_sprite2.png) -416px -1535px no-repeat;	}
+	.menu_engB{width: 47px; left: 224px; background: url(ecalc_sprite2.png) -510px -1535px no-repeat;	}
+
+	
+	.menu_degA{width: 47px;left: 80px;	background: url(ecalc_sprite2.png) -369px -1566px no-repeat;	}
+	.menu_degA:hover{width: 47px;background: url(ecalc_sprite2.png) -369px -1597px no-repeat;	}	
+	.menu_radA{width: 47px;left: 127px;	background: url(ecalc_sprite2.png) -416px -1566px no-repeat;	}
+	.menu_radA:hover{width: 47px;background: url(ecalc_sprite2.png) -416px -1597px no-repeat;	}	
+	.menu_gradA{width: 47px;left: 174px;	background: url(ecalc_sprite2.png) -463px -1566px no-repeat;	}
+	.menu_gradA:hover{width: 47px;background: url(ecalc_sprite2.png) -463px -1597px no-repeat;	}	
+
+	.menu_degB{width: 47px;left: 80px;	background: url(ecalc_sprite2.png) -369px -1597px no-repeat;	}
+	.menu_radB{width: 47px;left: 127px;	background: url(ecalc_sprite2.png) -416px -1597px no-repeat;	}
+	.menu_gradB{width: 47px;left: 174px;	background: url(ecalc_sprite2.png) -463px -1597px no-repeat;	}
+	
+	.menu_recA{width: 47px;left: 80px;	background: url(ecalc_sprite2.png) -510px -1566px no-repeat;	}
+	.menu_recA:hover{width: 47px;background: url(ecalc_sprite2.png) -510px -1597px no-repeat;	}	
+	.menu_polarA{left: 130px;	width: 54px; background: url(ecalc_sprite2.png) -557px -1566px no-repeat;	}
+	.menu_polarA:hover{width: 54px; background: url(ecalc_sprite2.png) -557px -1597px no-repeat;	}	
+
+	.menu_recB{width: 47px; left: 80px;background: url(ecalc_sprite2.png) -510px -1597px no-repeat;	}	
+	.menu_polarB{width: 54px; left:130px; background: url(ecalc_sprite2.png) -557px -1597px no-repeat;	}	
+	
+	.menu_rpnA{width: 47px;left: 80px;	background: url(ecalc_sprite2.png) -369px -1628px no-repeat;	}
+	.menu_rpnA:hover{width: 47px; background: url(ecalc_sprite2.png) -369px -1659px no-repeat;	}	
+	.menu_algA{left: 127px;	width: 92px; background: url(ecalc_sprite2.png) -416px -1628px no-repeat;	}
+	.menu_algA:hover{left: 127px;	width: 92px; background: url(ecalc_sprite2.png) -416px -1659px no-repeat;	}
+
+	.menu_rpnB{width: 47px; left:80px; background: url(ecalc_sprite2.png) -369px -1659px no-repeat;	}	
+	.menu_algB{left: 127px;	left:127px; width: 92px; background: url(ecalc_sprite2.png) -416px -1659px no-repeat;	}
+	
+	
+	#ecalc_precision{
+		position: absolute;
+		border: 1px solid gray;
+		padding:0px 0px 0px 3px;
+		width: 40px;
+		height: 21px;
+		left: 280px;
+		top: 4px;
+		font-family: arial;
+	  font-weight: bold;
+	  font-size: 17px;
+		line-height: 21px;
+	}
+		
+  #ecalc_demo,#ecalc_demo2{
+   position: absolute;
+   width: 345px;
+   height: 185px;
+   z-index:9999;
+   left:11px;
+   top: 26px;
+   background: url(ecalc_sprite2.png) 0px -1131px no-repeat;	  
+   display: none;
+  }
+  #ecalc_demo2{
+   left:0px;
+   top: 170px;
+   height:85px;
+   background: url(ecalc_sprite2.png) 0px -1150px no-repeat;	  
+   z-index:1;
+  }
+  
+  #ecalc_demo2{ display:block;}
+  
+  #ecalcBuy,#ecalc2Buy{
+  position: absolute;
+  width: 122px;
+  height: 36px;
+  left:110px;
+  top:105px;
+  }
+  
+  #ecalcReg{
+   position: absolute;
+   width: 200px;
+   height:30px;
+   left:72px;
+   top:270px;
+   background: url(ecalc_sprite2.png) -73px -1415px no-repeat;	  
+  }
+  
+  #ecalc2Buy{
+   top:270px;
+  }
+  
+  .ecalcBuyHover{
+   background: url(ecalc_sprite2.png) -2px -1328px no-repeat;	  
+  }
+  .ecalcBuyOut{
+    background: transparent; 
+  }
+  
+  .ecalc2BuyHover{
+   background: url(ecalc_sprite2.png) -2px -1329px no-repeat;	  
+  }
+  .ecalc2BuyOut{
+   background: url(ecalc_sprite2.png) -110px -1237px no-repeat;	 
+  }
+  
+  #help{
+   position:absolute;
+   width:345px;
+   height:488px;
+   left:0px;
+   top:0px;
+   background-color:#F6F6F6;
+  }
+  
+ 
+  .cnstDash{
+      width:50px;
+  }
+  
+  #const_list_test,#const_list_test2{
+   position:absolute;
+   left:0px;
+   width:345px;
+   bottom:0px;
+   height:392px; 
+   margin:0;
+   padding:0;
+   /*background-color:#EAEDE9; */
+   background-color:#F6F6F6;
+   text-align:center;
+  }
+  
+   .constListBox{
+   position: relative;
+   margin:0;
+   padding:0;
+   width:345px;
+   height:29px;
+   /*background-color:#EAEDE9; */
+   border-bottom: 1px dotted #C0C0C0;
+   /*border-bottom: 1px solid #C0C0C0; */
+  }
+
+  .constSideBar,.solverSideBar{
+   position: absolute;
+   left:0px;
+   top:0px;
+   width:4px;
+   height:29px;
+   font-size:5px;
+   z-index:999;
+   background-color:#F6F6F6;
+  }
+  .solverSideBar{
+   height:30px;   
+  }
+  
+  #constListBox11{
+  border-bottom:none;
+  }
+  
+  #constListBox12{
+    border-bottom:none;
+    height:32px;
+    width:345px;
+    margin:0;
+    left:0px; 
+    border-top:1px solid #C0C0C0;
+    background-color:#C0C0C0;
+  }
+  
+ 
+  
+  #const_list_test2 li a{height:30px;display:block;}
+  #const_list_test2 #constLast a{height:32px;}
+  
+  #ecalcCont{
+  position:absolute;
+  width:115px;
+  height:18px;
+  left:220px;
+  top:160px;
+  display:none;
+  }
+  
+  .ecalcContHover{
+  background: url(ecalc_sprite2.png) -4px -1371px no-repeat;	  
+  }
+  .ecalcContOut{
+  background: url(ecalc_sprite2.png) -4px -1391px no-repeat;
+  }
+  
+  #ecalc_stack0 {
+	position: absolute; 
+	margin: 0px 0px 0px 0px;
+	padding: 0px 5px 0px 8px;
+  left: 11px; 
+  bottom: 349px; 
+  width: 330px; 
+  height: 32px;
+	font-family: arial;
+	font-weight: normal;
+	font-size: 24px;
+	letter-spacing: 0px;
+  border: 1px ridge #CCC;
+  background-color: transparent;
+	border: none;
+	/*border-top: 2px solid black; */
+	text-align: left;
+  outline: 0 none ;
+  line-height:32px;
+
+
+	}
+  
+  .testWidth{
+	font-family: arial;
+  }
+  
+  #ecalc_stack1,#ecalc_stack2,#ecalc_stack3,#ecalc_stack4 {
+	position: absolute; 
+  left: 11px; 
+  /*width: 345px;*/ 
+  height: 31px;
+  /* background-color: #F2F2F2;*/
+  outline-style: none;
+  color: #000000;
+  text-decoration:none;
+  z-index:999;
+  }
+  
+  a:hover{text-decoration:none;}
+  a:visited{text-decoration:none;}
+  
+  #ecalc_hovr1,#ecalc_hovr2,#ecalc_hovr3,#ecalc_hovr4{
+  position:absolute;
+  left:11px;
+  width:4px;
+  background-color:#c6e9af;
+  z-index:999;
+  visibility:hidden;
+  }
+
+
+  .hovrRPN1,.hovrRPN2,.hovrRPN3,.hovrRPN4{
+   height:31px;   
+  }
+  .hovrRPN1{ bottom:384px; height:30px;}
+  .hovrRPN2{ bottom:414px;}
+  .hovrRPN3{ bottom: 445px;}
+  .hovrRPN4{ bottom: 476px;}
+  
+  .stackInfix1,.stackInfix3{
+   padding:0;
+   margin:0;
+   padding-right:6px;
+   width:339px;  
+   text-align:right;
+	font-family: arial;
+	/* font-size: 22px; */
+	letter-spacing: 0px;
+	line-height: 31px;
+  overflow:hidden;
+  text-overflow:ellipsis;  
+  white-space:nowrap;
+  }
+  
+  .stackInfix2,.stackInfix4{
+   padding:0;
+   margin:0;
+   text-align:left;  
+   padding-left:8px;
+   width:337px;    
+	font-family: arial;
+	/* font-size: 20px; */
+	letter-spacing: 0px;
+	line-height: 31px;
+  overflow:hidden;
+  text-overflow:ellipsis;  
+  white-space:nowrap;
+  
+  }
+  
+  .stackInfix1{
+   background-color:#F6F6F6;
+    border-bottom:1px solid black; 
+
+  }
+  .stackInfix2{
+   background-color:#F6F6F6;
+   /* border-bottom:1px dotted #CCCCCC; */
+  }
+  .stackInfix3{
+
+    border-bottom:1px solid #CCCCCC; 
+  }
+  .stackInfix4{
+   border-top:1px solid black;
+   /*border-bottom:1px dotted #CCCCCC; */
+  }
+  
+  
+  .stackRPN1,.stackRPN2,.stackRPN3,.stackRPN4{
+  padding:0;
+  margin:0;
+  text-align:right;
+  width:339px;
+  padding-right:6px;
+  background-color:#FFFFFF;
+	font-family: arial;
+	/*font-size: 22px; */
+	letter-spacing: 0px;
+	line-height: 31px;
+  overflow:hidden;
+  text-overflow:ellipsis;  
+  white-space:nowrap;
+  }
+  .stackRPN4,.stackRPN2{
+  background-color:#F6F6F6;
+  }
+  .stackRPN1{
+  border-bottom:1px solid black;
+  }
+  .stackRPN4{
+  border-top: 1px solid black;
+  }
+
+  
+  
+
+
+  #ecalc_stack1,#ecalc_pop1{
+	bottom: 383px; 
+  }
+  #ecalc_stack2,#ecalc_pop2{
+	  bottom: 414px; 
+  }
+  #ecalc_stack3,#ecalc_pop3{
+	  bottom: 445px;
+  }
+  #ecalc_stack4,#ecalc_pop4{
+	  bottom: 476px;
+  }
+  
+  #ecalc_pop1,#ecalc_pop2,#ecalc_pop3,#ecalc_pop4{
+	position: absolute; 
+  left: 11px; 
+  width: 36px; 
+  height: 31px;
+	border: none;
+  }
+
+  #stack_poppers a{height:31px;}
+  
+	
+  #ecalc_pop1,#ecalc_pop3{ background: url(ecalc_sprite2.png) -369px -848px no-repeat; }
+  #ecalc_pop1 a:hover {	background: url(ecalc_sprite2.png) -405px -848px no-repeat; }
+  #ecalc_pop3 a:hover{ background: url(ecalc_sprite2.png) -405px -848px no-repeat; }
+  
+  #ecalc_pop2,#ecalc_pop4{ background: url(ecalc_sprite2.png) -441px -848px no-repeat;  }
+  #ecalc_pop2 a:hover{ background: url(ecalc_sprite2.png) -477px -848px no-repeat;  }
+  #ecalc_pop4 a:hover{ background: url(ecalc_sprite2.png) -477px -848px no-repeat;  }
+  
+  #enter_gui {left: 10px; bottom: 10px; width: 347px; height: 70px;}
+  
+  /* Define Horizontal hover bounds (Left Justified) */
+  #log_gui,#ex_gui,#squared_gui,#pi_gui {left: 10px; width:47px; height:47px;}
+  #sin_gui,#asin_gui {left: 10px; width:47px; height:28px;}
+  
+  #invt_gui,#ln_gui,#sqrt_gui,#yx_gui {left: 60px; width: 47px; height:47px;}
+  #cos_gui,#acos_gui {left: 60px; width: 47px; height: 28px;}
+  
+  #zero_gui,#one_gui,#four_gui,#seven_gui {left: 110px; width:47px; height:47px;}
+  #tan_gui,#atan_gui {left: 110px; width:47px; height:28px;}
+  
+  #dot_gui,#two_gui,#five_gui,#eight_gui {left: 160px; width:47px; height:47px;}
+  #lbrack_gui, #comma_gui {left: 160px; width:47px; height:28px;}
+  
+  #eex_gui,#three_gui,#six_gui,#nine_gui {left: 210px; width:47px; height:47px;}
+  #rbrack_gui,#angle_gui {left: 210px; width:47px; height:28px;}
+  
+  #plus_gui,#minus_gui,#times_gui,#divide_gui {left: 260px; width:47px; height:47px;}
+  #ans_gui,#fact_gui {left: 260px; width:47px; height:28px;}
+  
+  #back_gui,#clear_gui,#clearall_gui,#pm_gui {left: 310px; width:47px; height:47px;}
+  #df_gui,#menu_gui {left: 310px; width:47px; height:28px;}
+	
+  /* Define Vertical hover bounds (Bottom Justified) */
+  #log_gui,#invt_gui,#zero_gui,#dot_gui,#eex_gui,#plus_gui,#back_gui {bottom: 83px; }
+  #ex_gui,#ln_gui,#one_gui,#two_gui,#three_gui,#minus_gui,#clear_gui  {bottom: 133px; }
+  #squared_gui,#sqrt_gui,#four_gui,#five_gui,#six_gui,#times_gui,#clearall_gui {bottom: 183px; }
+  #pi_gui,#yx_gui,#seven_gui,#eight_gui,#nine_gui,#divide_gui,#pm_gui {bottom: 233px; }
+  #sin_gui,#cos_gui,#tan_gui,#lbrack_gui,#rbrack_gui,#ans_gui,#df_gui {bottom: 283px; }
+  #asin_gui,#acos_gui,#atan_gui,#comma_gui,#angle_gui,#fact_gui,#menu_gui {bottom: 314px; }
+  
+  /* Define Palette buttons on bottom */
+  #units_gui {left: 13px; bottom: 10px; width: 70px; height: 28px;}
+  #const_gui {left: 89px; bottom: 10px; width: 77px; height: 28px;}
+  #solver_gui {left: 172px; bottom: 10px; width: 75px; height: 28px;}
+  #logic_gui {left: 253px; bottom: 10px; width: 67px; height: 28px;} 
+  #help_gui {left: 326px; bottom: 10px; width: 28px; height: 28px;} 
+  /*   #help_gui {left: 662px; bottom: 10px; width: 57px; height: 28px;} */
+  
+  /* Define Button Links */
+  #enter_gui a{ height: 70px; } 
+	
+	.button_square a{height:47px;}
+	.button_rect a{height:28px;}
+  
+  /* Status Area */
+  #status_format,#status_angle,#status_coord,#status_mode {
+	bottom: 508px;
+	width: 43px;
+	height: 26px;
+  }  
+  
+  #status_angle   {  left: 15px;  }
+  #status_coord   {  left: 63px; }
+  #status_format  {  left: 111px;  }
+  #status_mode    {  left: 157px; }
+ 
+  /* UP DOWN ARROWS */
+  #status_up, #status_down {
+	  bottom: 508px; 
+	  width: 20px;
+	  height: 26px;	  
+  }
+  
+  #status_down { left: 305px;}
+  #status_up { left: 330px;}
+
+  #status_bar a{ height: 26px;}
+  
+  #status_up	a:hover {background:   url(ecalc_sprite2.png) -545px -663px no-repeat;}
+  #status_up 			{background:   url(ecalc_sprite2.png) -587px -663px no-repeat;} 
+  
+  #status_down	a:hover {background:   url(ecalc_sprite2.png) -566px -663px no-repeat;}
+  #status_down 			{background:   url(ecalc_sprite2.png) -608px -663px no-repeat;}    
+ 
+  /* Define active Rollover Cutouts */
+  
+  #zero_gui			a:hover { background:   url(ecalc_sprite2.png) -110px -782px no-repeat;}
+  #one_gui      a:hover { background:   url(ecalc_sprite2.png) -110px -732px no-repeat;}
+
+  #seven_gui    a:hover { background:   url(ecalc_sprite2.png) -110px -632px no-repeat;}
+  #six_gui      a:hover { background:   url(ecalc_sprite2.png) -210px -682px no-repeat;}
+  #five_gui     a:hover { background:   url(ecalc_sprite2.png) -160px -682px no-repeat;}
+  #four_gui     a:hover { background:   url(ecalc_sprite2.png) -110px -682px no-repeat;}
+  #three_gui    a:hover { background:   url(ecalc_sprite2.png) -210px -732px no-repeat;}
+  #two_gui      a:hover { background:   url(ecalc_sprite2.png) -160px -732px no-repeat;}
+
+	
+  #dot_gui      a:hover { background:   url(ecalc_sprite2.png) -160px -782px no-repeat;}
+  #eight_gui    a:hover { background:   url(ecalc_sprite2.png) -160px -632px no-repeat;}
+                
+  #eex_gui      a:hover { background:   url(ecalc_sprite2.png) -210px -782px no-repeat;}
+  #nine_gui     a:hover { background:   url(ecalc_sprite2.png) -210px -632px no-repeat;}
+                
+  #plus_gui    a:hover { background:   url(ecalc_sprite2.png) -260px -782px no-repeat;}
+  #minus_gui     a:hover { background:   url(ecalc_sprite2.png) -260px -732px no-repeat;}
+  #times_gui    a:hover { background:   url(ecalc_sprite2.png) -260px -682px no-repeat;}
+  #divide_gui   a:hover { background:   url(ecalc_sprite2.png) -260px -632px no-repeat;}
+                
+  #back_gui     a:hover { background:   url(ecalc_sprite2.png) -310px -782px no-repeat;}
+  #clear_gui    a:hover { background:   url(ecalc_sprite2.png) -310px -732px no-repeat;}
+  #clearall_gui a:hover { background:   url(ecalc_sprite2.png) -310px -682px no-repeat;}
+  #pm_gui       a:hover { background:   url(ecalc_sprite2.png) -310px -632px no-repeat;}
+                                                                         
+  #df_gui    a:hover { background:   url(ecalc_sprite2.png) -310px -601px no-repeat;} 
+  #menu_gui     a:hover { background:   url(ecalc_sprite2.png) -310px -570px no-repeat;}
+  
+  /* Palette Buttons */
+  #units_gui	a:hover { background:   url(ecalc_sprite2.png) -380px -571px no-repeat;}
+  #const_gui 	a:hover { background:   url(ecalc_sprite2.png) -456px -571px no-repeat;}
+  #solver_gui	a:hover { background:   url(ecalc_sprite2.png) -539px -571px no-repeat;}
+  #logic_gui	a:hover { background:   url(ecalc_sprite2.png) -620px -571px no-repeat;}
+  #help_gui		a:hover { background:   url(ecalc_sprite2.png) -693px -571px no-repeat;}
+	
+	/* Unit Converter */
+	
+	
+	#units_input_wrap{
+	position:absolute;
+	width: 345px;
+	height:376px;
+	top:27px;
+	left:0px;
+	padding:0px;
+	padding-top:5px;
+	margin:0px;
+	background-color:#EAEDE9;
+
+	}
+	#unit_cat{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:345px;
+	height:85px;
+	background-color:#EAEDE9;
+
+	}
+	.unitLine{
+	position:absolute;
+	left:178px;
+	bottom:0px;
+	height:0px;
+	width: 132px;
+	border-bottom:1px solid #CCCCCC;
+	}
+	.unitBigText{
+	position:absolute;
+	left:181px;
+	bottom:0px;
+	height:31px;
+	width: 50px;
+	line-height: 31px;
+	font-size:15px;
+	font-weight:bold;
+	font-family: arial;
+	background-color: transparent;
+	text-align:left;
+	}
+	.unitSmallText1{
+	position:absolute;
+	bottom:15px;
+	background-color:red;
+	background-color: transparent;
+	}
+	.unitSmallText2{
+	position:absolute;
+	bottom:3px;
+	background-color:green;
+	background-color: transparent;
+	}
+	.unitSmallText1, .unitSmallText2{
+	font-size:11px;
+	font-weight:bold;
+	font-family: arial;	
+	line-height: 13px;
+	vertical-align: middle;
+	height:14px;
+	text-align:left;
+	left:238px;
+	width:78px;
+	}
+
+
+	#unit_cat_img{
+	position:absolute;
+	top:5px;
+	left:12px;
+	height:70px;
+	width:321px;
+	background: url(ecalc_sprite2.png) -10px -950px no-repeat;
+	}
+	.unitBox{
+		position: absolute;
+		left:0px;
+		bottom:3px;
+		width: 171px;
+		height: 24px;
+		border: 1px solid #CCCCCC;
+		background-color:white;
+	}
+	.unitBoxWrap{
+	 position:relative;
+	 margin-left:12px;
+	 height:31px;
+	 width:322px;
+	 background-color:transparent;
+		
+	}
+	.unitInput{
+		position: absolute;
+		width: 146px;
+		height: 24px;
+		margin:0;
+		padding:0;
+		border: 0;
+		right:0px;
+		bottom:0px;
+		font-size:20px;
+		text-align:right;
+		font-family:arial;
+		line-height:24px;
+		background-color:white;
+		padding-right:5px;
+    outline: 0 none ;
+	}
+	.unitPopWhite,.unitPopColor{
+		position: absolute;
+		height:24px;
+		width: 15px;
+		left:3px;
+		top:0px;
+	  background: url(ecalc_sprite2.png) -433px -939px no-repeat;
+}
+
+  .unitPopColor{
+  	background: url(ecalc_sprite2.png) -433px -915px no-repeat;
+}
+
+
+
+
+
+	.unitPopWhite a{height:24px; display:block;cursor:default;}
+	.unitPopWhite a:hover{ background:url(ecalc_sprite2.png) -433px -963px no-repeat;}
+
+
+	.unitPopColor a{height:24px; display:block;cursor:default;}
+	.unitPopColor a:hover{ background:url(ecalc_sprite2.png) -433px -891px no-repeat;}
+	
+
+
+
+	.unitText{ 
+		position: absolute;
+		left:10px;
+		width:136px;
+		height:32px;
+		line-height:32px;
+		font-size:10px;
+		font-family:arial;
+		font-weight:bold;
+		text-align:left;
+		padding-left:5px;
+	}
+	#unit_cat_img_list{
+		list-style:none;
+
+	}
+	#unit_cat_img_list a{
+		height:18px; display:block;
+		cursor:default;
+	}
+	#unit_cat_img_list li{
+		position:absolute;
+	  list-style:none;
+		margin:0;
+		padding:0;
+		height:18px;
+		width:80px;
+	}
+	#unit_cat0,#unit_cat1,#unit_cat2{	left:0px; }
+	#unit_cat3,#unit_cat4,#unit_cat5{	left:80px;}
+	#unit_cat6,#unit_cat7,#unit_cat8{	left:161px;	}
+	#unit_cat9,#unit_cat10,#unit_cat11{	left:241px;	}
+	#unit_cat0,#unit_cat3,#unit_cat6,#unit_cat9{ top:7px;	}
+	#unit_cat1,#unit_cat4,#unit_cat7,#unit_cat10{ top:26px;	}
+	#unit_cat2,#unit_cat5,#unit_cat8,#unit_cat11{ top:45px;	}
+	
+
+	
+	#unit_cat0 a:hover {background:url(ecalc_sprite2.png) -10px -1027px no-repeat }
+	#unit_cat1 a:hover {background:url(ecalc_sprite2.png) -10px -1047px no-repeat }
+	#unit_cat2 a:hover {background:url(ecalc_sprite2.png) -10px -1067px no-repeat }
+	#unit_cat3 a:hover {background:url(ecalc_sprite2.png) -90px -1027px no-repeat }
+	#unit_cat4 a:hover {background:url(ecalc_sprite2.png) -90px -1047px no-repeat }
+	#unit_cat5 a:hover {background:url(ecalc_sprite2.png) -90px -1067px no-repeat }
+	#unit_cat6 a:hover {background:url(ecalc_sprite2.png) -171px -1027px no-repeat }
+	#unit_cat7 a:hover {background:url(ecalc_sprite2.png) -171px -1047px no-repeat }
+	#unit_cat8 a:hover {background:url(ecalc_sprite2.png) -171px -1067px no-repeat }
+	#unit_cat9 a:hover {background:url(ecalc_sprite2.png)  -251px  -1027px no-repeat }
+	#unit_cat10 a:hover {background:url(ecalc_sprite2.png) -251px -1047px no-repeat }
+	#unit_cat11 a:hover {background:url(ecalc_sprite2.png) -251px -1067px no-repeat }
+	
+	.stickUnit_cat0 {background:url(ecalc_sprite2.png) -10px -1027px no-repeat }
+	.stickUnit_cat1 {background:url(ecalc_sprite2.png) -10px -1047px no-repeat }
+	.stickUnit_cat2 {background:url(ecalc_sprite2.png) -10px -1067px no-repeat }
+	.stickUnit_cat3 {background:url(ecalc_sprite2.png) -90px -1027px no-repeat }
+	.stickUnit_cat4 {background:url(ecalc_sprite2.png) -90px -1047px no-repeat }
+	.stickUnit_cat5 {background:url(ecalc_sprite2.png) -90px -1067px no-repeat }
+	.stickUnit_cat6 {background:url(ecalc_sprite2.png) -171px -1027px no-repeat }
+	.stickUnit_cat7 {background:url(ecalc_sprite2.png) -171px -1047px no-repeat }
+	.stickUnit_cat8 {background:url(ecalc_sprite2.png) -171px -1067px no-repeat }
+	.stickUnit_cat9 {background:url(ecalc_sprite2.png)  -251px  -1027px no-repeat }
+	.stickUnit_cat10 {background:url(ecalc_sprite2.png) -251px -1047px no-repeat }
+	.stickUnit_cat11 {background:url(ecalc_sprite2.png) -251px -1067px no-repeat }
+
+	#ul_line1,#ul_line2,#ul_line3{
+		position:absolute;
+		left:80px;
+		width:0px;
+		height:60px;
+		top:5px;
+		border-right:1px solid #8D8D8D;
+	}
+	#ul_line2{left:160px;}
+	#ul_line3{left:240px;}
+	
+	
+	
+	
+	
+  /* Logic Palette */
+	
+	#logic_bits {
+	position: absolute; 
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+  left: 19px;
+	bottom: 84px;
+  width: 301px; /* 295px; */ 
+  height: 120px;
+	border: none;
+	background: url(ecalc_sprite2.png) -369px -1011px no-repeat;
+	}
+	
+	#logic_bits ul li{
+		width: 16px;
+		height: 33px;
+		background-color: transparent;
+		position: absolute;
+	}
+	#logic_bits a{
+		width: 16px;
+		height: 33px;
+	}
+	
+	#logic_bits #b31tob16 li{
+		bottom: 70px;
+	}
+	
+	#logic_bits #b15tob0 li{
+		bottom: 14px;
+	}
+	
+	#bit31, #bit15 {left:4px;}
+	#bit30, #bit14 {left:20px;}
+	#bit29, #bit13 {left:36px;}
+	#bit28, #bit12 {left:52px;}
+	/* 6pix padding bitetween nibitbitles */
+	#bit27, #bit11 {left:74px;}
+	#bit26, #bit10 {left:90px;}
+	#bit25, #bit9 {left:106px;}
+	#bit24, #bit8 {left:122px;}
+	/* 7pix padding bitetween words */
+	#bit23, #bit7 {left:163px;}
+	#bit22, #bit6 {left:179px;}
+	#bit21, #bit5 {left:195px;}
+	#bit20, #bit4 {left:211px;}
+	/* 6pix padding bitetween nibitbitles */
+	#bit19, #bit3 {left:233px;}
+	#bit18, #bit2 {left:249px;}
+	#bit17, #bit1 {left:265px;}
+	#bit16, #bit0 {left:281px;}
+	
+
+	
+
+	#base_wrap{
+	position: absolute;
+	margin:0;
+	padding:0;
+	left:0;
+	top:27px;
+	height:200px;
+	width: 345px;
+	background-color: #F6F6F6;
+	}
+	#hex_font,#oct_font,#dec_font,#bin_font{
+	position: absolute; 
+  left: 45px;
+  width: 58px; 
+  height: 28px;
+	line-height: 29px;
+	border: none;
+	background-color: transparent;	
+	font-family: arial;
+	font-weight: normal;
+	font-size: 20px;
+	color: #333333;
+	letter-spacing: 0px;
+	text-align: left;
+	}
+	
+	#bin_font{ left:150px; top: 210px;}
+	
+	#hex_box,#oct_box,#dec_box{	
+	position: absolute; 
+	margin:0;
+	padding: 0px 5px 0px 5px;
+  	left: 95px;
+  	width: 180px; 
+  	height: 28px;
+	border: none;
+	font-family: arial;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 28px;
+	color: black;
+	letter-spacing: 0px;
+	text-align: left;	
+	border: 1px solid gray;
+	}
+	#hex_font,#hex_box{
+		top: 146px;
+	}
+	#oct_font,#oct_box{
+		top: 93px;
+	}
+	#dec_font,#dec_box{
+		top: 40px;
+	}
+	
+	
+  #dToFInput{
+	position: absolute; 
+	margin: 0px 0px 0px 0px;
+	padding: 0px 5px 0px 5px;
+  left: 50px; 
+  bottom: 20px; 
+  width: 238px; 
+  height: 28px;
+	font-family: arial;
+	font-weight: normal;
+	font-size: 22px;
+  line-height:28px;
+	letter-spacing: 0px;
+	text-align: left;
+  border: 1px solid #808080;
+ }
+ 
+ 
+ #constBox{
+	 background: #AACCFF;
+	 width: 180px;
+ }
+ 
+ #dToFInput{
+	 background: #FFFFFF;
+	 bottom: 18px;
+ }
+ 
+ #dToFBox{
+	top: 60px;
+	width: 345px;
+	height: 94px;
+	position: absolute;
+	top:0px;
+	left:0px;
+	padding:0;
+	margin:0;
+	border: none;
+	border-bottom: 1px solid #CCCCCC;
+	background: transparent;
+ }
+ 
+ #fractions{
+	height: 383px;
+	width: 335px;
+	padding:0px;
+	padding-left: 10px;
+	padding-top: 10px;
+	left: 0px;
+	margin:0;
+	text-align: left; 
+	position: absolute;
+	top: 95px;
+	overflow: auto; 
+	font-family: arial; 
+	font-size: 15pt;
+	background-color: #F6F6F6;
+  overflow:hidden;
+ }
+ 
+
+	
+	#decPush{
+		left: 30px;
+		top: 37px;
+	}
+	
+	#answerWrapper div{
+		top: 50px;
+		position: relative;
+		margin: 0 auto;
+		padding: 0;
+		width: 335px;
+		padding-left: 10px;
+		height: 36px;
+		text-align: left;
+		font-family: arial;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 36px;
+		text-align: left;
+	}
+	
+	.BGOdd{
+   overflow:hidden;
+   text-overflow:ellipsis;  
+   white-space:nowrap;
+		background-color: #F6F6F6;
+	}
+	.BGEven{
+	 overflow:hidden;
+   text-overflow:ellipsis;  
+   white-space:nowrap;
+	}
+	.BGHot{
+		background-color: #C6E9AF;
+	}
+	.notBold{
+		font-weight: normal;
+		margin-left: 10px;
+	}
+	
+
+ 
+
+ 
+	/* Constants Tab */
+	#const_disp {
+	position: absolute; 
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+  left: 0px;
+	bottom: 392px;
+  width: 345px; 
+  height: 98px;
+	border: none;
+	border-bottom: 1px solid #CCCCCC;
+
+
+	}	
+
+	#const_title,#const_value{
+	position: absolute; 
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+  left: 78px;
+	bottom: 55px;
+  width: 190px; 
+  height: 30px;
+	border: none;
+
+	font-family: arial;
+	font-weight: 900;
+	font-size: 24px;	
+	color: #8DD35F;
+	}	
+	
+	#const_value{
+	left:15px;
+	bottom:10px;
+	width:305px;
+	text-align:center;
+	color: black;
+	}
+	
+	#const_list {
+	position: absolute; 
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+  left: 0px;
+	bottom: 0px;
+  width: 345px; 
+	border:none;
+
+	border-collapse: collapse;
+	font-family: arial;
+	font-weight: 900;
+	font-size: 17px;	
+
+	}
+
+
+	#const_list tbody tr td {
+		margin: 0;
+		padding: 0;
+		/*height: 30px; */
+		line-height: 30px;
+
+	}
+	
+	#CNSTDesc12{
+		text-align: center;
+		margin: 0;
+		padding: 0;
+		line-height: 32px;
+	}
+	
+	#constUnitsHover{
+		font-size:18px;
+		font-weight:500;
+	}
+
+  .constSuper{
+   font-size:16px;
+   font-weight:normal;
+   
+  }
+      
+  
+  .solverBuildCell{
+  position:relative;
+  width:345px;
+  margin:0;
+  height: 30px;
+  line-height:30px;
+  font-family:arial;
+  font-size:17px;
+  background-color:#F6F6F6;
+  border-bottom: 1px dotted #C0C0C0;
+ }
+	
+
+
+	
+	/* Solver Stuff */
+	
+	.solverButtons{
+		position: absolute;
+		height:60px;
+		bottom: 0px;
+		left: 0px;
+		padding: 0px;
+		margin: 0px;
+		width: 345px;
+		background-color: #E6EAE9;
+		
+	}
+	
+	.solverButtons li{
+		position: absolute;
+		border: 1px solid black;
+		list-style: none;
+		height: 24px;
+		border: none;
+		margin: 0;
+		padding: 0;
+		bottom: 18px;
+	}
+	
+	.solverButtons a{
+		display: block;
+	}
+	
+	.solveButton{
+		left:93px;
+		width:74px;
+		background: url(ecalc_sprite2.png) -589px -1131px no-repeat;	
+	}
+	.solveButton a:hover{
+		background: url(ecalc_sprite2.png) -589px -1155px no-repeat;	
+	}
+	.solveButton a{
+		height:24px;
+	}
+	
+	.exitButton{
+		left:182px;
+		width:66px;
+		background: url(ecalc_sprite2.png) -589px -1179px no-repeat;	
+	}
+	
+	.exitButton a:hover{
+		background: url(ecalc_sprite2.png) -589px -1203px no-repeat;
+	}
+	.exitButton a{
+		height:24px;
+	}
+	
+	.backButton{
+		left:93px;
+		width:74px;
+		background: url(ecalc_sprite2.png) -589px -1227px no-repeat;	
+	}
+	
+	.backButton a:hover{
+		background: url(ecalc_sprite2.png) -589px -1251px no-repeat;
+	}
+	.backButton a{
+		height:24px;
+	}
+	
+	.clearButton a{ height: 24px}
+	
+	.clearButton{
+		width:105px;
+		background: url(ecalc_sprite2.png) -589px -1275px no-repeat;	
+	}
+	
+	.clearButton a:hover{
+		background: url(ecalc_sprite2.png) -589px -1299px no-repeat;
+	}
+	.clearButton a{
+		height:24px;
+	}
+	
+	#clearBase{ 
+		position: absolute;
+		bottom: 25px;
+		left: 115px;
+		margin:0;
+		padding:0;
+	}
+
+	#linearWrapper{
+		position: relative;
+		margin: 0 auto;
+		padding: 0;
+		width: 345px;
+		height: 488px;
+	}
+	
+	#solverTitle{
+		position: relative;
+		padding:0;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		padding-top: 50px;
+		font-family: arial;
+		font-weight: bold;
+		font-size: 24px;
+		top: 20px;
+		color: #333333;
+		text-align: center;
+	}
+	
+	#AMatrix,#BVector{
+		list-style: none;
+		border: none;
+		margin: 0 auto;
+		width: 50px;
+		height: 100px;
+		padding: 0 0 0 5px;
+		overflow: hidden;
+		float: left;
+	}
+	
+	#BVector{
+		border-left: 4px solid black;
+	}
+	
+	#solverWrap{
+		clear: left;
+		margin: 0 auto;
+		padding: 5px;
+		border: 4px solid black;
+		border-top:none;
+		border-bottom:none;
+		overflow: hidden;
+	}
+	
+	#solverBracketsWrap{
+		position: relative;
+		margin:0 auto;
+		margin-top: 0;
+		border: none;
+	
+	}
+	
+	#solverTLB,#solverBLB{
+		float: left
+	}
+	
+	#solverTRB,#solverBRB{
+		float: right
+	}
+	
+	#rootCoeffs{
+		position: absolute;
+		margin:0;
+		padding:0;
+		left: 20px;
+		bottom: 100px;
+		height: 250px;
+	}
+  #rootCoeffs li{
+   list-style:none;  
+  }
+	
+	
+	#rootTitleImage{
+		position: absolute;
+		margin:0 ;
+		padding:0;
+		left: 25px;
+		top: 60px;
+		height: 40px;
+		width: 290px;
+		background: url(ecalc_sprite2.png) -369px -1464px no-repeat;
+	}
+	
+	#rootWrapper,#fract{
+		margin:0;
+		padding:0;
+		position: absolute;
+		height: 488px;
+		left: 0px;
+		bottom:0px;
+		width: 345px;
+	}
+	.rootSolverBox{
+		position: relative;
+		margin:0 auto;
+		padding:1px;
+		padding-left: 5px;
+		background: #FBFBFB;
+		border: 1px solid #CDCDCD;
+		width: 160px;
+		font-family: arial;
+		color: #000524;
+		font-weight: normal;
+		font-size: 20px;
+		height: 23px;
+		vertical-align: middle;
+	}
+	.rootCoeffsLI{
+		position: relative;
+		width: 300px;
+		height: 30px;
+		margin: 0 auto;
+		padding: 0;
+		padding-top: 5px;
+
+	}
+	
+	.rootCoeffsLabel{
+		position: relative;
+		margin:0 auto;
+		padding:0;
+		margin-right: 5px;
+		font-family: arial;
+		font-weight: bold;
+		font-size: 20px;
+		vertical-align: middle;		
+	}
+	
+	
+	#cellID{
+		margin:0 auto;
+		list-style: none;
+		padding:0;
+		width: 300px;
+		left: 20px;
+		height: 50px;
+		bottom: 110px;
+		position: absolute;
+		border: 1px solid black;
+		border: none;
+	}
+	
+	#cellIDText{
+		position: absolute;
+		margin:0;
+		padding:0;
+		font-family: arial;
+		font-weight: bold;
+		font-size: 38px;
+		left: 20px;
+		bottom: 10px;
+	}
+	
+	#cellIDTextSub{
+		position: absolute;
+		margin:0;
+		padding:0;
+		font-family: arial;
+		font-weight: bold;
+		font-size: 18px;
+		left: 45px;
+		bottom: 6px;
+	}
+	
+	#cellIDEquals{
+		position: absolute;
+		font-family: arial;
+		font-weight: bold;
+		font-size: 32px;
+		bottom: 8px;
+		left: 75px;
+	}
+	
+	#cellInputBox{
+		margin: 0;
+		padding: 0;
+		padding-right: 5px;
+		position: absolute;
+		font-family: arial;
+		font-weight: normal;
+		font-size: 24px;
+		text-align: right;
+		width: 160px;
+		height: 30px;
+		left: 110px;
+    line-height:30px;
+		bottom: 10px;
+    border: 1px solid gray;
+	}
+	
+	.bracket{
+		margin:0;
+		padding:0;
+		width: 30px;
+		height: 4px;
+		background-color: black;
+		border: none;
+		overflow: hidden;
+	}
+	
+	.cell{
+		margin: 0;
+		padding: 0 0 0 0;
+		background-color: #E0E0E0;
+		border: 1px solid black;
+		float: left;
+		text-align: center;
+		font-family: arial;
+		/* font-weight: bold; */
+		font-size: 12px;
+		color: #999999;
+		line-height: 30px;
+		vertical-align: middle;
+	}
+	
+	/* Class Definitions */
+  /*  f0: Default Buttons  */ 
+  
+  #log_gui 			a:hover		{background:   url(ecalc_sprite2.png) -10px -782px no-repeat;}  
+  #ex_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -10px -732px no-repeat;} 
+  #squared_gui 	a:hover 	{background:   url(ecalc_sprite2.png) -10px -682px no-repeat;} 
+  #pi_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -10px -632px no-repeat;} 
+  #sin_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -10px -601px no-repeat;} 
+  #asin_gui 		a:hover 	{background:   url(ecalc_sprite2.png) -10px -570px no-repeat;} 
+  
+  #invt_gui 		a:hover 	{background:   url(ecalc_sprite2.png) -60px -782px no-repeat;}  
+  #ln_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -60px -732px no-repeat;}    
+  #sqrt_gui 		a:hover 	{background:   url(ecalc_sprite2.png) -60px -682px no-repeat;}    
+  #yx_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -60px -632px no-repeat;}    
+  #cos_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -60px -601px no-repeat;}    
+  #acos_gui 		a:hover 	{background:   url(ecalc_sprite2.png) -60px -570px no-repeat;}
+  
+  #tan_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -110px -601px no-repeat;}    
+  #atan_gui 		a:hover 	{background:   url(ecalc_sprite2.png) -110px -570px no-repeat;}
+  
+  #lbrack_gui		a:hover 	{background:   url(ecalc_sprite2.png) -160px -601px no-repeat;}    
+  /*#comma_gui 		a:hover 	{background:   url(ecalc_sprite2.png) -160px -570px no-repeat;}*/
+  
+  #rbrack_gui		a:hover 	{background:   url(ecalc_sprite2.png) -210px -601px no-repeat;}    
+  #angle_gui 		a:hover 	{background:   url(ecalc_sprite2.png) -210px -570px no-repeat;}
+  
+  #fact_gui 			a:hover 	{background:   url(ecalc_sprite2.png) -260px -570px no-repeat;}
+  	
+  	
+  	/*  Hot Buttons  */   
+	.df_button_hot {background:   url(ecalc_sprite2.png) -310px -601px no-repeat;}
+	.df_button a:hover {background:   url(ecalc_sprite2.png) -310px -601px no-repeat;}
+
+	.fract_button_hot {background:   url(ecalc_sprite2.png) -260px -601px no-repeat;}
+	.fract_button a:hover {background:   url(ecalc_sprite2.png) -260px -601px no-repeat;}
+
+	.menu_button  { background:   url(ecalc_sprite2.png) -310px -570px no-repeat;}
+	.menu_button_hot a:hover  { background:   url(ecalc_sprite2.png) -310px -530px no-repeat;}
+	
+	/* PALETTE BUTTON STATES ACTIVE*/
+	.unitsButton		#units_gui      { background:   url(ecalc_sprite2.png) -380px -571px no-repeat;}
+	.constButton    #const_gui			{ background:   url(ecalc_sprite2.png) -456px -571px no-repeat;}
+	.solverButton   #solver_gui 		{ background:   url(ecalc_sprite2.png) -539px -571px no-repeat;}
+	.logicButton   	#logic_gui			{ background:   url(ecalc_sprite2.png) -620px -571px no-repeat;}
+	.helpButton     #help_gui 			{ background:   url(ecalc_sprite2.png) -693px -571px no-repeat;}
+	
+	
+	/* PALETTE BUTTON STATES DEFAULT */
+	.PClear			#units_gui		{background:  none;}
+	.PClear   	#const_gui 		{background:  none;}
+	.PClear   	#solver_gui 	{background:  none;}
+	.PClear   	#logic_gui 		{background:  none;}
+	.PClear   	#help_gui  		{background:  none;}
+
+	/* Status Area Button Classes */
+	.status_std	 	 				{background:   url(ecalc_sprite2.png) -589px -636px no-repeat;}
+	.status_fix      			{background:   url(ecalc_sprite2.png) -677px -636px no-repeat;}
+	.status_sci      			{background:   url(ecalc_sprite2.png) -633px -636px no-repeat;}
+	.status_eng      			{background:   url(ecalc_sprite2.png) -545px -636px no-repeat;}
+	.status_deg	  				{background:   url(ecalc_sprite2.png) -413px -636px no-repeat;}
+	.status_rad	  				{background:   url(ecalc_sprite2.png) -369px -636px no-repeat;}	
+	.status_grd      			{background:   url(ecalc_sprite2.png) -677px -663px no-repeat;}
+	.status_rec      			{background:   url(ecalc_sprite2.png) -501px -636px no-repeat;}
+	.status_pol	    			{background:   url(ecalc_sprite2.png) -457px -636px no-repeat;}
+  .status_rpn		 					{background:   url(ecalc_sprite2.png) -457px -663px no-repeat;}
+	.status_alg      				{background:   url(ecalc_sprite2.png) -501px -663px no-repeat;}
+	.status_std		 a:hover	{background:   url(ecalc_sprite2.png) -589px -609px no-repeat;}
+	.status_fix    a:hover	{background:   url(ecalc_sprite2.png) -677px -609px no-repeat;}
+	.status_sci    a:hover	{background:   url(ecalc_sprite2.png) -633px -609px no-repeat;}
+	.status_eng    a:hover	{background:   url(ecalc_sprite2.png) -545px -609px no-repeat;}
+	.status_deg		 a:hover  {background:   url(ecalc_sprite2.png) -413px -609px no-repeat;}
+	.status_rad		 a:hover  {background:   url(ecalc_sprite2.png) -369px -609px no-repeat;}	
+	.status_grd    a:hover	{background:   url(ecalc_sprite2.png) -633px -663px no-repeat;}
+	                                                                   
+	.status_rec    a:hover	{background:   url(ecalc_sprite2.png) -501px -609px no-repeat;}
+	.status_pol	   a:hover	{background:   url(ecalc_sprite2.png) -457px -609px no-repeat;}
+	                 	                                                    
+	.status_rpn		 a:hover	{background:   url(ecalc_sprite2.png) -369px -663px no-repeat;}
+	.status_alg    a:hover	{background:   url(ecalc_sprite2.png) -413px -663px no-repeat;}
+	
+	.alg_entr								{background:   url(ecalc_sprite2.png) -369px -695px no-repeat;}
+	.alg_entr     a:hover		{background:   url(ecalc_sprite2.png) -369px -767px no-repeat;}
+	.rpn_entr								{background:   none;}
+	.rpn_entr     a:hover 	{background:   url(ecalc_sprite2.png) -10px -832px no-repeat;}
+
+	.ans_button     {background:   transparent;}
+	.ans_button     	a:hover 	{background:   url(ecalc_sprite2.png) -260px -601px no-repeat;}
+	.swap_button     	a:hover		{background:   url(ecalc_sprite2.png) -10px -912px no-repeat;}
+	.swap_button    						{background:   url(ecalc_sprite2.png) -57px -912px no-repeat;}
+
+  .i_button     {background:   transparent;}
+	.i_button     a:hover 	{background:   url(ecalc_sprite2.png) -160px -570px no-repeat;}
+	.comma_button a:hover		{background:   url(ecalc_sprite2.png) -104px -912px no-repeat;}
+	.comma_button    		    {background:   url(ecalc_sprite2.png) -151px -912px no-repeat;}
+
+	
+	.logic_zero	a:hover {background:   url(ecalc_sprite2.png) -401px -939px no-repeat;}
+	.logic_one	a:hover {background:   url(ecalc_sprite2.png) -417px -939px no-repeat;}
+              
+	.logic_zero	 {background:   url(ecalc_sprite2.png) -369px -939px no-repeat;}
+	.logic_one	 {background:   url(ecalc_sprite2.png) -385px -939px no-repeat;}
+	
+	.cnstFillOdd{
+    padding: 0;
+		margin: 0;
+		text-align: right;
+    background-color:#CCCCCC;
+
+  }
+	
+	.cnstFillHover {
+		padding:0;
+		margin:0;
+		background:url(ecalc_sprite2.png) -57px -912px no-repeat;; 
+		text-align: right;
+	}
+	
+	.cnstFillEven{
+		padding: 0;
+		margin: 0;
+		background-color:   white;
+		text-align: right;
+  }	
+
+	.cnstStyle{
+		text-align:left;	
+		font-weight: normal;
+	}
+  
+
+	.cnstStyle{
+    position:absolute;
+    bottom:0px;
+    left: 120px;
+    height:30px;
+    width:60px;
+    z-index:100;
+    line-height:30px;
+    font-family: arial;
+	  font-weight: normal;
+	  font-size: 17px;	
+	}
+
+  
+
+	.cnstDash{
+		text-align: center;
+    position:absolute;
+    bottom:0px;
+    width:20px;
+    height:30px;
+    left:92px;
+    z-index:100;
+    line-height:30px;
+	}
+
+  .constOdd{
+   background-color:gray;   
+  }
+  
+  
+  .cnstAbv{
+      position:absolute;
+      left:60px;
+      bottom:0px;
+      width:20px;
+      height:30px;
+      z-index:100;
+      line-height:30px;
+      font-family: arial;
+	    font-weight: 900;
+	    font-size: 17px;	
+  }
+  
+
+	.paletteHeader{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 27px;
+		width: 345px;
+		background-color: #CACCC9;
+		margin:0 !important;
+		padding:0;
+		font-family: arial;
+		font-size: 16px;
+		line-height: 27px;
+		color: #666666;
+	}
+	
+	.solverBar,.solverBarTop{	
+		position: relative;
+		padding:0;
+		height: 20px;
+		width: 345px;
+		font-family: arial;
+    font-weight:normal;
+		font-size: 18px;
+		padding-bottom: 2px;
+    padding-top:30px;
+    margin:0;
+    border-bottom: 2px solid black;
+    display:block;
+	}
+  #solverFillTop,#solverFillBottom{
+   position:absolute;
+   left:0px;
+   top:85px;
+   height:123px;
+   width:345px;
+   background-color:#F6F6F6;
+  }
+  #solverFillBottom{
+   top:262px; 
+   height:186px;
+  }
+		
+	.solverBarTop{
+     padding-top:60px;
+		}
+		
+    #solverBuild{
+     position: absolute;
+     left:0px;
+     width:345px;
+     height:488px;
+     background-color:#FFFFFF;
+     bottom:0px;
+     margin:0;
+     padding:0;
+     border:0;
+        
+    }
+    
+		#infoBox{
+			position: relative;
+			margin:0;
+			padding:0;
+			margin-top: 150px;
+			font-family: Verdana, sans-serif;
+		}
+		
+		#infoBox h2{ font-size: 30px; color: #8dd35f;}
+		#infoBox h4{ font-size: 18px; color: black;}
+		
+		#closePal{
+			position: absolute;
+			left:346px;
+			top: 9px;
+			width:16px;		
+			height: 15px;
+      font-size:2px;
+
+		}
+		#closeButton{
+			position: absolute;
+			left:345px;
+			top: 9px;
+			width:14px;		
+			height: 15px;
+      font-size:2px;
+		}
+    #minButton{
+      position:absolute;
+      left:328px;
+      top: 9px;
+      width:14px;
+      height:15px;
+      font-size:2px;
+    }
+    .closeButtonHover {background: url(ecalc_sprite2.png) -345px -928px no-repeat;}
+    .minButtonHover {background: url(ecalc_sprite2.png) -328px -928px no-repeat;}
+
+    .closeButtonOut {background: url(ecalc_sprite2.png) -345px -911px no-repeat;}
+    .minButtonOut {background: url(ecalc_sprite2.png) -328px -911px no-repeat;}
+    
+    .closePalHover {background: url(ecalc_sprite2.png) -308px -927px no-repeat;}
+    .closePalOut {background: url(ecalc_sprite2.png) -308px -913px no-repeat;}
+
+    #logoSprite,#logoSpriteMio{
+     position: absolute;
+     left: 318px;
+     top: 10px;
+     width: 40px;
+     height: 14px;
+     font-size:5px;
+     background: url(ecalc_sprite2.png) -208px -917px no-repeat;
+    }
+    
+    #logoSpriteMio{
+     left:11px; 
+    }
+
+		.themeBox{
+			width: 323px;
+			height: 53px;
+			margin:0;
+			padding:0;
+			margin-top:5px;
+			background-color: #F2F2F2;
+			background-color:#FFFFFF;
+			position: relative;
+			list-style: none;
+			border:1px solid #CCCCCC;
+		}
+		.colorBox1,.colorBox2,.colorBox3{
+			position: absolute;
+			height:41px;
+			top:6px;
+			width:36px;
+			border:1px solid #CCCCCC;
+			border:none;
+		}
+		.colorText{
+			position:absolute;
+			left:168px;
+			bottom:16px;
+			font-family:arial;
+			font-size:16px;
+			font-weight:bold;
+			color:#666666;
+			text-align:left;
+		}
+		
+
+		.colorBox1{left:6px;}
+		.colorBox2{left:48px;}
+		.colorBox3{left:90px;}
+
+		
+		.smallColorBox{
+			width:18px;
+			height:24px;
+			margin-right:4px;
+			margin-top:3px;
+			background-color: gray;
+			float:left;
+			display:inline;
+		}
+
+.side_column { width:265px; position:absolute; right:30px; top:0px; }
+.side_column a { color:#242424; }
+.side_column a:hover { text-decoration:none; }
+.math_title { font-size:12px; line-height:16px; font-weight:normal; padding-bottom:8px; }
+.math_title span { font-weight:bold; font-size:14px; }
+#ad_slot { color:#fff; text-decoration:none; margin-bottom:15px; display:block; padding-top:170px; margin-top:40px; width:253px; height:63px; background: transparent url(/pics/ads/mxgraph_ad.png) top left no-repeat; }
+#title_1 { font-size:20px;line-height:24px; font-weight:bold; }
+#title_2 { font-size:16px; }
+#ad_slot:hover { text-decoration:underline; }
+  #center{
+   position:relative;
+   height: 591px;
+  }
+  #center_wrap{
+   position:relative;
+   width:994px;
+   height:591px;
+   margin:0 auto;
+  }
+
+
+     #logout:hover{
+      color:#ff0000; 
+     }
+
+     .frontpage_links li a{ line-height:20px; font-size:13px; width:182px; line-height:30px; text-align:center; display:block; text-decoration:none; border:1px solid #ccc; border-right:none; background-color:#f2f2f2; color:#242424;  }  
+     .frontpage_links li { text-align:center; line-height:20px; float:left;  }
+     .frontpage_links li a:hover { background-color:#3a7dbe; color:#fff; }
+     .frontpage_links { float:left; margin-bottom:10px; }
+     .math_sheet_ad { display:block; padding-bottom:20px; }
+     .last_button { border-right:1px solid #ccc !important;}
+     .second_set li a{ width:145px !important; }
+
+   #doc_help h2{margin:15px 0 0;padding:10px 11px;font-size:18px;color:#3a7dbe;line-height:19px;border:1px solid #ddd;background:#f4f4f4;}
+   .cnt-wrap{padding:13px;border-left:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;}
+    #doc_help h3{
+     text-align:left;font-size:16px;font-weight:bold;padding-top:5px;padding-bottom:5px;
+     }
+     #doc_help h4{
+      font-size:14px;
+      color:#242424;
+      margin:0px;
+     }
+    #doc_help p{
+     padding-bottom:20px; 
+     margin:0;
+    }
+
+    #doc_help{
+      font-size:12px !important;
+    }
+
+    .mathSheetRightNav{
+      width: 650px;
+    }
+
+.mathSheetRightNav a{display:block;width:210px;float:left;color:#666;text-decoration:none;}
+.mathSheetRightNav a:hover{color:#1C68B4;text-decoration:underline;} 
+.return_to_top { font-size: 11px; float: right; color: #CCC; text-decoration: none; margin: 2px 5px 0 0; font-weight: normal;}
+.return_to_top:hover { text-decoration: underline;}
+.mathSheetRightNav .head_link { color: #333; text-align:left;font-size:16px;font-weight:bold; float: left; width: 100%; margin-top:20px; margin-bottom:3px; text-decoration:none; }
+.mathSheetRightNav .head_link:hover {text-decoration:underline;color:#1C68B4;}
+.mathSheetRightNav h5 { text-align:left;font-size:14px;font-weight:normal;padding-top:6px;margin-left:21px;}
+.navspan {height: 32px; visibility: hidden; margin-top: -32px; display: block;}
+.basic{width:655px;margin:19px 0 0;}
+.basic h2,.scientific h2{clear:left;line-height:20px;font-weight:normal;margin-bottom:5px;}
+.descriptions{width:270px;margin:0 17px;float:right;}
+.descriptions-i{width:472px;margin:0 17px;float:left;}
+.scientific .bigPicHolder{float:left;width:350px;text-align:center;}
+.basic .bigPicHolder{float:left;}
+.basic .dl-buttons {width:200px;}
+.dl-buttons {border:1px solid #3a7dbe;color:#3a7dbe;float:left;font-size:12px;font-weight:bold;line-height:22px;padding:0 15px;text-align:center;text-decoration:none;}
+.dl-buttons:hover,.dl-buttons-i:hover{text-decoration:none; background-color:#3a7dbe; color:#fff;}
+.dl-buttons-i{border:1px solid #3a7dbe;color:#3a7dbe;float:left;font-size:12px;font-weight:bold;line-height:22px;margin:0 10px 0 0;padding:0 15px;text-align:center;text-decoration:none;}
+.margin-r{margin:0 8px 0 0;}
+.margin-b{margin:0 0 20px;}
+.ads_sidebar_200{float:right;padding:0 0 0 10px;}
+.article_w_200_sidebar{margin:0;}
+.article_w_200_sidebar h2{margin:20px 0 0;color:#444;}
+.scientific{margin:19px 0 0;}
+.descriptions h3,.descriptions-i h3{display:block;clear:both;margin:-8px 0 0;color:#222;font-weight:normal;}

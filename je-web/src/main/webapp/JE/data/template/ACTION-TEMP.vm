@@ -1,0 +1,44 @@
+package ${packageName};
+
+import javax.annotation.Resource;
+
+import org.apache.log4j.Logger;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import com.je.core.action.DynaAction;
+
+import java.io.Serializable;
+#if($isInjectBean == '1')
+import ${injectPath};
+#end
+/**
+ * ${commonts}
+ * @author ${currentUser}
+ * @version ${currentDate}
+ * @see ${namespace}/${cmpName}!load.action
+ */
+@Component("${cmpName}")
+@Scope("prototype")
+public class ${javaName} extends DynaAction  {
+	
+#if($isSerial == '1')
+	private static final long serialVersionUID = ${serialNum}L;
+#end
+#if($isOpenLog == '1')
+	private static Logger logger = Logger.getLogger(${javaName}.class);
+#end
+	
+	public void load(){
+		toWrite("{success:true,obj:\"hello Action\"}");
+	}
+#if($isInjectBean == '1')
+	private ${beanClass} ${beanName};
+	
+	@Resource(name="${beanName}")
+	public void set${beanClass}(${beanClass} ${beanName}) {
+		this.${beanName} = ${beanName};
+	}
+#end
+	
+}

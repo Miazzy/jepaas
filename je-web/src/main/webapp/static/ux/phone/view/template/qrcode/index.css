@@ -1,0 +1,225 @@
+/*#F7F7F8;*/
+p{color:#000000;}
+.mui-bar-footer{padding: 0px;}
+.mui-bar-footer .mui-btn{padding: 10px 0;top:0px;border-radius: 0px;}
+.qrcode-url{margin-bottom:20px;}
+.qrcode-file{text-align: center;padding: 40px 0px;}
+.qrcode-file i{font-size: 5em; color:#666;margin-top:40px;}
+.qrcode-file img{max-width: 100%;height: auto;}
+.qrcode-file .qrcode-file-name{padding:10px 0 4px 0;}
+
+.qrcode-app{text-align: center;padding: 40px 0px;}
+.qrcode-app .qrcode-app-icon{width:150px;height:150px;border-radius: 20px;}
+.qrcode-app .qrcode-app-name{padding:10px 0 4px 0;}
+
+.qrcode-remark{border-top: 1px solid #DDDDDD;padding: 20px 10px;font-size: 14px;}
+.qrcode-countinfo{color:#8f8f94;padding:10px 0px;}
+.qrcode-countinfo span{margin:0px 10px;}
+.mui-input-group{
+	margin-bottom:10px;
+}
+.mui-input-group .mui-input-row{
+	height:auto;
+}
+.mui-input-row label~.value {
+	float: right;
+	width: 65%;
+	margin-bottom: 0;
+	padding-left: 0;
+	border: 0;
+    padding: 11px 15px;
+}
+.mui-input-row label{
+	color: #8a8d91;
+}
+
+.mui-input-row label,
+.mui-input-row label~.value{
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.vcard_head {
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px 10px 0 0;
+    border-radius: 0;
+    padding-left: 16px;
+    padding-top: 40px;
+    background-size: cover;
+    padding-bottom: 16px;
+}
+.vcard_head .vcard_face_wrap,
+.vcard_head .vcard_face {
+    background-repeat: no-repeat;
+    width: 88px;
+    height: 88px;
+    background-size: 88px 88px;
+}
+.vcard_head .vcard_face_wrap {
+    position: relative;
+    box-shadow: 0 0 4px #747474;
+    border-radius: 50%;
+    float: left;
+}
+
+.vcard_face_bg {
+    background-color: #000;
+    opacity: .4;
+    filter: alpha(opacity=40);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.vcard_face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 2;
+}
+.vcard_face_lang {
+    position: absolute;
+    width: 88px;
+    top: 0;
+    left: 0;
+    color: #fff;
+    line-height: 88px;
+    text-align: center;
+}
+.vcard_career_wrap {
+    color: #fff;
+    padding-left: 104px;
+}
+.vcard_career_wrap p {
+    text-align: left;
+    color:#fff;
+}
+.vcard_data_fullname {
+    overflow: hidden;
+    line-height: 38px;
+    height: 38px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 20px;
+    margin-bottom: 3px;
+    text-shadow: 0 0 4px #3C3C3C;
+}
+.vcard_data_appointment {
+    font-size: 14px;
+    margin-bottom: 3px;
+    text-shadow: 0 0 3px #333;
+    min-height: 16px;
+}
+.vcard_data_company {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 0 0 3px #333;
+    min-height: 19px;
+}
+
+
+
+.company_head{
+    background: #eeeeee;
+    position: relative;
+}
+.company_head .imgdiv {
+    position: relative;
+    overflow: hidden;
+}
+
+.company_head .imgdiv .bgimg{
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.company_head .imgdiv .triangle-white {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 67px;
+    background: url(/static/ux/qrcode/img/triangle-white.png);
+    background-size: cover;
+}
+.company_head .title_wrap{
+	position: absolute;
+    bottom: 90px;
+    left: 10px;
+    width: 96%;
+}
+.company_head .title_wrap .logo{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    bottom: -70px;
+    position: absolute;
+}
+.company_head .title_wrap .logo .logo_bg{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 4px #747474;
+    background-color: #000;
+    opacity: .4;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+}
+
+.company_head .title_wrap .title{
+    height: 85px;
+    font-size: 40px;
+    overflow: hidden;
+    position: absolute;
+    bottom: -60px;
+}
+
+.company_head .title_wrap .title div{
+    color: #fff;
+    font-size: 20px;
+    overflow: hidden;
+    text-shadow: 0 0 5px #000;
+    word-break: break-all;
+    padding: 0 30px 0 110px;
+    line-height: 28px;
+    white-space: pre-line;
+}
+.company_head .head_desc{
+    padding: 15px 10px;
+    background-color: white;
+    word-break: break-all;
+    cursor: pointer;
+    color: #666;
+    line-height: 23px;
+    font-size: 14px;
+}
+.image-card{
+	margin-right:0px;
+	margin-left:0px;
+}
+.image-card .mui-table-view:before{
+	height:1px;
+}
+.play-sound{
+    width: 30px;
+    height: 30px;
+    background-image: url(image/pause.png);
+    background-size: cover;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.play-sound.play{
+	background-image:url(image/play.png);
+}

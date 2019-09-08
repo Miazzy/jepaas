@@ -1,0 +1,304 @@
+
+.feyasoft_photo_showImage {
+  max-width: 500px;
+  width: expression(this.width > 500 ? "500px" : true);
+}
+
+.feyasoft-images-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+.feyasoft-images-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+
+.feyasoft-images-view .thumb img{
+	height: 115px;
+	width: 150px;
+}
+
+.feyasoft-images-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px 20px 5px 20px;
+}
+
+.feyasoft-images-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+.feyasoft-images-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+    padding: 4px 18px 4px 18px;
+}
+
+.feyasoft-images-view .x-view-selected{
+	background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px 18px 4px 18px;
+}
+
+.feyasoft-images-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+.feyasoft-images-view .loading-indicator {
+	font-size:11px;
+	background-image:url('../../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+
+/******************************another thumb view********************************************/
+
+.feyasoft-images-view .thumb3{
+	background: #dddddd;
+	padding: 3px;
+}
+
+.feyasoft-images-view .thumb3-wrap{
+        height: 117px;
+	width: 105px;
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+
+.feyasoft-images-view .thumb3-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+.feyasoft-images-view .x-view-selected .thumb3{
+	background:transparent;
+}
+
+.feyasoft-images-view .x-view-over {
+    border: 1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+    padding: 4px;
+}
+
+#image-win-view-detail-image-panel .details{
+    padding: 10px;
+    text-align: center;
+}
+#image-win-view-detail-image-panel .details-info{
+    border-top: 1px solid #cccccc;
+    font: 11px Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+    padding-top: 5px;
+    text-align: left;
+}
+#image-win-view-detail-image-panel .details-info b{
+    color: #555555;
+    display: block;
+    margin-bottom: 4px;
+}
+#image-win-view-detail-image-panel .details-info span{
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+/*****************************************************************************/
+
+.feyasoft-myPhoto-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+
+.feyasoft-myPhoto-view .thumb-wrap{
+        height: 115px;
+	width: 105px;
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+
+.feyasoft-myPhoto-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+.feyasoft-myPhoto-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+    padding: 4px;
+}
+
+.feyasoft-myPhoto-view .x-view-selected{
+	background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px;
+}
+
+.feyasoft-myPhoto-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+.feyasoft-myPhoto-view .loading-indicator {
+	font-size:11px;
+	background-image:url('../../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left:20px;
+	margin:10px;
+}
+
+
+/*****************************************************************************/
+/**** this is for animated dataview ******************************************/
+
+#animatedViews {
+    background-color: #fff;
+    text-shadow: #fff 0 1px 0;
+}
+
+#animatedViews ul {
+    position: relative;
+    display: block;
+    height: auto;
+    font-size: 85%;
+}
+
+#animatedViews ul li img {
+    margin-bottom: 1px;
+}
+
+#animatedViews ul li {
+    float: left;
+    padding: 8px 17px;
+    margin: 5px;
+    text-align: center;
+    line-height: 1.25em;
+    color: #333;
+    font-family: "Helvetica Neue",sans-serif;
+    height: 110px;
+    width: 110px;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+/*#animatedViews ul li.phone-hover {
+    background-color: #eee;
+}*/
+
+#animatedViews ul li.x-view-selected {
+     background-color: #e7e7e7;/*rgba(100, 100, 100, .15);*/
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+   /* border-top: 1px solid #c5c5c5;/*rgba(0, 0, 0, .15);*/
+}
+
+#animatedViews ul li img {
+/*    display: block;*/
+}
+
+#animatedViews li strong {
+    color: #000;
+    display: block;
+}
+
+#animatedViews li span {
+    color: #999;
+}
+
+
+/******************************another thumb view********************************************/
+.preference-background-base .thumb3 {
+    background: transparent;
+    padding: 0px;
+}
+
+.preference-background-base .thumb3-wrap {
+    height: 75px;
+    width: 95px;
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px 5px 5px 5px;
+}
+
+.preference-background-base .thumb3-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.preference-background-base .x-view-selected {
+    background: #da762a;
+    padding: 5px;
+}
+
+.preference-background-base .x-view-selected .thumb3 {
+    background: transparent;
+}
+
+.preference-background-base .x-view-over-thumb3 {
+    background: #ffc350;
+    padding: 5px 5px 5px 5px;
+}
+
+/*******************************for image******************************************/
+
+
+.rgdPageUrlInfo-images-view .x-panel-body{
+	background: white;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+
+.rgdPageUrlInfo-images-view .thumb{
+	background: #dddddd;
+	padding: 3px;
+}
+
+.rgdPageUrlInfo-images-view .thumb img{
+	height: 115px;
+	width: 150px;
+}
+
+.rgdPageUrlInfo-images-view .thumb-wrap{
+	float: left;
+	margin: 4px;
+	margin-right: 0;
+	padding: 5px;
+}
+
+.rgdPageUrlInfo-images-view .thumb-wrap span{
+	display: block;
+	overflow: hidden;
+	text-align: center;
+}
+
+.rgdPageUrlInfo-images-view .x-view-over{
+    border:1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+    padding: 4px;
+}
+
+.rgdPageUrlInfo-images-view .x-view-selected{
+	background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+	border:1px solid #99bbe8;
+	padding: 4px;
+}
+
+.rgdPageUrlInfo-images-view .x-view-selected .thumb{
+	background:transparent;
+}
+
+

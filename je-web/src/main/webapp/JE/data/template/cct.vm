@@ -1,0 +1,89 @@
+## 完成控制器的注解工作.
+/**
+ * @use ${use}
+ * @author ${author}
+ * @time ${time}
+ */
+## 完成函数体工作.
+Ext.define(${className}, {
+    extend: 'Ext.app.Controller',
+	//初始化函数
+	init:function(conf){
+		var self = this;
+	 	/**
+		  * 平台提示,不用可以随时删除这段注释.
+		  * var func = JE.getFunc('功能编码'),//得到功能对象
+		  *     kqtree = func.treeview,//得到快速查询树对象
+		  *     mainRecord = func.getParentData();//得到父亲功能对象	
+		  * var formRecord = func.getFormData();//如果是表单按钮就可以得到本功能表单里的数据
+		  *     var fieldValue = formRecord.fieldCode;
+		  * var grid = func.gridview;//得到表格对象
+		  * var form = func.formview;//得到表单对象
+		  * var basicForm = form.form;
+	    */
+		var ctr = {
+			##循环准备所有预处理函数
+			#set ($j=0)
+			#foreach(${method} in ${methods})
+			#set($j=$j+1)
+			
+           /**
+			 * @name${method.methodName}
+			 * @use ${method.use}
+			 * @author ${author}
+			 * @time ${time} 
+			 */
+			${method.registerContext}:{
+					##循环准备组件时间处理方法体
+					#set ($i=0)
+					#foreach(${event} in $method.events)
+					#set($i=$i+1)
+					
+                    ${event.type} : function(${event.variable}) {
+						//得到功能
+						var func = JE.getFunc('${method.funcCode}');
+						//得到表格对象
+						var grid = func.gridview;
+						//得到表单对象
+		   			 	var form = func.formview;
+                       /**
+						 * 提示:
+						 * 根据上述提示来操作表单和表格
+						 * 好了,模板只能送你到这了接下就靠你自己了,加油把程序员...
+						 */
+						#if($event.needAjax)
+						
+						//同步发送ajax
+						var resObj=JE.ajax({url:"",params:{}});
+						//得到返回结果(后台一般会提供成功的表示)
+						if(resObj.success){
+							JE.msg("成功");
+						}else{
+							JE.alert("失败！")
+						}
+						#else 
+						#end
+						#if($i<${method.eventCount})
+							
+						},
+						#else
+						
+                    }
+						#end
+					#end
+					##最好一个函数会多一个逗号在IE下回保存其他浏览器没影响
+			
+			#if($j<${methodCount})
+			
+			},
+			#else
+					
+			}
+			#end
+			#end
+			
+        }
+		//注册事件
+		self.control(ctr);
+	}
+});

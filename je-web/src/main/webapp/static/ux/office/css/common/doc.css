@@ -1,0 +1,52 @@
+/* --------------------------------------------------------
+   Copyright (c) 2005-2008 FeyaSoft Inc. All Rights Reserved.
+   
+   Description:
+   This is document CSS file for feyasoft window application 
+   
+   Author:
+   Fenqiang Zhuang
+   -------------------------------------------------------- */
+
+/**********************************************************************
+ * docuemnt css definition
+ **********************************************************************/
+   
+h1, h2, h3 {
+    margin: 1em 0 1em 0; padding: 0;
+    font-family: "lucida grande", verdana, sans-serif;
+    border-width: thick;
+}
+h1 {font-size: 18px;}
+h2 {font-size: 16px; color: black;}
+h3 {font-size: 14px; color: black;}
+
+p { 
+    margin: 0 0 1em 0; padding: 0; 
+    font-size: 14px;
+}
+
+table.doc td {
+    padding: 5px;
+}
+
+.generalText {
+    padding-left: 2%; 
+    padding-right: 2%;
+    font-family: "Helvetica", "Times New Roman","Tahoma",sans-serif;
+    font-size: 14px;
+}
+
+#generalText ul li:before {
+	content: "\00BB \0020";
+}
+
+.x-footer {
+	font-family: Geneva, Verdana, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #285294;
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+ul.circle {list-style-type: circle; padding-left: 30px;} 

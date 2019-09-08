@@ -1,0 +1,7 @@
+closebrackets.html  括号自动补齐
+fullscreen.html  全屏编辑
+indentwrap.html   缩进
+loadmode.html    编辑模式切换
+lint.html	错误提示
+search.html	查询
+theme.html	主题

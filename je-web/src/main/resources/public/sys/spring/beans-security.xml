@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+			 xmlns:beans="http://www.springframework.org/schema/beans"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xsi:schemaLocation="http://www.springframework.org/schema/beans
+    					 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd  
+                         http://www.springframework.org/schema/security 
+                         http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+
+	<beans:bean id="loggerListener" class="org.springframework.security.event.authentication.LoggerListener" />
+	<!-- 403.jsp auto-config="true" entry-point-ref="casProcessingFilterEntryPoint"-->
+	<http access-denied-page="/login.html">
+		<intercept-url pattern="/login.html" filters="none" />
+		<intercept-url pattern="/login/**" filters="none" />
+		<intercept-url pattern="/static/**" filters="none" />
+		<intercept-url pattern="/favicon.ico" filters="none" />
+		<intercept-url pattern="/core/office/**" filters="none" />
+		<intercept-url pattern="/reportfile/**" filters="none" />
+		<intercept-url pattern="/services/**" filters="none" />
+		<intercept-url pattern="/JE/data/upload/**" filters="none" />
+		<intercept-url pattern="/platform/**" filters="none" />
+		<intercept-url pattern="/services/**" filters="none" />
+		<intercept-url pattern="/PHONE/**" filters="none" />
+		<intercept-url pattern="/PRO/**" filters="none" />
+		<intercept-url pattern="/login/**" filters="none" />
+		<intercept-url pattern="/JE/resource/**" filters="none" />
+		<intercept-url pattern="/JE/data/config/**" filters="none" />
+		<intercept-url pattern="/JE/coreApp/lib/**" filters="none" />
+		<intercept-url pattern="/JE/config/**" filters="none" />
+		<intercept-url pattern="/register.jsp"  filters="none" />
+		<intercept-url pattern="/je/loginAction!getIdentityByUserCode.action" filters="none" />
+		<intercept-url pattern="/je/loginAction!getJcaptImage.action" filters="none" />
+		<intercept-url pattern="/je/loginAction!createState.action" filters="none" />
+		<intercept-url pattern="/loginForward.jsp" filters="none" />
+		<intercept-url pattern="/mk/mkAction!getInfoById.action" filters="none" />
+		<intercept-url pattern="/mk/mkAction!saveShowInfo.action" filters="none" />
+		<intercept-url pattern="/je/appAction!loadApk.action" filters="none" />
+		<intercept-url pattern="/je/appAction!loadLoginCfg.action" filters="none" />
+		<intercept-url pattern="/sys/payOrderAction!payZfbCallBack.action" filters="none" />
+		<intercept-url pattern="/sys/payOrderAction!doFkCallback.action" filters="none" />
+		<intercept-url pattern="/je/doc/document/doLoadFile**" filters="none" />
+		<!--SPRING MVC-->
+		<intercept-url pattern="/je/login/getIdentityByUserCode" filters="none" />
+		<intercept-url pattern="/je/login/getJcaptImage" filters="none" />
+		<intercept-url pattern="/je/login/createState" filters="none" />
+		<intercept-url pattern="/je/sysConfig/sysConfig/loadLoginSysVariables" filters="none" />
+		<intercept-url pattern="/je/mk/mk/getInfoById" filters="none" />
+		<intercept-url pattern="/je/mk/mk/saveShowInfo" filters="none" />
+		<intercept-url pattern="/je/phone/app/loadApk" filters="none" />
+		<!--注册用户需要放开资源 -->
+		<intercept-url pattern="/saas/saasYhAction!validateRegister.action" filters="none" />
+		<intercept-url pattern="/saas/saasYhAction!sendRandom.action" filters="none" />
+		<intercept-url pattern="/saas/saasYhAction!validateRandom.action" filters="none" />
+		<intercept-url pattern="/saas/saasYhAction!validateUserCode.action" filters="none" />
+		<intercept-url pattern="/saas/doUserRz.action" filters="none" />
+		<intercept-url pattern="/saas/registerAction.action" filters="none" />
+		<intercept-url pattern="/saas/registerDsfAction.action" filters="none" />
+		<intercept-url pattern="/saas/modifyPw.action" filters="none" />
+		<intercept-url pattern="/saas/forgetPw.action" filters="none" />
+		<intercept-url pattern="/saas/resetPassword.action" filters="none" />
+		<intercept-url pattern="/je/appRegister/registerAccount" filters="none" />
+
+		<intercept-url pattern="/je/app/login/sendRandom" filters="none" />
+		<intercept-url pattern="/je/app/login/validateRandom" filters="none" />
+		<intercept-url pattern="/je/app/login/register" filters="none" />
+		<intercept-url pattern="/je/app/login/modifyPw" filters="none" />
+
+		<intercept-url pattern="/poserver.zz" filters="none" />
+		<intercept-url pattern="/poserver.do" filters="none" />
+		<intercept-url pattern="/index.jsp" />
+		<intercept-url pattern="/desktop.jsp" />
+
+		<!--用户登录需要放开的资源-->
+		<intercept-url pattern="/je/app/login/validateRegister" filters="none" />
+		<intercept-url pattern="/je/app/login/getIdentityByUserCode" filters="none" />
+		<intercept-url pattern="/je/app/login/createState" filters="none" />
+		<intercept-url pattern="/je/app/login/registerDsf" filters="none" />
+		<intercept-url pattern="/je/app/login/getDingTalkInfo" filters="none" />
+		<intercept-url pattern="/je/app/login/callbackDsf" filters="none" />
+		<intercept-url pattern="/je/app/login/setQRcode" filters="none" />
+		<intercept-url pattern="/je/app/login/getQRcodeLoginInfo" filters="none" />
+		<intercept-url pattern="/je/app/TransferController/transferWeChat" filters="none" />
+		<intercept-url pattern="/je/app/TransferController/transferDingTalk" filters="none" />
+
+		<intercept-url pattern="/je/app/AppUser/searchUsertrade" filters="none" />
+		<intercept-url pattern="/je/appLogin/sendRandom" filters="none" />
+		<intercept-url pattern="/je/appLogin/doRzRandom" filters="none" />
+		<intercept-url pattern="/je/im/**" filters="none" />
+		<!--测试开放资源-->
+
+		<!--
+          login-page:默认指定的登录页面.
+          authentication-failure-url:出错后跳转页面.
+          default-target-url:成功登陆后跳转页面 默认登录保护url
+       -->
+		<form-login login-page="/login.html" authentication-failure-url="/login.html?error=true" default-target-url="/app/index.action" />
+		<!--
+            动静分离配置 logout-success-url="http://localhost/login.html"
+            logout-success-url:成功注销后跳转到的页面
+        -->
+		<logout logout-success-url="/login.html" invalidate-session="true"/>
+		<concurrent-session-control max-sessions="1024" exception-if-maximum-exceeded="false"/>
+		<!-- <concurrent-session-control max-sessions="1" exception-if-maximum-exceeded="true" expired-url="/login.html?repeat=true"/>-->
+	</http>
+
+	<!--
+        <beans:bean id="guestFilter" class="com.hd.security.filter.GuestFilter">
+            <custom-filter position="ANONYMOUS_FILTER"/>
+            <beans:property name="forwardURL" value="/login.html" />
+        </beans:bean>
+     -->
+	<!-- 给权限管理起一个别别名 -->
+	<authentication-manager alias="authenticationManager"/>
+
+	<!-- 设置认证的提供者 -->
+
+	<authentication-provider user-service-ref="securityManager">
+		<password-encoder hash="md5">   <!-- admin : 202cb962ac59075b964b07152d234b70 -->
+			<!-- <salt-source system-wide="mysalt"/>  -->
+		</password-encoder>
+	</authentication-provider>
+	<!-- -->
+	<beans:bean id="loginOtherParamFilter" class="com.je.core.filter.LoginOtherParamFilter">
+		<custom-filter before="AUTHENTICATION_PROCESSING_FILTER" />
+		<beans:property name="authenticationManager" ref="_authenticationManager"/>
+		<beans:property name="defaultTargetUrl" value="/app/index.action"/>
+		<beans:property name="authenticationFailureUrl" value="/login.html?error=true"/>
+		<beans:property name="alwaysUseDefaultTargetUrl" value="true"/>
+	</beans:bean>
+
+	<beans:bean id="accessDecisionManager" class="org.springframework.security.vote.AffirmativeBased">
+		<beans:property name="allowIfAllAbstainDecisions" value="false"/>
+		<beans:property name="decisionVoters">
+			<beans:list>
+				<beans:bean class="org.springframework.security.vote.RoleVoter"/>
+				<beans:bean class="org.springframework.security.vote.AuthenticatedVoter"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	<beans:bean id="resourceSecurityInterceptor" class="org.springframework.security.intercept.web.FilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="authenticationManager"/>
+		<beans:property name="accessDecisionManager" ref="accessDecisionManager"/>
+		<beans:property name="objectDefinitionSource" ref="resourceInvocation" />
+		<beans:property name="observeOncePerRequest" value="false" />
+		<custom-filter after="LAST" />
+	</beans:bean>
+	<beans:bean id="resourceInvocation" class="com.je.core.security.ResourceInvocation"/>
+
+	<!-- CAS config
+    <beans:bean id="casProcessingFilterEntryPoint" class="org.springframework.security.ui.cas.CasProcessingFilterEntryPoint">
+        <beans:property name="loginUrl" value="https://localhost:8443/cas/login" />
+        <beans:property name="serviceProperties" ref="casServiceProperties" />
+ 	</beans:bean>
+    <beans:bean id="casServiceProperties" class="org.springframework.security.ui.cas.ServiceProperties">
+        <beans:property name="service" value="http://localhost:8080/j_spring_cas_security_check" />
+        <beans:property name="sendRenew" value="false"/>
+ 	</beans:bean>
+    <beans:bean id="casProcessingFilter" class="org.springframework.security.ui.cas.CasProcessingFilter">
+        <custom-filter after="CAS_PROCESSING_FILTER"/>
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="authenticationFailureUrl" value="/casfailed.jsp" />
+        <beans:property name="defaultTargetUrl" value="/" />
+    </beans:bean>
+    <beans:bean id="casAuthenticationProvider" class="org.springframework.security.providers.cas.CasAuthenticationProvider">
+        <custom-authentication-provider />
+        <beans:property name="userDetailsService" ref="userDao" />
+        <beans:property name="serviceProperties" ref="casServiceProperties" />
+        <beans:property name="ticketValidator">
+        <beans:bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+            <beans:constructor-arg index="0" value="https://localhost:8443/cas" />
+        </beans:bean>
+        </beans:property>
+        <beans:property name="key" value="integratedreport" />
+     </beans:bean>
+     -->
+</beans:beans>

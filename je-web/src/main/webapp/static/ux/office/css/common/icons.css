@@ -1,0 +1,251 @@
+/* --------------------------------------------------------
+   Copyright (c) 2005-2007 FeyaSoft Inc. All Rights Reserved.
+   
+   Description:
+   This is main CSS file for myActivity application 
+   
+   Author:
+   Fenqiang Zhuang
+   -------------------------------------------------------- */
+
+/**********************************************************************
+ * images definition
+ **********************************************************************/
+.emailClient { background-image:url(../../images/icons/emailClient.png) !important;}
+.meeting { background-image:url(../../images/icons/date.png) !important;}
+.color_switch { background-image:url(../../images/icons/color_swatch.png) !important;}
+.back { background-image:url(../../images/icons/arrow_left.png) !important;}
+.attachment { background-image:url(../../images/icons/paperclip.gif) !important;}
+.add_comment { background-image:url(../../images/icons/comment_add.png) !important;}
+.edit_comment { background-image:url(../../images/icons/comment_edit.png) !important;}
+.cross { background-image:url(../../images/icons/cross.png) !important;}
+.addItem { background-image:url(../../images/icons/add.gif) !important;}
+.application {background-image:url(../../images/icons/application_double.png) !important;}
+.api {background-image:url(../../images/icons/api.gif) !important;}
+.app_back {background-image:url(../../images/icons/application_back.png) !important;}
+.app_next {background-image:url(../../images/icons/application_go.png) !important;}
+.arrow_left { background-image:url(../../images/icons/arrow_left.png) !important;}
+.arrow_right { background-image:url(../../images/icons/arrow_right.png) !important;}
+.arrow_up { background-image:url(../../images/icons/arrow_up.png) !important;}
+.arrow_down { background-image:url(../../images/icons/arrow_down.png) !important;}
+.attach { background-image:url(../../images/icons/attach.png) !important;}
+.bogus { background-image: url( ../../images/window/bogus.png ) !important;}
+.book {background-image:url(../../images/icons/book.png) !important;}
+.book_open {background-image:url(../../images/icons/book_open.png) !important;}
+.bookmarks {background-image:url(../../images/icons/bookmarks.png) !important;}
+.browser {background-image:url(../../images/icons/browser.png) !important;}
+.bugGroup {background-image:url(../../images/icons/bugGroup.png) !important;}
+.buildingKey {background-image:url(../../images/icons/building_key.png) !important;}
+.calendar{background-image:url(../../images/icons/calendar.png) !important;}
+.cancel{background-image:url(../../images/icons/cancel.png) !important;}
+.clock{background-image:url(../../images/icons/clock.png) !important;}
+.comments{background-image:url(../../images/icons/comments.png) !important;}
+.compare{background-image:url(../../images/icons/compare.png) !important;}
+.contact {background-image:url(../../images/icons/contact.png) !important;}
+.contactUs {background-image:url(../../images/icons/telephone.png) !important;}
+.crm {background-image:url(../../images/icons/crm.png) !important;}
+.csv {background-image:url(../../images/icons/csv.gif) !important;}
+.date_back {background-image:url(../../images/icons/back.png) !important;}
+.date_next {background-image:url(../../images/icons/next.png) !important;}
+.delete { background-image:url(../../images/icons/delete.png) !important;}
+.flow { background-image:url(../../images/icons/flow.png) !important;}
+.org_icon{background-image:url(../../images/icons/dep.png) !important;}
+.document{background-image:url(../../images/icons/page.png) !important;}
+.donate{background-image:url(../../images/icons/money_dollar.png) !important;}
+.download{background-image:url(../../images/icons/download.png) !important;}
+.editItem { background-image:url(../../images/icons/page_edit.png) !important;}
+.email { background-image:url(../../images/icons/email.png) !important;}
+.email_read{ background-image:url(../../images/icons/email_read.png) !important;}
+.email_go { background-image:url(../../images/icons/email_go.png) !important;}
+.email_add { background-image:url(../../images/icons/email_add.png) !important;}
+.event { background-image:url(../../images/icons/event.png) !important;}
+.excel {background-image:url(../../images/icons/page_excel.png) !important;}
+.notepad {background-image:url(../../images/icons/myNote.png) !important;}
+.feedback{background-image:url(../../images/icons/feedback.png) !important;}
+.cubedrive_icon{background-image:url(../../images/favicon.png) !important;}
+.find{background-image:url(../../images/icons/find.png) !important;}
+.filter{background-image:url(../../images/icons/filter.png) !important;}
+.folder_orig { background-image:url(../../images/icons/folder.png) !important;}
+.folder_add { background-image:url(../../images/icons/folder_add.png) !important;}
+.folder_file { background-image:url(../../images/icons/folder_page.png) !important;}
+.folder_explore { background-image:url(../../images/icons/folder_explore.png) !important;}
+.folder_up { background-image:url(../../images/icons/folder_up.png) !important;}
+.forum { background-image:url(../../images/icons/forum16.png) !important;}
+.group {background-image:url(../../images/icons/group.png) !important;}
+.group_link {background-image:url(../../images/icons/group_link.png) !important;}
+.history {background-image:url(../../images/icons/revision.gif) !important;}
+.home {background-image:url(../../images/icons/home16.png) !important;}
+.house {background-image:url(../../images/icons/house.png) !important;}
+.help {background-image:url(../../images/icons/help.png) !important;}
+.hrms {background-image:url(../../images/icons/hr16.png) !important;}
+.html {background-image:url(../../images/icons/html.png) !important;}
+.install {background-image:url(../../images/icons/install.png) !important;}
+.ipad {background-image:url(../../images/icons/iPad.png) !important;}
+.lock {background-image:url(../../images/icons/lock.png) !important;}
+.map {background-image:url(../../images/icons/map.png) !important;}
+.message {background-image:url(../../images/icons/message.png) !important;}
+.messages {background-image:url(../../images/icons/messages.png) !important;}
+.message_edit {background-image:url(../../images/icons/message_edit.png) !important;}
+.more {background-image:url(../../images/icons/more.gif) !important;}
+.note_add {background-image:url(../../images/icons/note_add.png) !important;}
+.new {background-image:url(../../images/icons/new.png) !important;}
+.paint {background-image:url(../../images/icons/paint.png) !important;}
+.picture {background-image:url(../../images/icons/picture.png) !important;}
+.photoFolder {background-image:url(../../images/icons/photoFolder.png) !important;}
+.ppt {background-image:url(../../images/icons/ppt.png) !important;}
+.pdf {background-image:url(../../images/icons/pdf.gif) !important;}
+.project {background-image:url(../../images/icons/project.jpg) !important;}
+.public {background-image:url(../../images/icons/public.png) !important;}
+.printer {background-image:url(../../images/icons/printer.png) !important;}
+.icon_project {background-image:url(../../images/icons/project.jpg) !important;}
+.refresh { background-image:url(../../images/icons/arrow_refresh.png) !important;}
+.rename { background-image:url(../../images/icons/rename.gif) !important;}
+.save { background-image:url(../../images/icons/disk.png) !important;}
+.schedule {background-image:url(../../images/icons/schedule.png) !important;}
+.script {background-image:url(../../images/icons/script.png) !important;}
+.server{background-image:url(../../images/icons/server.png) !important;}
+.share { background-image: url( ../../images/icons/share.png ) !important;}
+.shield { background-image: url( ../../images/icons/shield.png ) !important;}
+.shieldAdd { background-image: url( ../../images/icons/shield_add.png ) !important;}
+.sourceCode {background-image:url(../../images/icons/page_white_c.png) !important;}
+.star { background-image: url( ../../images/icons/star.png ) !important;}
+.switch { background-image: url( ../../images/icons/arrow_switch.png ) !important;}
+.task {background-image:url(../../images/icons/task.png) !important;}
+.time {background-image:url(../../images/icons/time.png) !important;}
+.tabs {background-image:url(../../images/icons/table_multiple.png) !important;}
+.touch {background-image:url(../../images/icons/phone.png) !important;}
+.url {background-image:url( ../../images/icons/world_go.png ) !important;}
+.user {background-image:url( ../../images/icons/user.png ) !important;}
+.user-add {background-image:url(../../images/icons/user_add.png) !important;}
+.user-delete {background-image:url(../../images/icons/user_delete.png) !important;}
+.user-girl {background-image:url(../../images/icons/user_female.png) !important;}
+.word {background-image:url(../../images/icons/table_edit.png) !important;}
+.wrench {background-image:url(../../images/icons/wrench.png) !important;}
+.youtube {background-image:url(../../images/icons/youtube.png) !important;}
+.zoom {background-image:url(../../images/icons/zoom.png) !important;}
+.application_form {background-image:url(../../images/icons/application_form.png) !important;}
+
+.icon_hfzer {background-image: url(../../images/icons/hfzer.png ) !important;}
+.icon_lfzer {background-image: url(../../images/icons/lfzer.png ) !important;}
+.icon_add {background-image: url(../../images/icons/add.png ) !important;}
+.icon_open{background-image: url(../../images/icons/folder_table.png ) !important;}
+.icon_save{background-image: url(../../images/icons/disk.png ) !important;}
+.icon_fz{background-image: url(../../images/icons/layout_header.png ) !important;}
+.icon_cut{background-image: url(../../images/icons/cut_red.png ) !important;}
+.icon_copy{background-image: url(../../images/icons/page_copy.png ) !important;}
+.icon_paste{background-image: url(../../images/icons/paste_plain.png ) !important;}
+.icon_undo{background-image: url(../../images/icons/arrow_rotate_anticlockwise.png ) !important;}
+.icon_redo{background-image: url(../../images/icons/arrow_rotate_clockwise.png ) !important;}
+.icon_setting{background-image: url(../../images/icons/preference.png ) !important;}
+.icon_find{background-image: url(../../images/icons/find.png ) !important;}
+.icon_search{background-image: url(../../images/icons/magnifier.png ) !important;}
+.icon_close{background-image: url(../../images/icons/door_out.png ) !important;}
+.icon_accept{background-image: url(../../images/icons/accept.png ) !important;}
+.icon_no{background-image: url(../../images/icons/drop-no.gif ) !important;}
+.icon_excel{background-image: url( ../../images/icons/page_excel.png ) !important;}
+.icon_new{background-image: url( ../../images/icons/page_white.png ) !important;}
+.icon_calculate{background-image: url( ../../images/icons/calculator.png ) !important;}
+.icon_sum{background-image: url( ../../images/icons/sum.png ) !important;}
+.icon_info{background-image: url( ../../images/icons/information.png ) !important;}
+.icon_asc{background-image: url( ../../images/icons/hmenu-asc.gif ) !important;}
+.icon_desc{background-image: url( ../../images/icons/hmenu-desc.gif ) !important;}
+.icon_average{background-image: url( ../../images/icons/shape_align_middle.png ) !important;}
+.icon_min{background-image: url( ../../images/icons/shape_align_bottom.png ) !important;}
+.icon_max{background-image: url( ../../images/icons/shape_align_top.png ) !important;}
+.icon_myNote {background-image:url(../../images/icons/myNote.png) !important;}
+.icon_myPpt{background-image: url( ../../images/icons/ppt.png ) !important;}
+.icon_myXls{background-image: url( ../../images/icons/page_excel.png ) !important;}
+.icon_myDoc{background-image: url( ../../images/icons/page.png ) !important;}
+.icon_myPMgr{background-image: url( ../../images/icons/project.jpg ) !important;}
+.icon_myFlow{background-image: url( ../../images/icons/flow.png ) !important;}
+.icon_myFolder{background-image: url( ../../images/icons/folder.png ) !important;}
+.icon_photo{background-image: url( ../../images/icons/picture.png ) !important;}
+.icon_photoFolder{background-image: url( ../../images/icons/photoFolder.png ) !important;}
+.icon_attach{background-image: url( ../../images/icons/attach.png ) !important;}
+.icon_count{background-image: url( ../../images/icons/sitemap.png ) !important;}
+.icon_comment{background-image: url( ../../images/icons/comment.png ) !important;}
+.icon_comment_add{background-image: url( ../../images/icons/comment_add.png ) !important;}
+.icon_comment_edit{background-image: url( ../../images/icons/comment_edit.png ) !important;}
+.icon_comment_delete{background-image: url( ../../images/icons/comment_delete.png ) !important;}
+
+.icon_bold{background-image: url( ../../images/icons/text_bold.png ) !important;}
+.icon_italic{background-image: url( ../../images/icons/text_italic.png ) !important;}
+.icon_underline{background-image: url( ../../images/icons/text_underline.png ) !important;}
+.icon_strike{background-image: url( ../../images/icons/text_strikethrough.png ) !important;}
+.icon_align_left{background-image: url( ../../images/icons/text_align_left.png ) !important;}
+.icon_align_center{background-image: url( ../../images/icons/text_align_center.png ) !important;}
+.icon_align_right{background-image: url( ../../images/icons/text_align_right.png ) !important;}
+.icon_align_top{background-image: url( ../../images/icons/text_align_top.png ) !important;}
+.icon_align_middle{background-image: url( ../../images/icons/text_align_middle.png ) !important;}
+.icon_align_bottom{background-image: url( ../../images/icons/text_align_bottom.png ) !important;}
+.icon_bug{background-image: url( ../../images/icons/bug.png ) !important;}
+.icon_bell{background-image: url( ../../images/icons/bell.png ) !important;}
+.icon_invited{background-image: url( ../../images/icons/flag_red.png ) !important;}
+.icon_apply{background-image: url( ../../images/icons/joystick.png ) !important;}
+.icon_marked{background-image: url( ../../images/icons/asterisk_yellow.png ) !important;}
+
+.icon_group{background-image: url( ../../images/icons/edit_group.png ) !important;}
+.icon_user{background-image: url( ../../images/icons/edit_user.png ) !important;}
+.icon_drop{background-image: url( ../../images/icons/drop.png ) !important;}
+.icon_key{background-image: url( ../../images/icons/key.png ) !important;}
+.icon_details{background-image: url( ../../images/icons/icon-by-category.gif ) !important;}
+
+.icon_lock32 {background-image: url( ../../images/icons/32px/rc55p100.png ) !important;}
+.icon_unlock32 {background-image: url( ../../images/icons/32px/unlock.png ) !important;}
+.icon_history32 {background-image: url( ../../images/icons/32px/itunes.png ) !important;}
+.icon_email32 {background-image: url( ../../images/icons/32px/email32.png ) !important;}
+.icon_mypage32 {background-image: url( ../../images/icons/32px/358xu820.png ) !important;}
+.icon_message64{background-image: url( ../../images/icons/64px/messenger.png ) !important;}
+.icon_photo64{background-image: url( ../../images/icons/64px/image.png ) !important;}
+.icon_file64{background-image: url( ../../images/icons/64px/folder_yellow.png ) !important;}
+.icon_bookmark64{background-image: url( ../../images/icons/64px/keditbookmarks.png ) !important;}
+.icon_mycontacts_addcompo{background-image: url( ../../images/icons/add.gif ) !important;}
+.icon_mycontacts_delcompo{background-image: url(  ../../images/icons/delete.gif  ) !important;}
+.icon_expand_all {
+	background-image: url(../../images/icons/expand-all.gif) !important;
+}
+
+.icon_collapse_all {
+	background-image: url(../../images/icons/collapse-all.gif) !important;
+}
+
+.icon_cancel_group {
+	background-image: url(../../images/icons/application_view_list.png) !important;
+}
+
+.icon_link {
+	background-image : url(../../images/icons/link.png) !important;
+}
+.icon_eye {
+	background-image : url(../../images/icons/eye.png) !important;
+}
+
+.icon_day {
+    background-image: url( ../../images/icons/calendar_view_day.png ) !important;
+}
+
+.icon_week {
+    background-image: url( ../../images/icons/calendar_view_week.png ) !important;
+}
+
+.icon_submit {
+    background-image: url( ../../images/icons/joystick.png ) !important;
+}
+
+.icon_attach {
+	background-image: url( ../../images/icons/attach.png ) !important;
+}
+/**
+.x-action-col-cell img {
+	height: 16px;
+    width: 16px;	
+}
+*/
+
+.icon_month {
+    background-image: url( ../../images/icons/calendar_view_month.png ) !important;
+}
+
+.icon_info32 {
+	background-image : url(../../images/icons/32px/info32.png) !important;
+}

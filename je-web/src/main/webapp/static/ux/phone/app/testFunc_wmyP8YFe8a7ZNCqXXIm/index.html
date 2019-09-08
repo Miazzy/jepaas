@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html data-type="list">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var APP = APP || {};
+			APP.info = {"appId":"eoOm5MgAV9jUbuUDXMT","apkId":"wmyP8YFe8a7ZNCqXXIm","appName":"测试功能","appCode":"testFunc","tableName":"JE_CORE_TEST","pkName":"JE_CORE_TEST_ID","pageSize":"10","action":"/je/dynaAction","loadAction":"","whereSql":"","orderSql":"","renderer":"//根据列表数据，返回列表模板\nfunction(data){\n\t return '{TEST_CS}{SY_MODIFYTIME}';\n}","buttons":[{"text":"添加","code":"gridInsertBtn","type":"GRID","iditEvent":"","disable":"","cls":""},{"text":"删除","code":"gridRemoveBtn","type":"GRID","iditEvent":"","disable":"","cls":""},{"text":"保存","code":"formSaveBtn","type":"FORM","iditEvent":"","disable":"","cls":""},{"text":"表单内按钮测试","code":"forminnerBtn","type":"FORMITEM","iditEvent":"1","disable":"","cls":"","":""}],"headerBGColor":"","headerTextColor":"","headerBtnColor":"","searchs":[{"text":"磅单","code":"TEST_CS","show":"def","search":"like%","visible":"1"},{"text":"货物名称","code":"TEST_CS6","show":"tile","search":"=","visible":"1"},{"text":"皮重","code":"TEST_CS5","show":"def","search":"no","visible":"1","":""},{"text":"毛重","code":"TEST_CS4","show":"def","search":"no","visible":"1","":""}],"fields":{"TEST_CS":{"configInfo":"YESORNO","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"rgroup","name":"TEST_CS","label":"磅单号112","hideLabel":"0","textAlign":"","dicCode":"YESORNO","searchTpl":"\t\t\t<div class='mui-input-row je-input-crgroup je-select-field'>\r\n\t\t\t\t<div class='je-input-body'><\/div>\r\n\t\t\t\t<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='TEST_CS' data-xtype='rgroup' placeholder=''><\/input>\r\n\t\t\t\t<span class='je-select-clear'><\/span><span class='je-select-icon je-icon-crgroup'><\/span>\r\n\t\t\t<\/div>\r\n"},"TEST_CS7":{"configInfo":"JE_UP_TYPE,TEST_CS7,code,M","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"numberfield","name":"TEST_CS7","label":"车号","hideLabel":"0","textAlign":"","between":"number"},"SY_CREATEORGNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_NAME@","xtype":"textfield","name":"SY_CREATEORGNAME","label":"单位","hideLabel":"","textAlign":""},"TEST_CS6":{"configInfo":"JE_CORE_DEPTUSER,TEST_CS6~TEST_CS3,text~code,M","allowBlank":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"treessfield","name":"TEST_CS6","label":"树形选择","hideLabel":"0","textAlign":"right","searchTpl":"\t\t\t<div class='mui-input-row je-input-ssfield je-select-field'>\r\n\t\t\t\t<div class='je-input-body'><\/div>\r\n\t\t\t\t<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='TEST_CS6' data-xtype='treessfield' placeholder=''><\/input>\r\n\t\t\t\t<span class='je-select-clear'><\/span><span class='je-select-icon je-icon-tree'><\/span>\r\n\t\t\t<\/div>\r\n"},"TEST_CS5":{"configInfo":"JE_CORE_EXCEPTION,,,M","allowBlank":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"gridssfield","name":"TEST_CS5","label":"查询选择","hideLabel":"0","textAlign":"","searchTpl":"\t\t\t<div class='mui-input-row je-input-ssfield je-select-field'>\r\n\t\t\t\t<div class='je-input-body'><\/div>\r\n\t\t\t\t<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='TEST_CS5' data-xtype='gridssfield' placeholder=''><\/input>\r\n\t\t\t\t<span class='je-select-clear'><\/span><span class='je-select-icon je-icon-grid'><\/span>\r\n\t\t\t<\/div>\r\n"},"TEST_CS4":{"configInfo":"","allowBlank":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"datefield","name":"TEST_CS4","label":"毛重","hideLabel":"0","textAlign":"","between":"date","searchTpl":"\t\t\t<div class='mui-input-row je-input-date je-select-field'>\r\n\t\t\t\t<div class='je-input-body'><\/div>\r\n\t\t\t\t<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='TEST_CS4' data-xtype='datefield' placeholder='开始'><\/input>\r\n\t\t\t\t<span class='je-select-clear'><\/span><span class='je-select-icon je-icon-date'><\/span>\r\n\t\t\t<\/div>\r\n","betweenTpl":"\t\t\t<div class='mui-input-row je-input-date je-select-field'>\r\n\t\t\t\t<div class='je-input-body'><\/div>\r\n\t\t\t\t<input  type='text'  readonly='readonly'  class='je-submit-field ' style='' data-name='TEST_CS4_between' data-xtype='datefield' placeholder='结束'><\/input>\r\n\t\t\t\t<span class='je-select-clear'><\/span><span class='je-select-icon je-icon-date'><\/span>\r\n\t\t\t<\/div>\r\n"},"TEST_CS3":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"textfield","name":"TEST_CS3","label":"净重","hideLabel":"0","textAlign":""},"TEST_WB":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"100","hidden":"1","value":"","xtype":"textfield","name":"TEST_WB","label":"文本a","hideLabel":"1","textAlign":""},"SY_MODIFYTIME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYTIME","label":"打印日期","hideLabel":"","textAlign":""},"SY_CREATEUSERNAME":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_NAME@","xtype":"textfield","name":"SY_CREATEUSERNAME","label":"司磅员","hideLabel":"","textAlign":""},"TEST_DWB":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"image","name":"TEST_DWB","label":"图片","hideLabel":"1","textAlign":""},"TEST_CS2":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"TEST_CS2","label":"打印日期","hideLabel":"","textAlign":""},"TEST_CS8":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"TEST_CS8","label":"单位","hideLabel":"","textAlign":""},"TEST_QUERY":{"configInfo":"JE_CORE_VERIFY,TEST_QUERY~TEST_CS7,code~text,S","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"cbbfield","name":"TEST_QUERY","label":"智能查询","hideLabel":"","textAlign":""},"displayfield_1":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"200","hidden":"1","value":"","xtype":"displayfield","name":"displayfield_1","label":"图片","hideLabel":"","textAlign":""},"JE_CORE_TEST_ID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JE_CORE_TEST_ID","label":"主键ID","hideLabel":"","textAlign":""},"TEST_LH":{"configInfo":"JE_FUNC_XTYPE,TEST_LH,code,S,,7","allowBlank":"1","readOnly":"0","height":"500","hidden":"1","value":"","xtype":"rgroup","name":"TEST_LH","label":"留痕","hideLabel":"","textAlign":"","dicCode":"JE_FUNC_XTYPE"},"SY_CREATEUSER":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_CODE@","xtype":"textfield","name":"SY_CREATEUSER","label":"登记人编码","hideLabel":"","textAlign":""},"SY_PYJZ":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PYJZ","label":"拼音简写","hideLabel":"","textAlign":""},"SY_MODIFYUSER":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYUSER","label":"修改人编码","hideLabel":"","textAlign":""},"SY_FORMUPLOADFILES":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_FORMUPLOADFILES","label":"表单上传虚字段","hideLabel":"","textAlign":""},"SY_MODIFYORG":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYORG","label":"修改人部门编码","hideLabel":"","textAlign":""},"SY_STATUS":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_STATUS","label":"数据状态","hideLabel":"","textAlign":""},"SY_AUDFLAG":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_AUDFLAG","label":"审核标记","hideLabel":"","textAlign":""},"SY_CREATETIME":{"configInfo":"Y-m-d","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@NOW_TIME@","xtype":"datetimefield","name":"SY_CREATETIME","label":"登记时间","hideLabel":"","textAlign":"","between":"date"},"SY_PIID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PIID","label":"流程实例ID","hideLabel":"","textAlign":""},"SY_MODIFYORGNAME":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYORGNAME","label":"修改人部门","hideLabel":"","textAlign":""},"SY_ORDERINDEX":{"configInfo":"","allowBlank":"1","readOnly":"","height":"","hidden":"1","value":"0","xtype":"numberfield","name":"SY_ORDERINDEX","label":"排序字段","hideLabel":"","textAlign":"","between":"number"},"SY_PDID":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PDID","label":"流程定义ID","hideLabel":"","textAlign":""},"SY_FLAG":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_FLAG","label":"是否启用本条数据","hideLabel":"","textAlign":""},"SY_CREATEORG":{"configInfo":"","allowBlank":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_CODE@","xtype":"textfield","name":"SY_CREATEORG","label":"登记者所在部门编码","hideLabel":"","textAlign":""},"SY_MODIFYUSERNAME":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYUSERNAME","label":"修改人","hideLabel":"","textAlign":""},"SY_PYQC":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PYQC","label":"拼音全称","hideLabel":"","textAlign":""}},"formitems":{"5d3b8d85-3754-443f-b03b-7bd78471a527":{"configInfo":{"funcCode":"V_JE_BUG_CURRENTINFO","fields":[{"field":"TEST_CS","childfield":"V_BUG_XMMC","value":"1","whereSql":"="}],"type":null,"disable":false,"nocontrol":false,"fontcolor":"#ffffff","bgcolor":"#4a86e8"},"allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"childfunc","name":"5d3b8d85-3754-443f-b03b-7bd78471a527","label":"任务分布实时","hideLabel":"0","textAlign":"left"},"764c8be6-2e1f-4fdc-a0c5-972b087be7f1":{"configInfo":{"button":"forminnerBtn","fontcolor":"#ffffff","bgcolor":"#ff0000"},"allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"button","name":"764c8be6-2e1f-4fdc-a0c5-972b087be7f1","label":"添加子功能","hideLabel":"0","textAlign":"center"},"2e221347-1535-48d7-94c7-703918cca986":{"configInfo":{"links":[{"text":"aaaaa","link":"aaaaa","fontcolor":"#ff0000","open":"page"}]},"allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"link","name":"2e221347-1535-48d7-94c7-703918cca986","label":"超链接1","hideLabel":"0","textAlign":""},"4de34846-abdb-4bbd-af60-227233c591dc":{"configInfo":{"links":[{"text":"百度","link":"http://www.baidu.com","fontcolor":"#ffff00","open":"app"},{"text":"JE","link":"http://www.jepf3.com","fontcolor":"#0000ff","open":"page"}]},"allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"link","name":"4de34846-abdb-4bbd-af60-227233c591dc","label":"超链接","hideLabel":"0","textAlign":"left"},"a0e9541b-a45d-4666-aa99-0e8822d8a35c":{"configInfo":"","allowBlank":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"button","name":"a0e9541b-a45d-4666-aa99-0e8822d8a35c","label":"按钮","hideLabel":"","textAlign":""}},"dics":["YESORNO","JE_FUNC_XTYPE"],"apps":["JE_CORE_EXCEPTION"]}
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+		<script type="text/javascript">
+			//自定义JS
+			var forminnerBtn = function(){
+  JE.alert('表单内按钮');
+};
+		</script>
+		<style type="text/css">
+			/*自定义CSS*/
+			
+		</style>
+	</head>
+	<body>
+		<div class="mui-loader je-loader" style="display: none;">加载中...</div>
+		<header class="mui-bar mui-bar-nav je-header header-blue" style="height:auto">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">测试功能</h1>
+			<a class="mui-icon mui-pull-right mui-icon-search je-act-dosearch je-audio-btn">
+				<span class="dosearch-tip"></span>
+			</a>
+			<a class="mui-icon mui-pull-right mui-icon-more-filled je-audio-btn je-act-morebtn" style="font-weight: bold;display:none;"></a>
+		<!--<div style="margin-top:44px;display: none;" class="je-searchbox">
+				<div class="je-search-bar" >
+					<div class="mui-input-row je-search">
+						<input type="search" placeholder="输入关键字检索" class="mui-input-clear je-search-bar-input" style="background-color: transparent;margin: 0px;" >
+					</div>
+					<a class="mui-icon mui-icon-search je-search-bar-icon je-audio-btn" style="right:5px;"></a>
+				</div>
+				{cxcl}
+			</div>-->
+		</header>
+		<footer class="mui-bar-footer mui-bar je-footer">
+		    <div class="je-multiple-act">
+		    	<div class="je-multiple-selectall">
+		    		<div class="mui-input-row mui-checkbox mui-left">
+						<label >全选</label>
+						<input name="checkbox" type="checkbox">
+					</div>
+		    	</div>
+		    	<a class="mui-btn mui-btn-link je-act-cancel je-audio-btn mui-pull-right">取消多选</a>
+		    </div>
+			<!--<div class="list-display-text">
+		    	<a class="list-page-up text-disable je-audio-btn">上一页</a>
+		    	<a class="list-page je-audio-btn"></a>
+		    	<select class="list-page-go je-audio-btn">
+		    	</select>
+		    	<a class="list-page-down je-audio-btn">下一页</a>
+		    </div>-->
+		</footer>
+		<div class="mui-content mui-scroll-wrapper je-content" >
+			<!--下拉刷新容器-->
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<div class="mui-card mui-table-view je-list">
+				</div>
+				<p class="je-list-pagetext"></p>
+			</div>
+		</div>
+		<div class="je-act-button je-fixed-button addBtn je-audio-btn" data-code="gridInsertBtn">
+			<i class="mui-icon mui-icon-plusempty je-audio-btn" style="margin-top:7px;font-size:1.5em;"></i>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html data-type="form">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var APP = APP || {};
+			APP.info = {"appId":"EiRy8JUkrMevdt4JkBU","appName":"竞争对手","appCode":"JE_SELL_JZDS","tableName":"JE_SELL_JZDS","pkName":"JE_SELL_JZDS_ID","pageSize":"10","action":"/je/dynaAction","loadAction":"","whereSql":"","orderSql":"ORDER BY JZDS_JZJB_CODE ASC , SY_MODIFYTIME DESC","renderer":"//根据列表数据，返回列表模板\nfunction(data){\n\t return 'No{#}.{JZDS_DSMC}<br>地址:{JZDS_GFWZ}&nbsp;&nbsp;&nbsp;&nbsp{JZDS_SZQY_NAME}<br>'+\n     '级别:{JZDS_JZJB_NAME}<div style=\"text-align: left;color: #a5a9a9\">{SY_CREATETIME}<\/div>';\n}","searchItems":[],"buttons":[{"text":"添加","code":"gridInsertBtn","cls":"","disable":"0","type":"GRID"},{"text":"删除","code":"gridRemoveBtn","cls":"mui-btn-red","disable":"0","type":"GRID"},{"text":"保存","code":"formSaveBtn","cls":"","disable":"0","type":"FORM"},{"text":"复制","code":"formCopyBtn","cls":"","disable":"0","type":"FORM"}],"fields":{"JZDS_PTCP":{"configInfo":"","allowBalnk":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"textfield","name":"JZDS_PTCP","label":"平台产品","hideLabel":"0"},"JZDS_PZFS_CODE":{"configInfo":"JE_SELL_PZFS,JZDS_PZFS_NAME~JZDS_PZFS_CODE,text~code,S","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"BS","xtype":"rgroup","name":"JZDS_PZFS_CODE","label":"配置方式","hideLabel":"","dicCode":"JE_SELL_PZFS"},"JZDS_KYQK_CODE":{"configInfo":"JE_SELL_KYQK,JZDS_KYQK_NAME~JZDS_KYQK_CODE,text~code,S","allowBalnk":"1","readOnly":"1","height":"","hidden":"0","value":"NO","xtype":"rgroup","name":"JZDS_KYQK_CODE","label":"开源情况","hideLabel":"0","dicCode":"JE_SELL_KYQK"},"JZDS_XN_CODE":{"configInfo":"JE_SELL_XN,JZDS_XN_NAME~JZDS_XN_CODE,text~code,S","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"OTHER","xtype":"rgroup","name":"JZDS_XN_CODE","label":"产品性能","hideLabel":"","dicCode":"JE_SELL_XN"},"JZDS_GNYQ_CODE":{"configInfo":"JE_SELL_GNYQ,JZDS_GNYQ_NAME~JZDS_GNYQ_CODE,text~code,M","allowBalnk":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"cgroup","name":"JZDS_GNYQ_CODE","label":"功能引擎","hideLabel":"0","dicCode":"JE_SELL_GNYQ"},"JZDS_PTJG_CODE":{"configInfo":"JE_SELL_PTJG,JZDS_PTJG_NAME~JZDS_PTJG_CODE,text~code,S","allowBalnk":"0","readOnly":"0","height":"","hidden":"1","value":"JAVAEE","xtype":"cgroup","name":"JZDS_PTJG_CODE","label":"平台架构","hideLabel":"","dicCode":"JE_SELL_PTJG"},"JZDS_DSMC":{"configInfo":"","allowBalnk":"0","readOnly":"1","height":"","hidden":"0","value":"","xtype":"textfield","name":"JZDS_DSMC","label":"对手名称","hideLabel":"0"},"JZDS_ZCSHK_CODE":{"configInfo":"JE_SELL_ZCSHK,JZDS_ZCSHK_NAME~JZDS_ZCSHK_CODE,text~code,S","allowBalnk":"0","readOnly":"0","height":"","hidden":"1","value":"Sqlserver","xtype":"cgroup","name":"JZDS_ZCSHK_CODE","label":"支持数据库","hideLabel":"","dicCode":"JE_SELL_ZCSHK"},"JZDS_YDDJS":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_YDDJS","label":"用到的技术","hideLabel":""},"JZDS_GFWZ":{"configInfo":"","allowBalnk":"0","readOnly":"0","height":"","hidden":"0","value":"","xtype":"textfield","name":"JZDS_GFWZ","label":"官方网站","hideLabel":"0"},"JZDS_YDDDSFCJ":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_YDDDSFCJ","label":"用到的插件","hideLabel":""},"JZDS_CPYS":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"0","value":"","xtype":"textfield","name":"JZDS_CPYS","label":"产品演示","hideLabel":"0"},"JZDS_JZJB_CODE":{"configInfo":"JE_SELL_JZJB,JZDS_JZJB_NAME~JZDS_JZJB_CODE,text~code,S","allowBalnk":"1","readOnly":"0","height":"","hidden":"0","value":"YB","xtype":"rgroup","name":"JZDS_JZJB_CODE","label":"竞争级别","hideLabel":"0","dicCode":"JE_SELL_JZJB"},"JZDS_GSYS":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"110","hidden":"0","value":"","xtype":"textarea","name":"JZDS_GSYS","label":"公司优势","hideLabel":"1"},"JZDS_GSLS":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"110","hidden":"0","value":"","xtype":"textarea","name":"JZDS_GSLS","label":"公司劣势","hideLabel":"1"},"JZDS_CPYSHI":{"configInfo":"","allowBalnk":"1","readOnly":"1","height":"110","hidden":"0","value":"","xtype":"textarea","name":"JZDS_CPYSHI","label":"产品优势","hideLabel":"1"},"JZDS_WJZL":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"110","hidden":"0","value":"","xtype":"image","name":"JZDS_WJZL","label":"文件资料","hideLabel":"1"},"JZDS_CLRQ":{"configInfo":"Y年m月","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"datemonthfield","name":"JZDS_CLRQ","label":"成立日期","hideLabel":""},"JZDS_GSGM":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"numberfield","name":"JZDS_GSGM","label":"公司规模","hideLabel":""},"JZDS_SZQY_CODE":{"configInfo":"JE_COMM_SZQY,JZDS_SZQY_NAME~JZDS_SZQY_CODE,text~code,S","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"cbbfield","name":"JZDS_SZQY_CODE","label":"所在地区","hideLabel":""},"JZDS_YWMS":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"80","hidden":"1","value":"","xtype":"textarea","name":"JZDS_YWMS","label":"经营策略","hideLabel":""},"JZDS_CPLS":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"110","hidden":"1","value":"","xtype":"textarea","name":"JZDS_CPLS","label":"产品劣势","hideLabel":""},"__child":{"configInfo":"","allowBalnk":"1","readOnly":"","height":"","hidden":"1","value":"","xtype":"child","name":"__child","label":"子功能","hideLabel":""},"JE_SELL_JZDS_ID":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JE_SELL_JZDS_ID","label":"主键ID","hideLabel":""},"JZDS_JZJB_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_JZJB_NAME","label":"竞争级别_NAME","hideLabel":""},"JZDS_PTJG_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_PTJG_NAME","label":"平台架构_NAME","hideLabel":""},"JZDS_GNYQ_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_GNYQ_NAME","label":"功能引擎_NAME","hideLabel":""},"JZDS_PZFS_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_PZFS_NAME","label":"配置方式_NAME","hideLabel":""},"JZDS_ZCSHK_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_ZCSHK_NAME","label":"支持数据库_NAME","hideLabel":""},"JZDS_SZQY_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_SZQY_NAME","label":"所在地区_NAME","hideLabel":""},"SY_CREATEUSERNAME":{"configInfo":"","allowBalnk":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_NAME@","xtype":"textfield","name":"SY_CREATEUSERNAME","label":"登记人","hideLabel":""},"SY_AUDFLAG":{"configInfo":"JE_AUDFLAG,SY_AUDFLAG,code,S","allowBalnk":"1","readOnly":"1","height":"","hidden":"1","value":"NOSTATUS","xtype":"cbbfield","name":"SY_AUDFLAG","label":"审核标记","hideLabel":""},"SY_CREATETIME":{"configInfo":"Y年m月d日","allowBalnk":"1","readOnly":"1","height":"","hidden":"1","value":"@NOW_TIME@","xtype":"datetimefield","name":"SY_CREATETIME","label":"手册分析时间","hideLabel":""},"SY_ORDERINDEX":{"configInfo":"","allowBalnk":"1","readOnly":"","height":"","hidden":"1","value":"0","xtype":"numberfield","name":"SY_ORDERINDEX","label":"排序字段","hideLabel":""},"SY_CREATEORG":{"configInfo":"","allowBalnk":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_CODE@","xtype":"textfield","name":"SY_CREATEORG","label":"登记部门编码","hideLabel":""},"SY_PDID":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PDID","label":"流程定义ID","hideLabel":""},"SY_PIID":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_PIID","label":"流程实例ID","hideLabel":""},"SY_CREATEORGID":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_CREATEORGID","label":"登记部门主键","hideLabel":""},"SY_CREATEUSER":{"configInfo":"","allowBalnk":"1","readOnly":"1","height":"","hidden":"1","value":"@USER_CODE@","xtype":"textfield","name":"SY_CREATEUSER","label":"登记人编码","hideLabel":""},"SY_CREATEORGNAME":{"configInfo":"","allowBalnk":"1","readOnly":"1","height":"","hidden":"1","value":"@DEPT_NAME@","xtype":"textfield","name":"SY_CREATEORGNAME","label":"登记部门","hideLabel":""},"SY_STATUS":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_STATUS","label":"数据状态","hideLabel":""},"SY_CREATEUSERID":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_CREATEUSERID","label":"登记人主键","hideLabel":""},"JZDS_XN_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_XN_NAME","label":"产品性能_NAME","hideLabel":""},"JZDS_KYQK_NAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"JZDS_KYQK_NAME","label":"开源情况_NAME","hideLabel":""},"SY_MODIFYUSERID":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYUSERID","label":"修改人主键","hideLabel":""},"SY_MODIFYORGNAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYORGNAME","label":"修改人部门","hideLabel":""},"SY_MODIFYTIME":{"configInfo":"Y年m月d日","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"datetimefield","name":"SY_MODIFYTIME","label":"最新分析时间","hideLabel":""},"SY_MODIFYORG":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYORG","label":"修改人部门编码","hideLabel":""},"SY_MODIFYUSERNAME":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYUSERNAME","label":"修改人","hideLabel":""},"SY_MODIFYUSER":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYUSER","label":"修改人编码","hideLabel":""},"SY_MODIFYORGID":{"configInfo":"","allowBalnk":"1","readOnly":"0","height":"","hidden":"1","value":"","xtype":"textfield","name":"SY_MODIFYORGID","label":"修改人部门主键","hideLabel":""}},"dics":["JE_SELL_PZFS","JE_SELL_KYQK","JE_SELL_XN","JE_SELL_GNYQ","JE_SELL_PTJG","JE_SELL_ZCSHK","JE_SELL_JZJB"]}
+		</script>
+		<script type="text/javascript" src="../../js/include-je.js" ></script>
+		<script type="text/javascript">
+			//自定义JS
+			
+		</script>
+		<style type="text/css">
+			/*自定义CSS*/
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav header-blue">	
+			<a class="mui-icon mui-icon-back mui-action-back"></a>
+			<h1 class="mui-title">竞争对手</h1> 
+			<a class="mui-icon mui-icon-more-filled mui-pull-right je-doact je-audio-btn" style="font-weight: bold;"></a>
+		</header>
+		<div class="mui-content je-form mui-input-group">
+						<h6 class='je-input-separator empty'></h6>
+			<h6 class='je-input-separator '>产品信息</h6>
+			<div class='mui-input-row '>
+				<label style=''>平台产品</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  class='je-submit-field  mui-input-clear textalign-left' style='' data-name='JZDS_PTCP' data-xtype='textfield' placeholder='(必填)'></input>
+				
+			</div>
+			<div class='mui-input-row je-input-crgroup je-input-readonly je-select-field'>
+				<label style=''>开源情况</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  readonly='readonly'  class='je-submit-field  textalign-left' style='' data-name='JZDS_KYQK_CODE' data-xtype='rgroup' placeholder=''></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-crgroup'></span>
+			</div>
+			<div class='mui-input-row je-input-crgroup je-select-field'>
+				<label style=''>功能引擎</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field  textalign-left' style='' data-name='JZDS_GNYQ_CODE' data-xtype='cgroup' placeholder='(必填)'></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-crgroup'></span>
+			</div>
+			<h6 class='je-input-separator '>对手信息</h6>
+			<div class='mui-input-row  je-input-readonly'>
+				<label style=''>对手名称</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field  mui-input-clear textalign-left' style='' data-name='JZDS_DSMC' data-xtype='textfield' placeholder='(必填)'></input>
+				
+			</div>
+			<div class='mui-input-row '>
+				<label style=''>官方网站</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  class='je-submit-field  mui-input-clear textalign-left' style='' data-name='JZDS_GFWZ' data-xtype='textfield' placeholder='(必填)'></input>
+				
+			</div>
+			<div class='mui-input-row '>
+				<label style=''>产品演示</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  class='je-submit-field  mui-input-clear textalign-left' style='' data-name='JZDS_CPYS' data-xtype='textfield' placeholder=''></input>
+				
+			</div>
+			<div class='mui-input-row je-input-crgroup je-select-field'>
+				<label style=''>竞争级别</label>
+				<div class='je-input-body'></div>
+				<input  type='text'  readonly='readonly'  class='je-submit-field  textalign-right' style='' data-name='JZDS_JZJB_CODE' data-xtype='rgroup' placeholder=''></input>
+				<span class='je-select-clear'></span><span class='je-select-icon je-icon-crgroup'></span>
+			</div>
+			<h6 class='je-input-separator '>竞争分析</h6>
+			<div class='mui-input-row '>
+				<div class='je-input-body'></div>
+				<textarea  class='je-submit-field  mui-input-clear textalign-left' style='height:110px;' data-name='JZDS_GSYS' data-xtype='textarea' placeholder='(必填)'></textarea>
+				
+			</div>
+			<h6 class='je-input-separator '>公司劣势</h6>
+			<div class='mui-input-row '>
+				<div class='je-input-body'></div>
+				<textarea  class='je-submit-field  mui-input-clear textalign-left' style='height:110px;' data-name='JZDS_GSLS' data-xtype='textarea' placeholder='(必填)'></textarea>
+				
+			</div>
+			<h6 class='je-input-separator '>产品优势</h6>
+			<div class='mui-input-row  je-input-readonly'>
+				<div class='je-input-body'></div>
+				<textarea  readonly='readonly'  class='je-submit-field  mui-input-clear textalign-left' style='height:110px;' data-name='JZDS_CPYSHI' data-xtype='textarea' placeholder='(必填)'></textarea>
+				
+			</div>
+			<h6 class='je-input-separator '>图片资料</h6>
+			<div class='mui-input-row je-input-image'>
+				<div class='je-submit-field je-input-body  textalign-left' style='height:110px;' data-name='JZDS_WJZL' data-xtype='image'></div>
+			</div>
+			<h6 class='je-input-separator empty'></h6>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_PZFS_CODE' data-xtype='rgroup'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_XN_CODE' data-xtype='rgroup'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_PTJG_CODE' data-xtype='cgroup'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_ZCSHK_CODE' data-xtype='cgroup'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_YDDJS' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_YDDDSFCJ' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_CLRQ' data-xtype='datemonthfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_GSGM' data-xtype='numberfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_SZQY_CODE' data-xtype='cbbfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_YWMS' data-xtype='textarea'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_CPLS' data-xtype='textarea'>
+			<input type='hidden' class='je-submit-field' data-name='__child' data-xtype='child'>
+			<input type='hidden' class='je-submit-field' data-name='JE_SELL_JZDS_ID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_JZJB_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_PTJG_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_GNYQ_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_PZFS_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_ZCSHK_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_SZQY_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEUSERNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_AUDFLAG' data-xtype='cbbfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATETIME' data-xtype='datetimefield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_ORDERINDEX' data-xtype='numberfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEORG' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_PDID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_PIID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEORGID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEUSER' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEORGNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_STATUS' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_CREATEUSERID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_XN_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='JZDS_KYQK_NAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_MODIFYUSERID' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_MODIFYORGNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_MODIFYTIME' data-xtype='datetimefield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_MODIFYORG' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_MODIFYUSERNAME' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_MODIFYUSER' data-xtype='textfield'>
+			<input type='hidden' class='je-submit-field' data-name='SY_MODIFYORGID' data-xtype='textfield'>
+
+			<!--<h5 class="mui-content-padded"></h5>--> 
+		</div>
+		<div class="je-act-button je-fixed-button saveBtn je-audio-btn" data-code="formSaveBtn">
+			<i class="mui-icon fa fa-save je-audio-btn" style="margin-top: 11px;font-size: 1em;"></i>
+		</div>
+	</body>
+</html>
+

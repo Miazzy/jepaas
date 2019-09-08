@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.je.platform</groupId>
+    <artifactId>je-platform-develop</artifactId>
+    <packaging>pom</packaging>
+    <version>7.0.0</version>
+
+    <modules>
+        <module>je-base</module>
+        <module>je-web</module>
+    </modules>
+
+    <properties>
+        <main.basedir>${project.basedir}</main.basedir>
+        <project.src.main.path>${project.basedir}${file.separator}src${file.separator}main</project.src.main.path>
+        <project.src.java.path>${project.basedir}${file.separator}src${file.separator}main${file.separator}java
+        </project.src.java.path>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <elastic-job-version>2.1.6-SNAPSHOT</elastic-job-version>
+        <org.springframework.version>4.3.21.RELEASE</org.springframework.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <url>http://maven.jestq.com/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://maven.jestq.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>

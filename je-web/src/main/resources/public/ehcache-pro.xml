@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="jeplusEhcache">
+        
+    <!--Default Cache configuration. These will applied to caches programmatically created through
+        the CacheManager.
+
+        The following attributes are required for defaultCache:
+
+        maxInMemory       - Sets the maximum number of objects that will be created in memory
+        eternal           - Sets whether elements are eternal. If eternal,  timeouts are ignored and the element
+                            is never expired.
+        timeToIdleSeconds - Sets the time to idle for an element before it expires. Is only used
+                            if the element is not eternal. Idle time is now - last accessed time
+        timeToLiveSeconds - Sets the time to live for an element before it expires. Is only used
+                            if the element is not eternal. TTL is now - creation time
+        overflowToDisk    - Sets whether elements can overflow to disk when the in-memory cache
+                            has reached the maxInMemory limit.
+
+        -->
+    
+    <!--缓存配置参数说明
+      	maxElementsInMemory:设置创建到存储器中的对象的最大数目
+		eternal:对象是否永久有效，一但设置了，timeout将不起作用
+		overflowToDisk:当内存中对象数量达到maxElementsInMemory时，Ehcache将会对象写到磁盘中。
+		timeToIdleSeconds:设置对象在失效前的允许闲置时间（单位：秒）。仅当eternal=false对象不是永久有效时使用，可选属性，默认值是0，也就是可闲置时间无穷大。
+		timeToLiveSeconds:设置对象在失效前允许存活时间（单位：秒）。最大时间介于创建时间和失效时间之间。仅当eternal=false对象不是永久有效时使用，默认是0.，也就是对象存活时间无穷大
+		maxElementsOnDisk：硬盘最大缓存个数。 
+        diskPersistent：是否缓存虚拟机重启期数据 Whether the disk store persists between restarts of the Virtual Machine. The default value is false. 
+        diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔，默认是120秒。 
+        memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。默认策略是LRU（最近最少使用）。你可以设置为FIFO（先进先出）或是LFU（较少使用）。
+		clearOnFlush：内存数量最大时是否清除。
+        -->
+    <!-- Sample cache named sampleCache1
+        This cache contains a maximum in memory of 10000 elements, and will expire
+        an element if it is idle for more than 5 minutes and lives for more than
+        10 minutes.
+
+        If there are more than 10000 elements it will overflow to the
+        disk cache, which in this configuration will go to wherever java.io.tmp is
+        defined on your system. On a standard Linux system this will be /tmp"
+        -->
+    <cache name="PRO_DEFAULT_CACHE"
+    	eternal="false"   
+   		maxElementsInMemory="1000"  
+   		overflowToDisk="false"   
+   		diskPersistent="false"   
+   		timeToIdleSeconds="0"  
+   		timeToLiveSeconds="600"   
+   		memoryStoreEvictionPolicy="LRU" />  
+</ehcache>

@@ -1,0 +1,18 @@
+{
+	"success" : "true",
+	"data" : [{
+		"id" : "f6vuhUItjLU_",
+		"name" : "New SpreadSheet",
+		"description" : "{\"json\":{\"sheets\":[{\"name\":\"Sheet1\",\"tabId\":\"UFrCjYyVpUo_\",\"rows\":{}},{\"name\":\"Sheet2\",\"tabId\":\"9VEqBlaBvnU_\",\"rows\":{}},{\"name\":\"Sheet3\",\"tabId\":\"mNZMGyuz4tk_\",\"rows\":{}}],\"activeSheet\":0},\"date\":\"2013-08-25 02:14:53\"}",
+		"subject" : null,
+		"isPublic" : false,
+		"isOwner" : true,
+		"sharing" : "MYSELF_REPLACE",
+		"permission" : 2,
+		"lockedBy" : "",
+		"isLockedBySelf" : false,
+		"extraInfo" : null,
+		"exname" : "myXls",
+		"updateDate" : "2013-08-25 02:14:53"
+	}]
+}

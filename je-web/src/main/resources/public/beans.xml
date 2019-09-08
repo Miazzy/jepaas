@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/util
+       	   http://www.springframework.org/schema/util/spring-util.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+           http://www.springframework.org/schema/cache
+           http://www.springframework.org/schema/cache/spring-cache-3.2.xsd">
+
+    <!-- 注入的方式可以用annotation -->
+    <context:annotation-config/>
+    <!-- 自动检索需要注册对象的包 -->
+    <context:component-scan base-package="com">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+    <!-- 允许注解方式的AOP -->
+    <aop:aspectj-autoproxy  proxy-target-class="true" />
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:sysconfig.properties</value>
+                <value>classpath:redis.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="10000" />
+        <property name="logSlowSql" value="true" />
+    </bean>
+    <bean id="wall-filter-config" class="com.alibaba.druid.wall.WallConfig" init-method="init">
+        <!-- 指定配置装载的目录  -->
+        <property name="dir" value="META-INF/druid/wall/sqlserver" />
+
+        <property name="selectWhereAlwayTrueCheck" value="false" />
+        <property name="selectHavingAlwayTrueCheck" value="false" />
+        <property name="deleteWhereAlwayTrueCheck" value="false" />
+        <property name="updateWhereAlayTrueCheck" value="false" />
+        <property name="strictSyntaxCheck" value="false" />
+        <property name="conditionAndAlwayTrueAllow" value="true" />
+        <property name="conditionAndAlwayFalseAllow" value="true" />
+        <property name="conditionLikeTrueAllow" value="true" />
+        <property name="conditionOpXorAllow" value="true" />
+        <property name="metadataAllow" value="false"/>
+    </bean>
+    <bean id="wall-filter" class="com.alibaba.druid.wall.WallFilter">
+        <property name="config" ref="wall-filter-config" />
+        <property name="logViolation" value="true" />
+        <property name="throwException" value="false" />
+    </bean>
+
+    <!-- 注入数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="${jdbc.initialSize}"/>
+        <property name="minIdle" value="${jdbc.minIdle}"/>
+        <property name="maxActive" value="${jdbc.maxActive}"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="60000"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="200000"/>
+        <property name="testWhileIdle" value="true"/>
+        <!-- 这里建议配置为TRUE，防止取到的连接不可用 -->
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+        <!-- 这里配置提交方式，默认就是TRUE，可以不用配置 -->
+        <property name="defaultAutoCommit" value="true"/>
+        <!-- 验证连接有效与否的SQL，不同的数据配置不同 -->
+        <property name="validationQuery" value="${jdbc.validationQuery}"/>
+        <!-- 单位：秒，检测连接是否有效的超时时间。底层调用jdbc Statement对象的void setQueryTimeout -->
+        <property name="validationQueryTimeout" value="600"/>
+        <!-- 超过时间限制是否回收 -->
+        <property name="removeAbandoned" value="false"/>
+        <!-- 超时时间；单位为秒。180秒=3分钟 -->
+        <property name="removeAbandonedTimeout" value="60"/>
+        <!-- 关闭abanded连接时输出错误日志 -->
+        <property name="logAbandoned" value="true"/>
+        <property name="filters" value="stat" />
+    </bean>
+
+    <!-- 注入sessionFactory -->
+    <bean id="sf"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--  -->
+        <property name="packagesToScan">
+            <list>
+                <value>com.*.*.model</value>
+                <value>com.*.*.*.model</value>
+                <value>com.*.*.model.view</value>
+            </list>
+        </property>
+        <property name="mappingLocations">
+            <value>classpath*:conf/**/*.hbm.xml</value>
+        </property>
+
+        <!--
+        <property name="annotatedClasses">
+             <list>
+                   <value>com.pc.develop.model.CodeGenSeq</value>
+             </list>
+           </property>
+         -->
+        <property name="hibernateProperties">
+            <props>
+                <!-- 定义数据库方言
+                <prop key="hibernate.dialect">com.je.core.dialect.PCSQLServerDialect</prop>
+                <prop key="hibernate.dialect">com.pc.core.dialect.PCMySQLDialect</prop> -->
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.jdbc.fetch_size">100</prop>
+                <prop key="hibernate.jdbc.batch_size">30</prop>
+                <prop key="hibernate.default_batch_fetch_size">16</prop>
+                <!-- 输出sql -->
+                <prop key="hibernate.show_sql">${jdbc.showsql}</prop>
+                <!-- 输出格式化的sql -->
+                <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">none</prop>
+                <!-- 如果不想交spring管理事务就上这个代码
+                    <prop key="hibernate.current_session_context_class">thread</prop>
+                -->
+                <!--允许使用二级缓存-->
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <!--选择的缓存器是EhCache-->
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider
+                </prop>
+                <!--允许使用查询缓存-->
+                <prop key="hibernate.cache.use_query_cache">false</prop>
+                <prop key="hibernate.connection.pool_size">2048</prop>
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
+            </props>
+        </property>
+    </bean>
+    <!--注入hibernateTemplate模板-->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sf"></property>
+    </bean>
+    <!-- 用spring管理事务 -->
+    <bean id="txManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sf"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <aop:config>
+        <aop:pointcut id="bussinessService"
+                      expression="(execution(public * com.je.**.service.*.*(..))) || (execution(public * com.*.**.service.*.*(..)))"/>
+        <aop:advisor pointcut-ref="bussinessService"
+                     advice-ref="txAdvice"/>
+    </aop:config>
+
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--      JBPM4.4 配置 开始     -->
+    <bean id="jbpmTamplate" class="org.jbpm.pvm.internal.processengine.SpringHelper"/>
+
+    <bean id="processEngine" factory-bean="jbpmTamplate" factory-method="createProcessEngine"/>
+
+    <!-- 流程源服务接口。提供对流程定义的部署，查询，删除等操作 -->
+    <bean id="repositoryService" factory-bean="processEngine"
+          factory-method="getRepositoryService"/>
+    <!-- 流程执行服务接口。提供启动流程实例，"执行"推进，设置流程变量等操作 -->
+    <bean id="executionService" factory-bean="processEngine" factory-method="getExecutionService"/>
+    <!-- 流程管理服务接口 -->
+    <bean id="managementService" factory-bean="processEngine"
+          factory-method="getManagementService"/>
+    <!-- 提供对任务列表的访问接口 -->
+    <bean id="jbpmTaskService" factory-bean="processEngine" factory-method="getTaskService"/>
+    <!-- 历史流程管理 -->
+    <bean id="jbpmHistoryService" factory-bean="processEngine" factory-method="getHistoryService"/>
+    <!-- 组织机构管理 -->
+    <bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService"/>
+    <!--      JBPM4.4 配置 结束     -->
+
+    <!-- 异常消息的国际化 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>sys/locale/exception</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="springMessageLocator" class="com.je.core.locale.MessageLocator" lazy-init="false"></bean>
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <property name="maxTotal" value="${redis.maxTotal}"/>
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}"/>
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+    </bean>
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig" />
+        <constructor-arg index="1" type="java.lang.String" value="${redis.host}"/>
+        <constructor-arg index="2" type="int" value="${redis.port}"/>
+        <constructor-arg index="3" type="int" value="3000" />
+        <constructor-arg index="4" type="java.lang.String" value="${redis.pass}" />
+        <constructor-arg index="5" type="int" value="${redis.dbindex}" />
+    </bean>
+    <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" destroy-method="destroy">
+        <property name="hostName" value="${redis.host}"/>
+        <property name="port" value="${redis.port}"/>
+        <property name="password" value="${redis.pass}"/>
+        <property name="database" value="${redis.dbindex}" />
+        <property name="timeout" value="3000"/>
+        <property name="poolConfig" ref="jedisPoolConfig"/>
+    </bean>
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="hashKeySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+        <property name="hashValueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+    </bean>
+
+    <!-- Redis Topic监听器配置 -->
+    <bean id="cacheClusterRedisListener" class="com.je.cluster.CacheClusterRedisListener">
+        <property name="redisTemplate" ref="redisTemplate" />
+        <property name="jsonRedisSerializer" ref="jsonRedisSerializer" />
+    </bean>
+    <bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+    <bean id="jsonRedisSerializer" class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer" />
+
+    <!-- EventBus连接池 -->
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" lazy-init="true">
+        <property name="corePoolSize" value="5"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="queueCapacity" value="10000"/>
+        <property name="keepAliveSeconds" value="300"/>
+        <property name="rejectedExecutionHandler">
+            <bean class="java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy"/>
+        </property>
+    </bean>
+
+    <!-- 异步EventBus连接池 -->
+    <bean id="asyncEventBus" class="com.google.common.eventbus.AsyncEventBus">
+        <constructor-arg ref="taskExecutor"/>
+    </bean>
+
+</beans>
+
+
+
+
+
+
+
+
+
+

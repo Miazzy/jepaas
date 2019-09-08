@@ -1,0 +1,24 @@
+package ${packageName};
+
+import org.springframework.stereotype.Component;
+import com.je.wf.service.WfEventTemplate;
+import org.apache.log4j.Logger;
+import com.je.task.service.PcTimedTaskTemplate;
+import com.je.task.vo.TimedTaskParamsVo;
+
+/**
+ * ${commonts}
+ * @author ${currentUser}
+ * @version ${currentDate}
+ */
+@Component("${cmpName}")
+public class ${javaImplName} extends PcTimedTaskTemplate {
+
+#if($isOpenLog == '1')
+	private static Logger logger = Logger.getLogger(${javaImplName}.class);
+#end
+	
+	public void load(TimedTaskParamsVo vo){
+		System.out.println("hello TASK");
+	}
+}

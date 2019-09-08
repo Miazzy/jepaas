@@ -1,0 +1,67 @@
+.x-spreadsheet-chart-wizard .x-tab-panel-body {
+    background:transparent;
+}
+
+.x-spreadsheet-chart-selector {
+    padding:5px 10px 0px 10px;
+    -moz-user-select:-moz-none;
+}
+
+.x-spreadsheet-chart-category {
+    height:20px;
+    cursor:pointer;
+    zoom:1;
+    line-height:20px;
+    border:1px solid transparent;
+}
+
+.x-spreadsheet-item {
+    height:20px;
+    cursor:pointer;
+    zoom:1;
+    line-height:20px;
+    border:1px solid transparent;
+    padding-left:5px;
+}
+
+.x-spreadsheet-chart {
+    height:72px;
+    width:80px;
+    cursor:pointer;
+    zoom:1;
+    border:1px solid transparent;
+    float:left;
+}
+
+.x-spreadsheet-chart-category img {
+    width:20px;
+    height:20px;
+    margin:0px 5px;
+    float:left;
+}
+
+.x-spreadsheet-chart img {
+    width:60px;
+    height:52px;
+    margin:10px;
+    float:left;
+}
+
+.x-spreadsheet-chart-footer {
+    height:20px;
+    line-height:20px;
+    text-align:center;
+}
+
+.x-spreadsheet-item-over {
+    background: #F5FDE3;
+}
+
+.x-spreadsheet-item-selected {
+	background: #eff5fb;
+	border:1px solid #99bbe8;
+}
+
+.x-spreadsheet-item-container {
+    padding:2px;
+}

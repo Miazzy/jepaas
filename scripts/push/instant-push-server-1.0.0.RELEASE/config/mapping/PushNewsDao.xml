@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.message.server.dao.PushNewsDao" >
+  <resultMap id="BaseResultMap" type="com.message.api.entity.PushNews" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+    <result column="CONTENT_TYPE" property="contentType" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ACTUAL_ID" property="actualId" jdbcType="BIGINT" />
+    <result column="FAST_LEVEL" property="fastLevel" jdbcType="INTEGER" />
+    <result column="NEW_STATUS" property="newStatus" jdbcType="INTEGER" />
+    <result column="NEW_TYPE" property="newType" jdbcType="VARCHAR" />
+    <result column="SEND_USER_ID" property="sendUserId" jdbcType="VARCHAR" />
+    <result column="RECEIVE_TIME" property="receiveTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USER_NAME, USER_ID, CONTENT, CONTENT_TYPE, CREATE_TIME, ACTUAL_ID, FAST_LEVEL,
+    NEW_STATUS, NEW_TYPE, RECEIVE_TIME, SEND_USER_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from instant_push_news
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from instant_push_news
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.message.api.entity.PushNews" >
+    insert into instant_push_news (ID, USER_NAME, USER_ID,
+      CONTENT, CONTENT_TYPE, CREATE_TIME,
+      ACTUAL_ID, FAST_LEVEL, NEW_STATUS,
+      NEW_TYPE, RECEIVE_TIME,SEND_USER_ID)
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR},
+      #{content,jdbcType=VARCHAR}, #{contentType,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{actualId,jdbcType=BIGINT}, #{fastLevel,jdbcType=INTEGER}, #{newStatus,jdbcType=INTEGER},
+      #{newType,jdbcType=VARCHAR}, #{receiveTime,jdbcType=TIMESTAMP}, #{sendUserId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.message.api.entity.PushNews" keyProperty="id" useGeneratedKeys="true">
+    insert into instant_push_news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="contentType != null" >
+        CONTENT_TYPE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="actualId != null" >
+        ACTUAL_ID,
+      </if>
+      <if test="fastLevel != null" >
+        FAST_LEVEL,
+      </if>
+      <if test="newStatus != null" >
+        NEW_STATUS,
+      </if>
+      <if test="newType != null" >
+        NEW_TYPE,
+      </if>
+      <if test="receiveTime != null" >
+        RECEIVE_TIME,
+      </if>
+      <if test="sendUserId != null" >
+        SEND_USER_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null" >
+        #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualId != null" >
+        #{actualId,jdbcType=BIGINT},
+      </if>
+      <if test="fastLevel != null" >
+        #{fastLevel,jdbcType=INTEGER},
+      </if>
+      <if test="newStatus != null" >
+        #{newStatus,jdbcType=INTEGER},
+      </if>
+      <if test="newType != null" >
+        #{newType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTime != null" >
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendUserId != null" >
+        #{sendUserId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.message.api.entity.PushNews" >
+    update instant_push_news
+    <set >
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null" >
+        CONTENT_TYPE = #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualId != null" >
+        ACTUAL_ID = #{actualId,jdbcType=BIGINT},
+      </if>
+      <if test="fastLevel != null" >
+        FAST_LEVEL = #{fastLevel,jdbcType=INTEGER},
+      </if>
+      <if test="newStatus != null" >
+        NEW_STATUS = #{newStatus,jdbcType=INTEGER},
+      </if>
+      <if test="newType != null" >
+        NEW_TYPE = #{newType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveTime != null" >
+        RECEIVE_TIME = #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendUserId != null" >
+        SEND_USER_ID = #{sendUserId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.message.api.entity.PushNews" >
+    update instant_push_news
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      CONTENT_TYPE = #{contentType,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      ACTUAL_ID = #{actualId,jdbcType=BIGINT},
+      FAST_LEVEL = #{fastLevel,jdbcType=INTEGER},
+      NEW_STATUS = #{newStatus,jdbcType=INTEGER},
+      NEW_TYPE = #{newType,jdbcType=VARCHAR},
+      RECEIVE_TIME = #{receiveTime,jdbcType=TIMESTAMP},
+      SEND_USER_ID = #{sendUserId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="getDialogNewsPageCount" resultType="java.lang.Long" parameterType="java.util.Map" >
+    select
+      count(id)
+    from
+      instant_push_news
+    where
+      ACTUAL_ID = #{actualId}
+  </select>
+
+  <select id="getDialogNewsPage" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+      <include refid="Base_Column_List" />
+    from
+      instant_push_news
+    where
+      ACTUAL_ID = #{actualId}
+    order by CREATE_TIME asc
+    limit ${rowStart},${rowEnd}
+  </select>
+
+  <insert id="insertBatch" parameterType="list" >
+    insert into instant_push_news (USER_NAME, USER_ID,
+      CONTENT, CONTENT_TYPE, CREATE_TIME,
+      ACTUAL_ID, FAST_LEVEL, NEW_STATUS,
+      NEW_TYPE, RECEIVE_TIME,SEND_USER_ID)
+    values
+    <foreach collection ="list" item="news" separator =",">
+      (#{news.userName,jdbcType=VARCHAR}, #{news.userId,jdbcType=VARCHAR},
+      #{news.content,jdbcType=VARCHAR}, #{news.contentType,jdbcType=VARCHAR}, #{news.createTime,jdbcType=TIMESTAMP},
+      #{news.actualId,jdbcType=BIGINT}, #{news.fastLevel,jdbcType=INTEGER}, #{news.newStatus,jdbcType=INTEGER},
+      #{news.newType,jdbcType=VARCHAR}, #{news.receiveTime,jdbcType=TIMESTAMP}, #{news.sendUserId,jdbcType=VARCHAR})
+    </foreach >
+  </insert>
+
+
+  <update id="updateNewsStatus" parameterType="map">
+    update instant_push_news
+    set
+      NEW_STATUS = #{newStatus},RECEIVE_TIME = #{receiveTime}
+    where USER_ID = #{userId} and ACTUAL_ID = #{actualId}
+  </update>
+    <!-- 推送:未读信息S正在发送中,F未发送 -->
+  <select id="getNoReadNewsByUser" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+      <include refid="Base_Column_List" />
+    from instant_push_news
+    where id in(select news_id from instant_push_news_detail where USER_ID =#{value}  and (status='F' or status='S')) and new_type = '4'
+  </select>
+    <!-- 聊天:获取一共多少条未读 -->
+  <select id="getAllNoReadCount" resultType="java.lang.Integer" parameterType="java.lang.String">
+      select count(t1.id) from (select * from instant_push_news where NEW_TYPE='1' or NEW_TYPE='3') t left join instant_push_news_detail t1 on t.id=t1.news_id where t1.user_id=#{value} and t1.status='F'
+  </select>
+
+  <update id="updateNoReadNewsByUser" parameterType="java.lang.String">
+    update instant_push_news_detail
+    set
+      status = 'T'
+    where USER_ID=#{value} and news_id in(select id from instant_push_news where NEW_TYPE='4')
+  </update>
+
+
+  <update id="updateNewsStatusByUser" parameterType="map">
+    update instant_push_news_detail
+    <set>
+      <if test="newStatus != null" >
+        status = #{newStatus,jdbcType=INTEGER},
+      </if>
+      <if test="receiveTime != null" >
+        receive_time = now(),
+      </if>
+    </set>
+    <where>
+      <if test="userIds != null" >
+        and USER_ID in
+        <foreach collection="userIds" item="item" index="no" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </if>
+      <if test="actualId != null" >
+        /*and news_id in (select id from instant_push_news where ACTUAL_ID = #{actualId})*/
+        actual_id = #{actualId}
+      </if>
+    </where>
+  </update>
+
+</mapper>

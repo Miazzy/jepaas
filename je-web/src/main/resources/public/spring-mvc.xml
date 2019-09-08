@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+ http://www.springframework.org/schema/mvc
+ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <!-- 配置自动扫描的包 -->
+    <context:component-scan base-package="com.je,com.suanban,com.project" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="104857600" />  <!-- 设置允许上传的最大文件大小，以字节为单位计算。当设为-1时表示无限制，默认是-1 -->
+        <property name="maxInMemorySize" value="4096" />   <!-- 设置在文件上传时允许写到内存中的最大值，以字节为单位计算，默认是10240 -->
+    </bean>
+
+    <mvc:default-servlet-handler />
+    <mvc:resources mapping="/JE/config/**" location="/JE/config/"/>
+    <mvc:resources mapping="/JE/coreApp/**" location="/JE/coreApp/"/>
+    <mvc:resources mapping="/JE/resource/**" location="/JE/resource/"/>
+    <mvc:resources mapping="/login/**" location="/login/"/>
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:resources mapping="/favicon.ico" location="/favicon.ico"/>
+
+
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/octet-stream</value>
+                        <value>image/jpeg</value>
+                        <value>image/png</value>
+                    </list>
+                </property>
+            </bean>
+            <!-- 配置Fastjson 替换原来的jackson支持 -->
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json</value>
+                    </list>
+                </property>
+                <property name="features">
+                    <list>
+
+                        <value>QuoteFieldNames</value> <!-- 输出key时是否使用双引号,默认为true -->
+                        <value>WriteMapNullValue</value>  <!-- 是否输出值为null的字段,默认为false -->
+
+                        <!--
+                        <value>DisableCircularReferenceDetect</value>
+                        <value>WriteDateUseDateFormat</value>
+                        <value>WriteNullStringAsEmpty</value>  字符类型字段如果为null,输出为"",而非null
+                        <value>WriteNullNumberAsZero</value>  数值字段如果为null,输出为0,而非null
+                        <value>WriteNullBooleanAsFalse</value>  Boolean字段如果为null,输出为false,而非null
+                        <value>WriteNullListAsEmpty</value>    List字段如果为null,输出为[],而非null
+                        -->
+
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+        <mvc:argument-resolvers>
+            <bean class="com.je.core.base.MethodArgumentResolver"/>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+
+    <!-- 自定义拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.je.core.interceptor.FileUploadValidatorInterceptor" />
+        </mvc:interceptor>
+        <!-- DynaBean拦截器，用于封装DynaBean -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.je.core.interceptor.DynaBeanInterceptor" />
+        </mvc:interceptor>
+        <!-- 文件上传拦截器，如果需要更改拦截的路径，请修改mapping -->
+        <mvc:interceptor>
+            <mvc:mapping path="/je/**"/>
+            <bean class="com.je.core.interceptor.DynaBeanFileUploadInterceptor"/>
+        </mvc:interceptor>
+        <!-- 异常拦截器，如果需要更改拦截的路径，请修改mapping -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.je.core.interceptor.ExceptionLogInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>
+
+
+
+
+
+
+
+
+
+

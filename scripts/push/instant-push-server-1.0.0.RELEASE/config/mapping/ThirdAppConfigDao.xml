@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.message.server.dao.ThirdAppConfigDao">
+    <resultMap id="BaseResultMap" type="com.message.api.entity.ThirdAppConfig">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="app_id" property="appId" jdbcType="VARCHAR"/>
+        <result column="app_name" property="appName" jdbcType="VARCHAR"/>
+        <result column="third_type" property="thirdType" jdbcType="VARCHAR"/>
+        <result column="third_app_id" property="thirdAppId" jdbcType="VARCHAR"/>
+        <result column="third_app_key" property="thirdAppKey" jdbcType="VARCHAR"/>
+        <result column="third_app_secret" property="thirdAppSecret" jdbcType="VARCHAR"/>
+        <result column="third_app_mast_secret" property="thirdAppMastSecret" jdbcType="VARCHAR"/>
+        <result column="third_app_host" property="thirdAppHost" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, app_id, app_name, third_type, third_app_id, third_app_key, third_app_secret,
+    third_app_mast_secret, third_app_host
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from instant_thirdapp_config
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from instant_thirdapp_config
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.message.api.entity.ThirdAppConfig">
+    insert into instant_thirdapp_config (id, app_id, app_name,
+      third_type, third_app_id, third_app_key,
+      third_app_secret, third_app_mast_secret, third_app_host
+      )
+    values (#{id,jdbcType=BIGINT}, #{appId,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR},
+      #{thirdType,jdbcType=VARCHAR}, #{thirdAppId,jdbcType=VARCHAR}, #{thirdAppKey,jdbcType=VARCHAR},
+      #{thirdAppSecret,jdbcType=VARCHAR}, #{thirdAppMastSecret,jdbcType=VARCHAR}, #{thirdAppHost,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.message.api.entity.ThirdAppConfig">
+        insert into instant_thirdapp_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="appId != null">
+                app_id,
+            </if>
+            <if test="appName != null">
+                app_name,
+            </if>
+            <if test="thirdType != null">
+                third_type,
+            </if>
+            <if test="thirdAppId != null">
+                third_app_id,
+            </if>
+            <if test="thirdAppKey != null">
+                third_app_key,
+            </if>
+            <if test="thirdAppSecret != null">
+                third_app_secret,
+            </if>
+            <if test="thirdAppMastSecret != null">
+                third_app_mast_secret,
+            </if>
+            <if test="thirdAppHost != null">
+                third_app_host,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="appId != null">
+                #{appId,jdbcType=VARCHAR},
+            </if>
+            <if test="appName != null">
+                #{appName,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdType != null">
+                #{thirdType,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppId != null">
+                #{thirdAppId,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppKey != null">
+                #{thirdAppKey,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppSecret != null">
+                #{thirdAppSecret,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppMastSecret != null">
+                #{thirdAppMastSecret,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppHost != null">
+                #{thirdAppHost,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.message.api.entity.ThirdAppConfig">
+        update instant_thirdapp_config
+        <set>
+            <if test="appId != null">
+                app_id = #{appId,jdbcType=VARCHAR},
+            </if>
+            <if test="appName != null">
+                app_name = #{appName,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdType != null">
+                third_type = #{thirdType,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppId != null">
+                third_app_id = #{thirdAppId,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppKey != null">
+                third_app_key = #{thirdAppKey,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppSecret != null">
+                third_app_secret = #{thirdAppSecret,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppMastSecret != null">
+                third_app_mast_secret = #{thirdAppMastSecret,jdbcType=VARCHAR},
+            </if>
+            <if test="thirdAppHost != null">
+                third_app_host = #{thirdAppHost,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.message.api.entity.ThirdAppConfig">
+    update instant_thirdapp_config
+    set app_id = #{appId,jdbcType=VARCHAR},
+      app_name = #{appName,jdbcType=VARCHAR},
+      third_type = #{thirdType,jdbcType=VARCHAR},
+      third_app_id = #{thirdAppId,jdbcType=VARCHAR},
+      third_app_key = #{thirdAppKey,jdbcType=VARCHAR},
+      third_app_secret = #{thirdAppSecret,jdbcType=VARCHAR},
+      third_app_mast_secret = #{thirdAppMastSecret,jdbcType=VARCHAR},
+      third_app_host = #{thirdAppHost,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="getAppConfigByApkKey" resultMap="BaseResultMap" parameterType="string">
+        select
+        <include refid="Base_Column_List" />
+        from instant_thirdapp_config
+        where third_app_key = #{value}
+    </select>
+    <select id="findConfigByAppId" resultMap="BaseResultMap" parameterType="string">
+        select
+        <include refid="Base_Column_List" />
+        from instant_thirdapp_config
+        where app_id = #{value}
+    </select>
+    <select id="findConfigByAppIdWithDefault" resultMap="BaseResultMap" parameterType="map">
+        select
+            <include refid="Base_Column_List" />
+        from instant_thirdapp_config
+        <where>
+            <if test="appId != null and appId != '' ">
+                and app_id = #{appId}
+            </if>
+            <if test="appId == null or appId == '' ">
+                and default_value= '1'
+            </if>
+        </where>
+    </select>
+</mapper>

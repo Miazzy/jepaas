@@ -1,0 +1,53 @@
+/*列表头部边框*/
+.je-grid.je-grid-func .x-grid-header-ct{
+    border:1px solid #9FCDDA !important;
+}
+/*列表body边框*/
+.je-grid.je-grid-func .x-grid-body{
+    border: 1px solid #9FCDDA !important;
+    border-top-width: 0 !important;
+}
+
+/*列表列边框，列背景*/
+.je-grid .x-grid-header-ct, .je-grid-columnconfig,
+.je-grid-columneditor,
+.je-grid .x-grid-header-ct .x-column-header,
+.je-grid .je-grid-column-field .displayfield-body {
+    background-color: #D9E6F9 !important;
+    border-color: #9FCDDA;
+    border-right-width: 1px !important;
+}
+
+/*列表悬浮背景*/
+.je-grid .x-column-header-over,
+.x-column-header-sort-ASC,
+.x-column-header-sort-DESC {
+    background: none;
+    background-color: #D9E6F9;
+}
+/*列表高度*/
+.je-grid-func .x-grid-td, .je-grid-func .x-column-header-inner{
+  height:40px;
+}
+/*列表内容悬浮*/
+.je-grid-func .x-grid-row-over .x-grid-td, .je-grid-func .x-grid-row-selected .x-grid-td {
+    background-color: #C7D8FF;
+}
+.je-grid .x-grid-header-ct .x-column-header .x-column-header-text{
+  font-weight: bold;
+  font-size: 14px;
+}
+.je-grid.je-grid-func .x-grid-cell-inner{
+  font-size: 14px;
+}
+
+/*按钮颜色*/
+.JEPLUS_B_L10.x-btn{
+  background-color: #1C84C6;
+  border-color: #1C84C6;
+}
+/*表单下拉框*/
+.x-form-trigger{
+  background-color: #1C84C6;
+  color:#ffffff;
+}

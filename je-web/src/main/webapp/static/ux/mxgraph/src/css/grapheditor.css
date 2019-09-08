@@ -1,0 +1,27 @@
+.geItem {
+	display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: move;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    color: #000000;
+    text-decoration: none;
+    vertical-align: top;
+    margin:2px 14px;
+}
+.geItem:hover {
+	border:1px solid gray !important;
+}
+.menu-title{
+    background: #D6E3F2;
+    margin:-2px -2px 0;
+    color:#15428b;
+    display:block;
+    padding:3px;
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.message.server.dao.ThirdAppUserDetailDao" >
+    <resultMap id="BaseResultMap" type="com.message.api.entity.ThirdAppUserDetail" >
+        <id column="ID" property="id" jdbcType="BIGINT" />
+        <result column="GTYH_APKID" property="gtyhApkid" jdbcType="VARCHAR" />
+        <result column="GTYH_APKMC" property="gtyhApkmc" jdbcType="VARCHAR" />
+        <result column="GTYH_APKKEY" property="gtyhApkkey" jdbcType="VARCHAR" />
+        <result column="GTYH_USERID" property="gtyhUserid" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    ID, GTYH_APKID, GTYH_APKMC, GTYH_APKKEY, GTYH_USERID
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from instant_thirdapp_user_detail
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="getAppUserDetailBy" resultMap="BaseResultMap" parameterType="long">
+        select
+        <include refid="Base_Column_List" />
+        from instant_thirdapp_user_detail
+        where ID = #{value}
+    </select>
+    <select id="getAppUserDetailByMap" resultMap="BaseResultMap" parameterType="map">
+        select
+        <include refid="Base_Column_List" />
+        from instant_thirdapp_user_detail
+        where GTYH_USERID = #{userId} and GTYH_APKKEY=#{apkKey}
+    </select>
+    <select id="getCidByUserIds" resultType="map" parameterType="map">
+        SELECT
+            t1.GTYH_USERID userId,t2.GTPUSH_CID cId
+        FROM
+            instant_thirdapp_user_detail t1 LEFT JOIN instant_thirdapp_user t2 on t1.id = t2.DETAIL_ID
+        WHERE
+            GTYH_APKKEY=#{apkKey} and GTYH_USERID IN
+        <foreach collection="userIds" item="item" index="no" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from instant_thirdapp_user_detail
+    where GTYH_APKKEY = #{apkKey} and GTYH_USERID = #{userId}
+  </delete>
+    <insert id="insert" parameterType="com.message.api.entity.ThirdAppUserDetail" >
+    insert into instant_thirdapp_user_detail (ID, GTYH_APKID, GTYH_APKMC,
+      GTYH_APKKEY, GTYH_USERID)
+    values (#{id,jdbcType=BIGINT}, #{gtyhApkid,jdbcType=VARCHAR}, #{gtyhApkmc,jdbcType=VARCHAR},
+      #{gtyhApkkey,jdbcType=VARCHAR}, #{gtyhUserid,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.message.api.entity.ThirdAppUserDetail" keyProperty="id" useGeneratedKeys="true">
+        insert into instant_thirdapp_user_detail
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            <if test="gtyhApkid != null" >
+                GTYH_APKID,
+            </if>
+            <if test="gtyhApkmc != null" >
+                GTYH_APKMC,
+            </if>
+            <if test="gtyhApkkey != null" >
+                GTYH_APKKEY,
+            </if>
+            <if test="gtyhUserid != null" >
+                GTYH_USERID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="gtyhApkid != null" >
+                #{gtyhApkid,jdbcType=VARCHAR},
+            </if>
+            <if test="gtyhApkmc != null" >
+                #{gtyhApkmc,jdbcType=VARCHAR},
+            </if>
+            <if test="gtyhApkkey != null" >
+                #{gtyhApkkey,jdbcType=VARCHAR},
+            </if>
+            <if test="gtyhUserid != null" >
+                #{gtyhUserid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.message.api.entity.ThirdAppUserDetail" >
+        update instant_thirdapp_user_detail
+        <set >
+            <if test="gtyhApkid != null" >
+                GTYH_APKID = #{gtyhApkid,jdbcType=VARCHAR},
+            </if>
+            <if test="gtyhApkmc != null" >
+                GTYH_APKMC = #{gtyhApkmc,jdbcType=VARCHAR},
+            </if>
+            <if test="gtyhApkkey != null" >
+                GTYH_APKKEY = #{gtyhApkkey,jdbcType=VARCHAR},
+            </if>
+            <if test="gtyhUserid != null" >
+                GTYH_USERID = #{gtyhUserid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.message.api.entity.ThirdAppUserDetail" >
+    update instant_thirdapp_user_detail
+    set GTYH_APKID = #{gtyhApkid,jdbcType=VARCHAR},
+      GTYH_APKMC = #{gtyhApkmc,jdbcType=VARCHAR},
+      GTYH_APKKEY = #{gtyhApkkey,jdbcType=VARCHAR},
+      GTYH_USERID = #{gtyhUserid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
