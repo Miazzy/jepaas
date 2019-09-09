@@ -2008,6 +2008,8 @@
             <groupId>taobao</groupId>
             <artifactId>sdk-java-auto</artifactId>
             <version>1479188381469-20190419</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../lib-repo/sdk-java-auto-1479188381469-20190419.jar</systemPath>
         </dependency>
     </dependencies>
 
