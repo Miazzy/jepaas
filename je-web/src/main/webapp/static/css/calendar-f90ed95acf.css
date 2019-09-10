@@ -545,7 +545,7 @@ td.ext-cal-dtitle-today div {
 
 .ext-cal-spl,
 .ext-cal-spr {
-/*    background-image:url(/static/images/default/calendar-sprites-ca5087fa3f.gif);
+/*    background-image:url(/static/images/default/calendar-sprites-f6f722263c.gif);
     background-repeat:no-repeat;
     display: inline-block;
     height: 15px;
@@ -568,7 +568,7 @@ td.ext-cal-dtitle-today div {
 
 /* Generic calendar icons */
 .ext-cal-ic {
-    background-image:url(/static/images/default/calendar-sprites-ca5087fa3f.gif);
+    background-image:url(/static/images/default/calendar-sprites-f6f722263c.gif);
     background-repeat:no-repeat;
     display:inline-block;
     height:11px;
@@ -814,7 +814,7 @@ td.ext-cal-dtitle-today div {
     border-color: #99BBE8;
 }
 .ext-cal-nav-picker .x-datepicker-header {
-    background: #D3E1F1 url(/static/images/default/bg-b795052041.gif) repeat-x;
+    background: #D3E1F1 url(/static/images/default/bg-88450bfefd.gif) repeat-x;
 }
 .ext-cal-nav-picker .x-datepicker-month,
 .ext-cal-nav-picker .x-datepicker-prev,
@@ -836,7 +836,7 @@ td.ext-cal-dtitle-today div {
     font-family: arial,tahoma,verdana,helvetica;
 }
 .ext-cal-nav-picker .x-datepicker-month .x-btn-split-right {
-    background-image: url(/static/images/default/arrow-44b6dbf385.gif) !important;
+    background-image: url(/static/images/default/arrow-50f1789068.gif) !important;
     background-position: right 4px;
 }
 .ext-cal-nav-picker .x-datepicker-inner {
@@ -857,7 +857,7 @@ td.ext-cal-dtitle-today div {
     left: 0 !important;
 }
 .ext-cal-nav-picker .x-datepicker-footer {
-    background: #D3E1F1 url(/static/images/default/bg-b795052041.gif) repeat-x;
+    background: #D3E1F1 url(/static/images/default/bg-88450bfefd.gif) repeat-x;
 }
 
 /*******************************************
@@ -875,7 +875,7 @@ td.ext-cal-dtitle-today div {
     border-bottom: 1px solid #99BBE8;
 }
 .ext-evt-edit-form .x-panel-header {
-    background: transparent url(/static/images/default/ext-cal-edit-hd-bfb31c7f26.png) repeat-x;
+    background: transparent url(/static/images/default/ext-cal-edit-hd-517e248aae.png) repeat-x;
     padding: 9px 0 4px !important;
     font-size: 13px !important;
     font-family: helvetica, arial, sans-serif;
