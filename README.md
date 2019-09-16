@@ -20,6 +20,10 @@ JEPAAS 7.0.0 - [官方主页](http://jepaas.com/)
 - 默认用户名：admin
 - 默认密码：123
 
+## 绿色版体验
+
+- [前往下载](http://www.jepaas.com/download)
+
 ## 环境依赖
 
 * 使用jdk1.8
