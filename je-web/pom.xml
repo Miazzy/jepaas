@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.je.platform</groupId>
         <artifactId>je-platform-develop</artifactId>
-        <version>7.0.0</version>
+        <version>7.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,14 +17,14 @@
         <dependency>
             <groupId>com.je.platform</groupId>
             <artifactId>je-base</artifactId>
-            <version>7.0.0</version>
+            <version>7.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.je</groupId>
             <artifactId>je-core</artifactId>
-            <version>7.0.0</version>
+            <version>7.0.1</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/../lib-repo/je-core-7.0.0.jar</systemPath>
+            <systemPath>${project.basedir}/../lib-repo/je-core-7.0.1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>javax.xml</groupId>
