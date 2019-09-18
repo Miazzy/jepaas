@@ -1,4 +1,4 @@
-JEPAAS 7.0.0 - [官方主页](http://jepaas.com/)
+JEPAAS - [官方主页](http://jepaas.com/)
 =========================
 
 ## 项目简介
