@@ -1212,7 +1212,7 @@ public class PermissionManagerImpl implements PermissionManager{
 		for(DynaBean child:funcRelations){
 			JSONTreeNode subNode=TreeUtil.buildTreeNode(child.getStr("JE_CORE_FUNCRELATION_ID"), child.getStr("FUNCRELATION_NAME")+"->"+"子功能", child.getStr("FUNCRELATION_CODE"), child.getStr("FUNCRELATION_FUNCINFO_ID"), PermType.SUB_FUNC, "jeicon jeicon-set-up", funcNode.getId());
 			subNode.setNodeInfo(funcInfo.getStr("JE_CORE_FUNCINFO_ID"));
-			if("func".equals(child.getStr("SY_STATUS")) || "tree".equals(child.getStr("SY_STATUS"))){
+			if("func".equals(child.getStr("SY_STATUS")) || "tree".equals(child.getStr("SY_STATUS")) || "childfuncfield".equals(child.getStr("SY_STATUS"))){
 				DynaBean childInfo=serviceTemplate.selectOne("JE_CORE_FUNCINFO", " AND FUNCINFO_FUNCCODE='"+child.getStr("FUNCRELATION_CODE")+"'","JE_CORE_FUNCINFO_ID,FUNCINFO_FUNCNAME,FUNCINFO_NODEINFO,FUNCINFO_ICONCLS,FUNCINFO_FUNCCODE,SY_PATH");
 				if(childInfo!=null){
 					buildFuncFuncChilds(subNode, childInfo,btnSql,childSql);
@@ -1309,7 +1309,7 @@ public class PermissionManagerImpl implements PermissionManager{
 		if(childs!=null && childs.size()>0){
 			for(DynaBean child:childs){
 				JSONTreeNode subNode=TreeUtil.buildTreeNode(child.getStr("JE_CORE_FUNCRELATION_ID"), child.getStr("FUNCRELATION_NAME")+"->"+"子功能", child.getStr("FUNCRELATION_CODE"), "SUB_FUNC", PermType.SUB_FUNC, "jeicon jeicon-set-up", funcNode.getId());
-				if("func".equals(child.getStr("SY_STATUS")) || "tree".equals(child.getStr("SY_STATUS"))){
+				if("func".equals(child.getStr("SY_STATUS")) || "tree".equals(child.getStr("SY_STATUS")) || "childfuncfield".equals(child.getStr("SY_STATUS"))){
 					buildFuncChild(subNode, child);
 				}
 				funcNode.getChildren().add(subNode);
@@ -1335,7 +1335,7 @@ public class PermissionManagerImpl implements PermissionManager{
 			List<DynaBean> childs=serviceTemplate.selectList("JE_CORE_FUNCRELATION", " AND FUNCRELATION_FUNCINFO_ID='"+funcInfo.getStr("JE_CORE_FUNCINFO_ID")+"'");
 			for(DynaBean subChild:childs){
 				JSONTreeNode node=TreeUtil.buildTreeNode(subChild.getStr("JE_CORE_FUNCRELATION_ID"), subChild.getStr("FUNCRELATION_NAME")+"->"+"子功能", subChild.getStr("FUNCRELATION_CODE"), "SUB_FUNC", PermType.SUB_FUNC, "jeicon jeicon-set-up", subNode.getId());
-				if("func".equals(subChild.getStr("SY_STATUS")) || "tree".equals(subChild.getStr("SY_STATUS"))){
+				if("func".equals(subChild.getStr("SY_STATUS")) || "tree".equals(subChild.getStr("SY_STATUS")) || "childfuncfield".equals(subChild.getStr("SY_STATUS"))){
 					buildFuncChild(node, subChild);
 				}
 				subNode.getChildren().add(node);
@@ -1352,7 +1352,7 @@ public class PermissionManagerImpl implements PermissionManager{
 	private void buildFuncChilds(List<DynaBean> funcRelations,List<String> funcIds,Map<String,List<DynaBean>> childMaps,Map<String,DynaBean> funcMaps){
 		List<String> childIds=new ArrayList<String>();
 		for(DynaBean funcRelation:funcRelations){
-			if(ArrayUtils.contains(new String[]{"tree","func"}, funcRelation.getStr("SY_STATUS"))){
+			if(ArrayUtils.contains(new String[]{"tree","func","childfuncfield"}, funcRelation.getStr("SY_STATUS"))){
 				childIds.add(funcRelation.getStr("FUNCRELATION_FUNCID"));
 				funcIds.add(funcRelation.getStr("FUNCRELATION_FUNCID"));
 				//将子功能加入功能项
@@ -1480,7 +1480,7 @@ public class PermissionManagerImpl implements PermissionManager{
 							node.getChildren().add(subNode);
 						}
 					}
-					if(ArrayUtils.contains(new String[]{"tree","func"}, subFunc.getStr("SY_STATUS")) && !onlyOneChild){
+					if(ArrayUtils.contains(new String[]{"tree","func","childfuncfield"}, subFunc.getStr("SY_STATUS")) && !onlyOneChild){
 						buildFuncTree(permMap,funcMaps,childMaps,funcBtnMaps, targers, permType, subNode, haveDeny,haveButton,haveSubFunc,includes,nodeIds,onlyOneChild);
 					}
 				}

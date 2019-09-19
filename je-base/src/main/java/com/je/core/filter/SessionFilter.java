@@ -46,102 +46,97 @@ public class SessionFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         boolean doFilter = true;
-        try {
-            // 查看请求的request中是否由internalRequestKey，如有则放入白名单
-            String internalRequestKey = request.getHeader("internalRequestKey");
-            if (StringUtils.isNotEmpty(internalRequestKey) && internalRequestKey.equals(INTERNAL_REQUEST_KEY)) {
-                doFilter = false;
-            }
-
-            String uri = request.getRequestURI();
-            for (String s : noFilters) {
-                if (s.indexOf("**") != -1) {
-                    s = s.substring(0, s.indexOf("**"));
-                    if (uri.indexOf(s) != -1) {
-                        doFilter = false;
-                        break;
-                    }
-                } else if (s.equals(uri)) {
+        // 查看请求的request中是否由internalRequestKey，如有则放入白名单
+        String internalRequestKey = request.getHeader("internalRequestKey");
+        if (StringUtils.isNotEmpty(internalRequestKey) && internalRequestKey.equals(INTERNAL_REQUEST_KEY)) {
+            doFilter = false;
+        }
+        String uri = request.getRequestURI();
+        for (String s : noFilters) {
+            if (s.indexOf("**") != -1) {
+                s = s.substring(0, s.indexOf("**"));
+                if (uri.indexOf(s) != -1) {
                     doFilter = false;
                     break;
                 }
+            } else if (s.equals(uri)) {
+                doFilter = false;
+                break;
             }
+        }
 
-            EndUser user = null;
-            try {
-                Enumeration<String> enumeration = request.getHeaders(X_AUTH_TOKEN);
-                if (enumeration.hasMoreElements()) {
-                    String tokenId = enumeration.nextElement();
+        EndUser user = null;
+        try {
+            Enumeration<String> enumeration = request.getHeaders(X_AUTH_TOKEN);
+            if (enumeration.hasMoreElements()) {
+                String tokenId = enumeration.nextElement();
+                user = TokenUserCacheManager.getCacheValue(tokenId);
+
+                if (null != user) {
+                    SecurityUserHolder.put(user);
+                    SecurityUserHolder.putToken(tokenId);
+                }
+            } else {
+                logger.info("请求头没拿到 [{}] 没有token的请求头，走拿cookies逻辑", uri);
+                boolean tokenFilter = false;
+                for (String s : tokenFilters) {
+                    if (s.indexOf("**") != -1) {
+                        s = s.substring(0, s.indexOf("**"));
+                        if (StringUtil.isNotEmpty(uri) && uri.indexOf(s) != -1) {
+                            tokenFilter = true;
+                            break;
+                        }
+                    } else if (s.equals(uri)) {
+                        tokenFilter = true;
+                        break;
+                    }
+                }
+
+                boolean cookieUser = false;
+                Cookie[] cookies = request.getCookies();
+                if (tokenFilter && cookies != null) {
+                    for (Cookie cookie : cookies) {
+                        String name = cookie.getName();
+                        if (X_AUTH_TOKEN.equals(name)) {
+                            String tokenId = cookie.getValue();
+                            user = TokenUserCacheManager.getCacheValue(tokenId);
+                            if (null != user) {
+                                SecurityUserHolder.put(user);
+                                SecurityUserHolder.putToken(tokenId);
+                                cookieUser = true;
+                            }
+                        }
+                    }
+                }
+                if (!cookieUser && StringUtil.isNotEmpty(request.getParameter(X_AUTH_TOKEN))) {
+                    String tokenId = request.getParameter(X_AUTH_TOKEN);
                     user = TokenUserCacheManager.getCacheValue(tokenId);
-
                     if (null != user) {
                         SecurityUserHolder.put(user);
                         SecurityUserHolder.putToken(tokenId);
                     }
-                } else {
-                    logger.info("请求头没拿到 [{}] 没有token的请求头，走拿cookies逻辑", uri);
-                    boolean tokenFilter = false;
-                    for (String s : tokenFilters) {
-                        if (s.indexOf("**") != -1) {
-                            s = s.substring(0, s.indexOf("**"));
-                            if (StringUtil.isNotEmpty(uri) && uri.indexOf(s) != -1) {
-                                tokenFilter = true;
-                                break;
-                            }
-                        } else if (s.equals(uri)) {
-                            tokenFilter = true;
-                            break;
-                        }
-                    }
-
-                    boolean cookieUser = false;
-                    Cookie[] cookies = request.getCookies();
-                    if (tokenFilter && cookies != null) {
-                        for (Cookie cookie : cookies) {
-                            String name = cookie.getName();
-                            if (X_AUTH_TOKEN.equals(name)) {
-                                String tokenId = cookie.getValue();
-                                user = TokenUserCacheManager.getCacheValue(tokenId);
-                                if (null != user) {
-                                    SecurityUserHolder.put(user);
-                                    SecurityUserHolder.putToken(tokenId);
-                                    cookieUser = true;
-                                }
-                            }
-                        }
-                    }
-                    if (!cookieUser && StringUtil.isNotEmpty(request.getParameter(X_AUTH_TOKEN))) {
-                        String tokenId = request.getParameter(X_AUTH_TOKEN);
-                        user = TokenUserCacheManager.getCacheValue(tokenId);
-                        if (null != user) {
-                            SecurityUserHolder.put(user);
-                            SecurityUserHolder.putToken(tokenId);
-                        }
-                    }
                 }
-            } catch (Exception e) {
-                PlatformException pEx = new PlatformException("用户没有登陆或者已经超时.", PlatformExceptionEnum.JE_RBAC_FILTER_ERROR, request, e);
-                PlatformExceptionHandler.hanndleError(pEx, request, response);
-                return;
             }
+        } catch (Exception e) {
+            PlatformException pEx = new PlatformException("用户没有登陆或者已经超时.", PlatformExceptionEnum.JE_RBAC_FILTER_ERROR, request, e);
+            PlatformExceptionHandler.hanndleError(pEx, request, response);
+            return;
+        }
 
-            if (doFilter) {
-                if (null != user) {
-                    filterChain.doFilter(request, response);
-                } else {
-                    logger.info("进入SessionFilter拦截器[Session是空的请求!] [{}]   参数: [{}]", uri
-                            , JsonBuilder.getInstance().toJson(request.getParameterMap()));
-                    PlatformExceptionHandler.writeErrorMsg(response, BaseRespResult.errorResult(PlatformExceptionEnum.UNKOWN_LOGINUSER + ""
-                            , "用户未登录"));
-                }
+        try {
+            if (doFilter && null == user) {
+                logger.info("进入SessionFilter拦截器[Session是空的请求!] [{}]   参数: [{}]", uri, JsonBuilder.getInstance().toJson(request.getParameterMap()));
+                PlatformExceptionHandler.writeErrorMsg(response, BaseRespResult.errorResult(PlatformExceptionEnum.UNKOWN_LOGINUSER + "", "用户未登录"));
             } else {
                 filterChain.doFilter(request, response);
             }
-        } catch (Exception e) {
-            PlatformException pEx = new PlatformException("过滤器异常", PlatformExceptionEnum.JE_RBAC_FILTER_ERROR, request, e);
+        }catch (Exception e){
+            logger.error("执行业务异常！",e);
+            PlatformException pEx = new PlatformException("执行业务异常!", PlatformExceptionEnum.JE_PROJECT_ERROR, request, e);
             PlatformExceptionHandler.hanndleError(pEx, request, response);
-        } finally {
+        }finally {
             SecurityUserHolder.removeAll();
         }
+
     }
 }

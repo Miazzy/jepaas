@@ -1,5 +1,6 @@
 package com.je.thrid.util;
 
+import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.dm.model.v20151123.SingleSendMailRequest;
@@ -11,6 +12,8 @@ import com.aliyuncs.profile.IClientProfile;
 import com.je.core.util.StringUtil;
 import com.je.core.util.WebUtils;
 import com.je.message.vo.EmailMsgVo;
+
+import java.util.List;
 
 /**
  * 阿里云邮件服务工具类
@@ -35,8 +38,9 @@ public class AliEmailUtil {
             fromLabel = WebUtils.getBackVar("ALIYUN_EMAIL_FROMLABEL");
         }
     }
-    public static String sendEmail(EmailMsgVo msgVo){
+    public static JSONObject sendEmail(EmailMsgVo msgVo){
         init();
+        JSONObject returnObj=new JSONObject();
         String errorCode="";
         try {
             IClientProfile profile=DefaultProfile.getProfile(regionId,accessKey,accessSecret);
@@ -66,15 +70,26 @@ public class AliEmailUtil {
             //request.setClickTrace("0");
             //如果调用成功，正常返回httpResponse；如果调用失败则抛出异常，需要在异常中捕获错误异常码；错误异常码请参考对应的API文档;
             SingleSendMailResponse httpResponse = client.getAcsResponse(request);
+            if(httpResponse==null){
+                errorCode="InvalidMailAddress.NotFound";
+                returnObj.put("msg","发送未返回结果!");
+            }else{
+                returnObj.put("msg","发送成功!");
+            }
+            returnObj.put("code",errorCode);
+//            System.out.println("邮件"+msgVo.getReceiveEmail()+" 发送结果:"+httpResponse.toString());
         }catch (ServerException e) {
             //捕获错误异常码
             errorCode=e.getErrCode();
-            System.out.println("ErrCode : " + e.getErrCode());
+            returnObj.put("msg",e.getMessage());
+//            System.out.println("ErrCode : " + e.getErrCode());
             e.printStackTrace();
         } catch (ClientException e) {
             errorCode=e.getErrCode();
+            returnObj.put("msg",e.getMessage());
             e.printStackTrace();
         }
-        return errorCode;
+        returnObj.put("code",errorCode);
+        return returnObj;
     }
 }

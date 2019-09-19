@@ -206,6 +206,10 @@ public class EndUser extends BaseEntity implements User,Serializable {
 	//是否有效
 	private String valid;
 	/**
+	 * 是否初始化了密码
+	 */
+	private String initPassWord;
+	/**
 	 * 该人员领导的信息
 	 */
 
@@ -826,5 +830,13 @@ public class EndUser extends BaseEntity implements User,Serializable {
 //	@Transient
 	public String getId() {
 		return this.userId;
+	}
+
+	public String getInitPassWord() {
+		return initPassWord;
+	}
+
+	public void setInitPassWord(String initPassWord) {
+		this.initPassWord = initPassWord;
 	}
 }

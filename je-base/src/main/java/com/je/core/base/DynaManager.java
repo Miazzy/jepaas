@@ -247,7 +247,7 @@ public class DynaManager {
         }
         if(param.getFuncEdit()){
             serviceTemplate.executeSql("UPDATE JE_CORE_FUNCEDIT set FUNCEDIT_NEW='1' where FUNCEDIT_NEW='0'"
-                    +" AND FUNCEDIT_FUNCCODE='"+param.getFuncCode()+"' AND FUNCEDIT_PKVALUE='"+dynaBean.getPkValue()+"'");
+                    +" AND FUNCEDIT_FUNCCODE='"+param.getFuncCode()+"' AND FUNCEDIT_PKVALUE='"+updated.getPkValue()+"'");
         }
         //如果表单内有附件则查询出新的数据返回
         if (StringUtil.isNotEmpty(request.getParameter("uploadableFields"))) {
