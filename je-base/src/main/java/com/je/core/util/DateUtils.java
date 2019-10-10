@@ -762,7 +762,77 @@ public class DateUtils {
             e = str.length();
         return str.substring(b, e);
     }
-
+    /**
+     * 获取过去第几天的日期
+     *
+     * @param before
+     * @return
+     */
+    public static String getBeforeDate(int before) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - before);
+        Date today = calendar.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String result = format.format(today);
+        return result;
+    }
+    /**
+     * 获取未来 第 past 天的日期
+     * @param past
+     * @return
+     */
+    public static String getFetureDate(int past) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) + past);
+        Date today = calendar.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String result = format.format(today);
+        return result;
+    }
+    //根据一个日期获取前后N天的日期
+    public static Date getDateByDate(Date time,int n){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(time);
+        calendar.add(Calendar.DATE, n);
+        Date date = calendar.getTime();
+        return date;
+    }
+    //JAVA获取某段时间内的所有日期
+    public static List<Date> findDates(Date dStart, Date dEnd) {
+        Calendar cStart = Calendar.getInstance();
+        cStart.setTime(dStart);
+        List dateList = new ArrayList();
+        //别忘了，把起始日期加上
+        dateList.add(dStart);
+        // 此日期是否在指定日期之后
+        while (dEnd.after(cStart.getTime())) {
+            // 根据日历的规则，为给定的日历字段添加或减去指定的时间量
+            cStart.add(Calendar.DAY_OF_MONTH, 1);
+            dateList.add(cStart.getTime());
+        }
+        return dateList;
+    }
+    public static List getDatesBetweenTwoDate(Date beginDate, Date endDate) {
+        List lDate = new ArrayList();
+        lDate.add(beginDate);// 把开始时间加入集合
+        Calendar cal = Calendar.getInstance();
+        // 使用给定的 Date 设置此 Calendar 的时间
+        cal.setTime(beginDate);
+        boolean bContinue = true;
+        while (bContinue) {
+            // 根据日历的规则，为给定的日历字段添加或减去指定的时间量
+            cal.add(Calendar.DAY_OF_MONTH, 1);
+            // 测试此日期是否在指定日期之后
+            if (endDate.after(cal.getTime())) {
+                lDate.add(cal.getTime());
+            } else {
+                break;
+            }
+        }
+        lDate.add(endDate);// 把结束时间加入集合
+        return lDate;
+    }
     /**
      *
      * 描述: 获取当前周日期的集合
@@ -793,6 +863,31 @@ public class DateUtils {
             weeks.add(sdf.format(cal.getTime()));
         }
         return weeks;
+    }
+    /**
+     *
+     * @doc 日期转换星期几
+     * @param datetime
+     *            日期 例:2017-10-17
+     * @return String 例:星期二
+     * @author lzy
+     * @history 2017年10月17日 上午9:55:30 Create by 【lzy】
+     */
+    public static String dateToWeek(String datetime) {
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        String[] weekDays = { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
+        Calendar cal = Calendar.getInstance(); // 获得一个日历
+        Date datet = null;
+        try {
+            datet = f.parse(datetime);
+            cal.setTime(datet);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int w = cal.get(Calendar.DAY_OF_WEEK) - 1; // 指示一个星期中的某天。
+        if (w < 0)
+            w = 0;
+        return weekDays[w];
     }
     public static int getDays(Date date) {
         int month = getIntMonth(date);

@@ -379,7 +379,8 @@ Picasa.prototype = {
 			}
 			self.zoomAction(zoomPer, true);
 		}
-		this.dragPicture();
+		// 禁止拖拽，根据需求注销掉，如果需要再打开，请通知我
+		// this.dragPicture();
 		
 		this.Loading.onclick = Event.end;
 		this.Error.onclick = Event.end;		

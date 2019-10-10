@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
     <welcome-file-list>
         <welcome-file>/index.html</welcome-file>
     </welcome-file-list>
@@ -11,15 +12,14 @@
         <param-name>webAppRootKey</param-name>
         <param-value>jeplus.webapp</param-value>
     </context-param>
+
     <!-- 规定配置文件的访问地址 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <!-- <param-value>/WEB-INF/applicationContext-*.xml,classpath*:applicationContext-*.xml</param-value>  -->
         <param-value>
             classpath*:beans.xml
-        </param-value><!--xfire和spring整合 林常禹-->
+        </param-value>
     </context-param>
-
     <context-param>
         <param-name>logbackConfigLocation</param-name>
         <param-value>classpath:logback.xml</param-value>
@@ -27,7 +27,6 @@
     <listener>
         <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
     </listener>
-
     <listener>
         <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
     </listener>
@@ -35,12 +34,7 @@
     <!--启用spring的监听器-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-        <!-- default: /WEB-INF/applicationContext.xml -->
     </listener>
-    <!-- 安全缓存预读 基础数据缓存预读  -->
-    <!--<listener>-->
-    <!--<listener-class>com.je.core.security.ServletContextLoader</listener-class>-->
-    <!--</listener>-->
     <listener>
         <listener-class>net.sf.ehcache.constructs.web.ShutdownListener</listener-class>
     </listener>
@@ -48,20 +42,6 @@
     <listener>
         <listener-class>com.je.core.listener.SysContextListener</listener-class>
     </listener>
-    <!--<listener>-->
-    <!--<listener-class>-->
-    <!--org.springframework.security.ui.session.HttpSessionEventPublisher-->
-    <!--</listener-class>-->
-    <!--</listener>-->
-    <!-- Spring权限控制框架 -->
-    <!--<filter>-->
-    <!--<filter-name>springSecurityFilterChain</filter-name>-->
-    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
-    <!--</filter>-->
-    <!--<filter-mapping>-->
-    <!--<filter-name>springSecurityFilterChain</filter-name>-->
-    <!--<url-pattern>/*</url-pattern>-->
-    <!--</filter-mapping>-->
 
     <!-- 配置spring的编码过滤器 -->
     <filter>
@@ -72,11 +52,11 @@
             <param-value>utf-8</param-value>
         </init-param>
     </filter>
-
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
     <!-- 利用spring管理session的关闭-->
     <filter>
         <filter-name>openSessionInView</filter-name>
@@ -113,65 +93,6 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--     加入struts2的支持 -->
-    <!--
-    <filter>
-        <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>struts2</filter-name>
-        <url-pattern>*.action</url-pattern>
-    </filter-mapping>
-    -->
-    <!--负载均衡配置-->
-    <!--<servlet>-->
-    <!--<servlet-name>struts2</servlet-name>-->
-    <!--<display-name>struts2</display-name>-->
-    <!--<description>struts2 Servlet</description>-->
-    <!--<servlet-class>org.apache.struts2.dispatcher.ng.servlet.StrutsServlet</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>struts2</servlet-name>-->
-    <!--<url-pattern>*.action</url-pattern>-->
-    <!--</servlet-mapping>-->
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>struts2</servlet-name>-->
-    <!--<url-pattern>/j_spring_security_check</url-pattern>-->
-    <!--</servlet-mapping>-->
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>struts2</servlet-name>-->
-    <!--<url-pattern>/j_spring_security_logout</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-    <!-- 配置DispatchcerServlet -->
-    <servlet>
-        <servlet-name>springDispatcherServlet</servlet-name>
-        <servlet-class>com.je.core.base.PlatformDispatcherServlet</servlet-class>
-        <!-- 配置Spring mvc下的配置文件的位置和名称 -->
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-mvc.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>springDispatcherServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-    <!-- UEditor -->
-    <servlet>
-        <servlet-name>ueditorServlet</servlet-name>
-        <servlet-class>com.je.core.base.UEditorServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ueditorServlet</servlet-name>
-        <url-pattern>/ueditor/exec</url-pattern>
-    </servlet-mapping>
-
     <!--失效时间设为2个小时-->
     <session-config>
         <session-timeout>10000</session-timeout>
@@ -193,8 +114,36 @@
         <servlet-name>xfire</servlet-name>
         <url-pattern>/services/*</url-pattern>
     </servlet-mapping>
-    <!-- PageOffice Begin -->
 
+    <!-- 图表 -->
+    <servlet>
+        <display-name>FCExporter</display-name>
+        <servlet-name>FCExporter</servlet-name>
+        <servlet-class>com.je.report.servlet.FCExporter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FCExporter</servlet-name>
+        <url-pattern>/FCExporter</url-pattern>
+    </servlet-mapping>
+    <!-- 图表 End -->
+
+    <!-- 配置DispatchcerServlet -->
+    <servlet>
+        <servlet-name>springDispatcherServlet</servlet-name>
+        <servlet-class>com.je.core.base.PlatformDispatcherServlet</servlet-class>
+        <!-- 配置Spring mvc下的配置文件的位置和名称 -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springDispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- PageOffice Begin -->
     <servlet>
         <servlet-name>poserver</servlet-name>
         <servlet-class>com.zhuozhengsoft.pageoffice.poserver.Server</servlet-class>
@@ -231,25 +180,50 @@
         <servlet-name>poserver</servlet-name>
         <url-pattern>/pobstyle.css</url-pattern>
     </servlet-mapping>
-    <!-- PageOffice End -->
-    <!-- 图表 -->
     <servlet>
-        <display-name>FCExporter</display-name>
-        <servlet-name>FCExporter</servlet-name>
-        <servlet-class>com.je.report.servlet.FCExporter</servlet-class>
+        <servlet-name>adminseal</servlet-name>
+        <servlet-class>com.zhuozhengsoft.pageoffice.poserver.AdminSeal</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>FCExporter</servlet-name>
-        <url-pattern>/FCExporter</url-pattern>
+        <servlet-name>adminseal</servlet-name>
+        <url-pattern>/adminseal.zz</url-pattern>
     </servlet-mapping>
-    <!-- 图表 End -->
-
+    <servlet-mapping>
+        <servlet-name>adminseal</servlet-name>
+        <url-pattern>/loginseal.zz</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminseal</servlet-name>
+        <url-pattern>/sealimage.zz</url-pattern>
+    </servlet-mapping>
+    <mime-mapping>
+        <extension>mht</extension>
+        <mime-type>message/rfc822</mime-type>
+    </mime-mapping>
+    <context-param>
+        <param-name>adminseal-password</param-name>
+        <param-value>111111</param-value>
+    </context-param>
+    <!--mysql配置用-->
+    <!--<context-param>-->
+    <!--<param-name>adminseal-charset</param-name>-->
+    <!--<param-value>UTF-8</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+    <!--<param-name>posealdb-driver</param-name>-->
+    <!--<param-value>com.mysql.jdbc.Driver</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+    <!--<param-name>posealdb-url</param-name>-->
+    <!--<param-value>jdbc:mysql://rm-2zei58w9w8i4cwjvydo.mysql.rds.aliyuncs.com:3306/garlic??useUnicode=true&amp;characterEncoding=UTF-8</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+    <!--<param-name>posealdb-username</param-name>-->
+    <!--<param-value>garlic</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+    <!--<param-name>posealdb-password</param-name>-->
+    <!--<param-value>garlic1@#</param-value>-->
+    <!--</context-param>-->
+    <!-- PageOffice End -->
 </web-app>
-
-
-
-
-
-
-
-

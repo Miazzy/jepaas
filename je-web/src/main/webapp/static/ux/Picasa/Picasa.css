@@ -68,8 +68,8 @@ filter: alpha(opacity=40);}
 				#PV_AutoPlay a.seled {color: #fff; background-position: -40px -40px;font-weight:800;}
 				#PV_Download{
 					text-decoration: none;
-					float: right;
-					margin-right: 100px;
+					/* float: right;
+					margin-right: 100px; */
 					font-size: 14px;
 					color: #000;
 					cursor: pointer;
@@ -79,6 +79,8 @@ filter: alpha(opacity=40);}
 					border-radius: 4px;
 					opacity: 0.4;
 					filter: alpha(opacity=40);
+					position: absolute;
+					right:100px;
 				}
 				/* #PV_Download {text-decoration: none;float:right;margin-right:100px;font-size:18px;color:#fff;cursor: pointer;background: #000;padding: 4px;margin-top: -10px;border-radius: 4px;opacity: 0.4;filter:alpha(opacity=40);} */
 				/* #PV_Download::before{} */

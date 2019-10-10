@@ -41,8 +41,6 @@
     <url>/je/phone/app/loadApk</url>
     <url>/je/phone/login**</url>
     <url>/je/appRegister/registerAccount</url>
-    <url>/poserver.zz</url>
-    <url>/poserver.do</url>
     <url>/je/app/TransferController**</url>
     <url>/je/app/AppUser/searchUsertrade</url>
     <url>/je/appLogin/sendRandom</url>
@@ -56,7 +54,6 @@
     <url>/je/saas/saasYh/register</url>
     <url>/je/saas/saasYh/doUserRz</url>
     <url>/je/phone/app/loadApk</url>
-    <url>/ueditor/exec</url>
     <url>/je/shoppingmall/bill/payTheOrderByAliCallback</url>
     <url>/je/shoppingmall/bill/payTheOrderByWeChatCallback</url>
     <url>/je/shoppingmall/bill/rechargeCallbackByAli</url>
@@ -80,6 +77,21 @@
     <tokenUrl>/je/doc/file**</tokenUrl>
     <tokenUrl>/je/doc/documentation**</tokenUrl>
     <tokenUrl>/je/product/paas/clientCopyright/getLicense**</tokenUrl>
+    <tokenUrl>/ueditor/exec</tokenUrl>
+    <!-- pageOffice BEGIN -->
+    <url>/poserver.zz</url>
+    <url>/poserver.do</url>
+    <url>/posetup.exe</url>
+    <url>/pageOffice.js</url>
+    <url>/pageoffice.js</url>
+    <url>/adminseal.zz</url>
+    <url>/loginseal.zz</url>
+    <url>/poserver.zz</url>
+    <url>/poseal.db</url>
+    <url>/je/product/crm/pageOffice/**</url>
+    <url>/pageOfficeFile/doc**</url>
+    <!-- pageOffice END -->
     <!-- 测试 -->
     <url>/je/mycache**</url>
+    <url>/je/im/getUserById</url>
 </urls>
