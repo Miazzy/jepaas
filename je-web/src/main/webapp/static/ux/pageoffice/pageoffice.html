@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="./css/pageoffice.css" rel="stylesheet" type="text/css" />
+    <script src="./jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        // 获取参数
+        var paramValue = JSON.parse(window.external.UserParams);
+
+        // 获取套红模板
+        function getTpl() {
+            $.ajax({
+                type: 'POST',
+                url: '/je/product/crm/pageOffice/queryTemplate' +
+                    '?userId=' + paramValue.userId +
+                    '&type=' + paramValue.editType,
+                dataType: 'json',
+                async: false,
+                success: function (result, status, xhr) {
+                    if (result.success) {
+                        if (result.obj && result.obj.info && Array.isArray(result.obj.info)) {
+                            if ($('.newOption')) {
+                                $('.newOption').remove();
+                            }
+                            for (var i = 0; i < result.obj.info.length; i++) {
+
+                                var option = $('<option class="newOption"></option>');
+                                option.val(result.obj.info[i].path);
+                                option.text(result.obj.info[i].name);
+                                $('#thSelect').append(option);
+                            }
+                        }
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert(JSON.stringify(error));
+                }
+            })
+
+        }
+        //初始加载模板列表
+        function load() {
+            $("#thConfirm").append('<iframe frameborder=0 scrolling=no style="background-color:transparent; position: absolute; z-index: -1; width: 100%; height: 100%; top: 0;left:0;"></iframe>');
+            $("#thConfirm").hide();
+            $.ajax({
+                type: 'POST',
+                url: '/je/product/crm/pageOffice/loadWord' +
+                    '?userId=' + paramValue.userId +
+                    '&path=' + paramValue.path +
+                    '&history=' + paramValue.history +
+                    '&jeFileType=' + paramValue.jeFileType +
+                    '&jeFileSaveType=' + paramValue.jeFileSaveType +
+                    '&taohong=' + paramValue.taohong +
+                    '&qianzhang=' + paramValue.qianzhang +
+                    '&readOnly=' + paramValue.readOnly,
+                async: true,
+                success: function (result, status, xhr) {
+                    $('#PageOfficeCtrl1').append(result)
+                },
+                error: function (xhr, status, error) {
+                    alert(JSON.stringify(error));
+                }
+            })
+
+        }
+        // 保存
+        function Save() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+            // window.external.close(); // 关闭
+        }
+
+        //显示痕迹
+        function showRevision() {
+            document.getElementById("PageOfficeCtrl1").ShowRevisions = true;
+        }
+
+        //隐藏痕迹
+        function hideRevision() {
+            document.getElementById("PageOfficeCtrl1").ShowRevisions = false;
+        }
+
+        // 打开套红弹窗
+        function taoHong() {
+            $("#thConfirm").show();
+            getTpl(); // 请求获取集合 
+        }
+
+        //套红
+        function startTaohong() {
+            if (!$('#thSelect').val()) {
+                alert('请选择套红模板!');
+                return false;
+            }
+            $("#thConfirm").hide();
+            $.ajax({
+                type: 'POST',
+                url: '/je/product/crm/pageOffice/loadWord' +
+                    '?mbPath=' + $('#thSelect').val() +
+                    '&userId=' + paramValue.userId +
+                    '&path=' + paramValue.path +
+                    '&history=' + paramValue.history +
+                    '&jeFileType=' + paramValue.jeFileType +
+                    '&jeFileSaveType=' + paramValue.jeFileSaveType +
+                    '&taohong=' + paramValue.taohong +
+                    '&qianzhang=' + paramValue.qianzhang +
+                    '&readOnly=' + paramValue.readOnly,
+                async: true,
+                success: function (result, status, xhr) {
+                    // 先清除刚才打开的原文件
+                    $('#PageOfficeCtrl1').remove();
+                    // 创建新的  object元素
+                    var po = $('<object id="PageOfficeCtrl1" height="800px" width="1150px" align="middle" classid="clsid:F2852C85-C2FC-4c86-8D6B-E4E97C92F821"></object>');
+                    // 把新创建的object  放到页面后面 
+                    $('#thConfirm').after(po);
+                    // 把套红后的文件 渲染到页面上 
+                    $('#PageOfficeCtrl1').append(result);
+                },
+                error: function (xhr, status, error) {
+                    alert(JSON.stringify(error))
+                }
+            })
+        }
+
+        function cancelTaohong() {
+            $("#thConfirm").hide();
+        }
+        // 签字
+        function InsertHandSign() {
+            try {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.AddHandSign(paramValue.userName);
+            } catch (e) {
+                alert(e)
+            }
+        }
+
+        // 盖章
+        function InsertSeal() {
+            try {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.AddSeal("", "");
+            } catch (e) {
+                alert(e)
+            }
+        }
+
+        //删除印章
+        function DeleteSeal() {
+            var iCount = document.getElementById("PageOfficeCtrl1").ZoomSeal.Count;//获取当前文档中加盖的印章数量
+            if (iCount > 0) {
+                document.getElementById("PageOfficeCtrl1").ZoomSeal.Item(iCount - 1).DeleteSeal();//删除最后一个印章，Item 参数下标从 0 开始
+                alert("成功删除了最新加盖的印章。");
+            } else {
+                alert("请先在文档中加盖印章后，再执行删除操作。");
+            }
+        }
+
+        //验证印章
+        function VerifySeal() {
+            document.getElementById("PageOfficeCtrl1").ZoomSeal.VerifySeal();
+        }
+
+        //修改密码
+        function ChangePsw() {
+            document.getElementById("PageOfficeCtrl1").ZoomSeal.ShowSettingsBox();
+        }
+
+        // 关闭弹窗提示   只支持word
+        function BeforeBrowserClosed() {
+            if (document.getElementById("PageOfficeCtrl1").IsDirty) {
+                if (confirm("提示：文档已被修改，是否继续关闭放弃保存 ？")) {
+                    return true;
+
+                } else {
+
+                    return false;
+                }
+
+            }
+        }
+
+        // PDF 设置书签按钮操作
+        function SetBookmarks() {
+	        document.getElementById("PageOfficeCtrl1").BookmarksVisible = !document.getElementById("PageOfficeCtrl1").BookmarksVisible;
+	    }
+	    // PDF 设置书签按钮操作
+	    function PrintFile() {
+	        document.getElementById("PageOfficeCtrl1").ShowDialog(4);
+        }
+        // PDF 设置书签按钮操作
+	    function SwitchFullScreen() {
+	        document.getElementById("PageOfficeCtrl1").FullScreen = !document.getElementById("PageOfficeCtrl1").FullScreen;
+        }
+        // PDF 设置书签按钮操作
+	    function SetPageReal() {
+	        document.getElementById("PageOfficeCtrl1").SetPageFit(1);
+        }
+        // PDF 设置书签按钮操作
+	    function SetPageFit() {
+	        document.getElementById("PageOfficeCtrl1").SetPageFit(2);
+        }
+        // PDF 设置书签按钮操作
+	    function SetPageWidth() {
+	        document.getElementById("PageOfficeCtrl1").SetPageFit(3);
+        }
+        // PDF 设置书签按钮操作
+	    function ZoomIn() {
+	        document.getElementById("PageOfficeCtrl1").ZoomIn();
+        }
+        // PDF 设置书签按钮操作
+	    function ZoomOut() {
+	        document.getElementById("PageOfficeCtrl1").ZoomOut();
+        }
+        // PDF 设置书签按钮操作
+	    function FirstPage() {
+	        document.getElementById("PageOfficeCtrl1").GoToFirstPage();
+        }
+        // PDF 设置书签按钮操作
+	    function PreviousPage() {
+	        document.getElementById("PageOfficeCtrl1").GoToPreviousPage();
+        }
+        // PDF 设置书签按钮操作
+	    function NextPage() {
+	        document.getElementById("PageOfficeCtrl1").GoToNextPage();
+        }
+        // PDF 设置书签按钮操作
+	    function LastPage() {
+	        document.getElementById("PageOfficeCtrl1").GoToLastPage();
+        }
+        // PDF 设置书签按钮操作
+	    function SetRotateRight() {
+	        document.getElementById("PageOfficeCtrl1").RotateRight();
+        }
+        // PDF 设置书签按钮操作
+	    function SetRotateLeft() {
+	        document.getElementById("PageOfficeCtrl1").RotateLeft();
+	    }
+
+        // 拖动
+        /* var move = false;
+        var _x, _y;
+        $(".thTitle").mousedown(function (e) {
+            move = true;
+            _x = e.clientX - parseInt($(".thConfirm").css("left"));
+            _y = e.clientY - parseInt($(".thConfirm").css("top"));
+            $(".thTitle").css({
+                'cursor': 'move'
+            })
+        });
+        $(document).mousemove(function (e) {
+            if (move) {
+                var x = e.clientX - _x;//控件左上角到屏幕左上角的相对位置
+                var y = e.clientY - _y;
+                $(".thConfirm").css({ "top": y, "left": x });
+            }
+        });
+        $(".thTitle").mouseup(function () {
+            move = false;
+            $(".thTitle").css({
+                'cursor': 'default'
+            })
+        }); */
+        
+    </script>
+</head>
+
+<body onload="load()" style="margin: 0 auto">
+    <div id="thConfirm">
+        <div class="container">
+            <h5 class="thTitle">请选择套红模板</h5>
+            <select class="thSelect" name="thSelect" id="thSelect">
+                <option value="">请选择</option>
+            </select>
+            <div class="buttons">
+                <button onclick="startTaohong()" class="sureBtn">确定</button>
+                <button onclick="cancelTaohong()" class="cancelBtn">取消</button>
+            </div>
+        </div>
+
+    </div>
+    <object id="PageOfficeCtrl1" height="800px" width="1150px"
+        classid="clsid:F2852C85-C2FC-4c86-8D6B-E4E97C92F821"></object>
+</body>
+
+</html>
