@@ -1028,7 +1028,7 @@
         <dependency>
             <groupId>net.sf.mpxj</groupId>
             <artifactId>mpxj</artifactId>
-            <version>7.4.2</version>
+            <version>10.14.1</version>
             <exclusions>
                 <exclusion>
                     <artifactId>poi</artifactId>
